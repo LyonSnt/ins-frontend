@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -21,7 +21,17 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": { //aumentamos todo este paths para que el acceso a las subcarpetas sea facil
+     // "@core/*": ["app/core/*"],
+      "@layout/*": ["app/layout/*"],
+      "@modelos/*": ["app/modelos/*"],
+      "@enc/*": ["environment/*"],
+      "@modulos/*": ["app/modulos/*"],
+      "@servicios/*": ["app/servicios/*"],
+      "@shared/*": ["app/shared/*"],
+
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
