@@ -30,8 +30,14 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/scss"
+              ]
+            },
             "styles": [
-              "src/styles.scss"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/scss/styles.scss"
             ],
             "scripts": []
           },

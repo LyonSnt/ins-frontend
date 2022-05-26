@@ -1,0 +1,15 @@
+<div class="lyon-header__brand">
+  <fa-icon [icon]="faBars" class="lyon-header__brand-menu" (click)="showMenu.emit()"></fa-icon>
+  <div class="lyon-header__brand-logo">
+    <img [src]="logo" alt="lyon12-logo">
+    <span>Instituto</span>
+  </div>
+</div>
+<div class="lyon-header__submenu">
+  <fa-icon [icon]="faBell" class="lyon-header__submenu-icon"></fa-icon>
+  <fa-icon [icon]="faComment" class="lyon-header__submenu-icon"></fa-icon>
+  <div class="lyon-header__submenu-usr" [ngStyle]="{'background-image': 'url(' + avatar + ')'}"></div>
+
+ <!--  <div class="lyon-header__submenu-usr" [ngStyle]="{'background-image': 'url(' + this.AuthService.getUsuario.avatar + ')'}" *ngIf="this.AuthService.getUsuario"></div>
+ -->
+</div>

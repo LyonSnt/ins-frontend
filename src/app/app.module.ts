@@ -6,16 +6,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EstructuraComponent } from './layout/estructura/estructura.component';
-import { FooterComponent } from './layout/footer/footer.component';
 import { PublicoModule } from './publico/publico.module';
-
+import { LayoutModule } from '@layout/layout.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModulosModule } from '@modulos/modulos.module';
 @NgModule({
   declarations: [
     AppComponent,
-    //Componentes
-    EstructuraComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +24,14 @@ import { PublicoModule } from './publico/publico.module';
     //Esto hace que los componentes se vayan a publico module
     PublicoModule,
     RouterModule,
-    InicioModule
+    InicioModule,
+    LayoutModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+     // positionClass: 'toast-top-center',
+    }),
+    ModulosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

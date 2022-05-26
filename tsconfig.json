@@ -2,12 +2,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./src", //aumentamos el src el 14 de mayo 2022
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false, //AGREGADO EL 16-05 PARA QUE NO NO PIDA EL INICIALIZADOR EN EL CONSTRUCTOR
     "strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false, //cambiado a false el 16-05-2022
+    "noImplicitAny": false,     //agreagado el 17-05-2022 para que no pida el any al declarar la variable
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,

@@ -1,1 +1,9 @@
-<p>estructura works!</p>
+<section class="lyon-{{$theme}} {{showLeftNav ? 'lyon-main-container': 'lyon-main-container-full'}}">
+  <app-header class="lyon-header" (showMenu)="showMenu()"></app-header>
+  <app-left-nav class="lyon-left-nav" *ngIf="showLeftNav" (showMenu)="showMenu()"></app-left-nav>
+  <main class="lyon-main-content">
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer class="lyon-footer"></app-footer>
+</section>
+

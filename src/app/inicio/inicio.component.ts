@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CAROUSEL_DATA_ITEMS } from './carousel/carousel.const';
 import { ICarouselItem } from './carousel/Icarousel-item.metadata';
@@ -10,12 +11,18 @@ import { ICarouselItem } from './carousel/Icarousel-item.metadata';
 export class InicioComponent implements OnInit {
   public carouselData: ICarouselItem[];
 
-  constructor() {
+  constructor(
+    private ruteador : Router
+  ) {
    this.carouselData = CAROUSEL_DATA_ITEMS;
   }
 
   ngOnInit(): void {
 
+  }
+
+  redirigirPanelPrincipal(){
+    this.ruteador.navigate(['login']);
   }
 
 

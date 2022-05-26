@@ -1,10 +1,12 @@
 <div class="container-fluid px-0">
   <div class="row bg-dark h-100">
-    <div class=" lyon-redireccionar col-12 px-0">
+    <div class="col-12 px-0">
       <app-carousel [items]="carouselData"></app-carousel>
-      <button class="btn btn-primary" routerLink="/">Administrador</button>
-      <button class="btn btn-success" routerLink="/panel/user">Profesor</button>
-      <button class="btn btn-info" routerLink="/panel/user">Estudiante</button>
+      <div class="lyon-redirigir">
+        <button class="btn btn-primary" (click)="redirigirPanelPrincipal()">Administrador</button>
+      <button class="btn btn-success m-3" (click)="redirigirPanelPrincipal()">Profesor</button>
+      <button class="btn btn-info" (click)="redirigirPanelPrincipal()">Estudiante</button>
+      </div>
     </div>
   </div>
 </div>

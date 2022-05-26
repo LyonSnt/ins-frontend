@@ -1,0 +1,13 @@
+<div class="lyon-left-nav-menu">
+  <h5 class="lyon-left-nav-menu__title">{{dato.titulo}}</h5>
+  <ul class="lyon-left-nav-menu__links">
+    <ng-container *ngFor="let link of dato.links">
+      <li class="lyon-left-nav-menu__links-link" [routerLink]="link.link ? link.link : null"
+      (click)="link.metodo ? link.metodo() : null">
+        <fa-icon [icon]="link.icon"></fa-icon>
+        <span>{{link.nombre}}</span>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+

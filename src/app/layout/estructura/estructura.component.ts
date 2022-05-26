@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-estructura',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstructuraComponent implements OnInit {
 
-  constructor() { }
+  public showLeftNav = true;
+  public $theme: 'dark' | 'red' | 'blue-dark' | 'yellow' = 'dark';
+  constructor(
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
+    //this.toastr.success('Bienvenido', 'Info!');
+  }
+  showMenu(){
+    this.showLeftNav = !this.showLeftNav;
+
   }
 
 }
