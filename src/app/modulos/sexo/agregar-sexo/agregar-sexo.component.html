@@ -1,0 +1,31 @@
+<div class="container pt-4">
+  <div class="row">
+
+    <div class="col-lg-6 offset-lg-3">
+
+      <div class="card text-center">
+        <div class="card-body mb-3">
+          <h3>Agregar Sexo</h3>
+          <form class="mt-4" [formGroup]="form" (ngSubmit)="crear()">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="text" formControlName="sex_descripcion" class="form-control" placeholder="Sexo">
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-database"></i>&nbsp; Agregar</button>
+                <button type="button" class="btn btn-danger" routerLink="/panel/sexo/listar">
+                  <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

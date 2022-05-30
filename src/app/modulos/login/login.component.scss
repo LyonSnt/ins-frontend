@@ -1,0 +1,31 @@
+.lyon-card1 {
+  margin-top: 7rem;
+  font-size: 12px;
+  text-align: center;
+}
+
+.lyon-card2 {
+  margin-top: 0.5rem;
+ /*  padding: 1rem; */
+  text-align: center;
+  &:label {
+    text-align: left;
+  }
+}
+
+button{
+  background-color: #5b97e5;
+  border: #5b97e5;
+}
+
+/* .lyon-card-header {
+  background-color: #212529;
+}
+
+ .lyon-form {
+   opacity: 10px;
+   background-color: rgb(220, 226, 226);
+ }
+ */
+
+

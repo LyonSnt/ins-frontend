@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faBars, faBell, faComment } from '@fortawesome/free-solid-svg-icons';
-import { LoginService } from '@servicios/login/login.service';
+import { LoginService } from '@servicios/login.service';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +23,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
+
 
 }

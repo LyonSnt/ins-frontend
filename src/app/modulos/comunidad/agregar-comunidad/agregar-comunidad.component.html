@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="lyon-card2 card text-center">
+       <!--  <div class="lyon-card-header card-header">
+         CREAR COMUNIDAD
+         <div *ngIf="recarga" class="spinner-border float-end" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        </div> -->
+        <div class="card-body mb-3">
+          <h5>AGREGAR COMUNIDAD</h5>
+          <form class="mt-4" [formGroup]="form" (ngSubmit)="crearComunidad()">
+
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean"
+                [class.icono-verde]="this.form.get('com_descripcion')?.valid"
+                [class.icono-rojo]="this.form.get('com_descripcion')?.invalid && this.form.get('com_descripcion')?.touched"></i>
+              </span>
+              <input type="text" formControlName="com_descripcion"class="form-control" placeholder="Comunidad">
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" [disabled]="form.invalid" class="btn btn-success">
+                <i class="fas fa-database"></i>&nbsp; Agregar</button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+
+      <div class="lyon-card2 card text-center">
+        <div class="lyon-card-header card-header">
+         <h5>LISTA DE COMUNIDAD</h5>
+         </div>
+        <div class="card-body">
+
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pr of listar">
+              <td>{{pr.id}}</td>
+              <td>{{pr.com_descripcion}}</td>
+                <td><i class="far fa-trash-alt text-danger" (click)="eliminarComunidad(pr.id)"></i>
+                  <i class="far fa-edit text-info" routerLink="'/comunidad', 'edit', pr.id"></i>
+                </td>
+
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

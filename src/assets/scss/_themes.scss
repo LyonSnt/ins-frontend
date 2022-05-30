@@ -2,10 +2,12 @@
 @import "./themes/red-theme";
 @import "./themes/blue-dark-theme";
 @import "./themes/yellow-theme.scss";
+@import "./themes/nose-theme.scss";
 
 $themes: (
     'dark': $dark_theme,
     'red': $red_theme,
     'blue-dark': $blue_dark_theme,
-    'yellow': $yellow_theme
+    'yellow': $yellow_theme,
+    'nose': $nose_theme
 );

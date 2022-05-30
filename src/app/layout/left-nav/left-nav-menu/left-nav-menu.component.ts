@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ILeftNavMenu } from '@modelos/left-nav-menu/ileft-nav-menu.metadata';
+import { ILeftNavMenu } from '@modelos/ileft-nav-menu.metadata';
 
 @Component({
   selector: 'app-left-nav-menu',

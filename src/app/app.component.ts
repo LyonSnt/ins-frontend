@@ -1,9 +1,9 @@
-import { IPrueba } from './modelos/prueba/iprueba';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PruebaService } from './servicios/prueba/prueba.service';
+import { PruebaService } from './servicios/prueba.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,14 +13,13 @@ export class AppComponent implements OnInit {
   title = 'frontend';
   public listar: any;
   public prueba: any;
-  public form!: FormGroup;
+  public form: FormGroup;
 
   constructor(
     private _servicioPrueba: PruebaService,
     private fb: FormBuilder,
     private http: HttpClient,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {
 
     this.form = this.fb.group({
@@ -31,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  /*   const routParams = this.route.snapshot.paramMap;
+    /* const routParams = this.route.snapshot.paramMap;
     this.listar = Number(routParams.get('id'));
     console.log(this.listar); */
 

@@ -1,4 +1,4 @@
-import { ILeftNavMenu } from "@modelos/left-nav-menu/ileft-nav-menu.metadata";
+import { ILeftNavMenu } from "@modelos/ileft-nav-menu.metadata";
 import { faUser, faCog, faClipboard, faComment, faHeart, faBookmark, faChartLine, faCogs } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
@@ -8,44 +8,47 @@ export const LEFT_NAV_MENUS: ILeftNavMenu[] = [
     links: [
       {
         icon: faUser,
-        nombre: 'Dashboard'
+        nombre: 'Dashboard',
+        link: '/panel'
       },
       {
         icon: faCog,
-        nombre: 'Categorias'
+        nombre: 'Comunidad',
+        link: '/panel/comunidad/agregar'
       },
       {
         icon: faClipboard,
-        nombre: 'Administración'
+        nombre: 'Sexo',
+        link: '/panel/sexo/listar'
       },
       {
         icon: faComment,
-        nombre: 'Comenatrios'
+        nombre: 'Opcion'
       }
     ]
   },
   {
-    titulo: 'Servicios',
+    titulo: 'Opcion',
     links: [
       {
         icon: faYoutube,
-        nombre: 'Videos'
+        nombre: 'Opcion'
       },
       {
         icon: faHeart,
-        nombre: 'Favoritos'
+        nombre: 'Opcion'
       },
       {
         icon: faBookmark,
-        nombre: 'Articulos'
+        nombre: 'Opcion'
       },
       {
         icon: faChartLine,
-        nombre: 'Estadisticas'
+        nombre: 'Opcion'
       },
       {
         icon: faCogs,
-        nombre: 'Configuracion'
+        nombre: 'Opcion'
       }
     ]
   }
