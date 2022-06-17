@@ -9,10 +9,10 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
       first: 'Instituto Bíblico Alianza',
       second: 'Kichwa Otavalo'
     },
-    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15',
+    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15.',
 
     link: '/',
-    image: 'assets/images/1.jpg'
+    image: 'assets/carusel/caru001.png'
   },
   {
     id: 2,
@@ -20,10 +20,10 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
       first: 'Instituto Bíblico Alianza',
       second: 'Kichwa Otavalo'
     },
-    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15',
+    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15.',
 
     link: '/',
-    image: 'assets/images/2.jpg'
+    image: 'assets/carusel/caru7.jpg'
   },
   {
     id: 3,
@@ -31,10 +31,10 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
       first: 'Instituto Bíblico Alianza',
       second: 'Kichwa Otavalo'
     },
-    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15',
+    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15.',
 
     link: '/',
-    image: 'assets/images/3.jpg'
+    image: 'assets/carusel/caru4.jpg'
   },
   {
     id: 4,
@@ -42,10 +42,10 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
       first: 'Instituto Bíblico Alianza',
       second: 'Kichwa Otavalo'
     },
-    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15',
+    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15.',
 
     link: '/',
-    image: 'assets/images/4.jpg'
+    image: 'assets/carusel/caru5.jpg'
   },
   {
     id: 5,
@@ -53,9 +53,9 @@ export const CAROUSEL_DATA_ITEMS: ICarouselItem[] = [
       first: 'Instituto Bíblico Alianza',
       second: 'Kichwa Otavalo'
     },
-    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15',
+    subtitle: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15.',
 
     link: '/',
-    image: 'assets/images/5.jpg'
+    image: 'assets/carusel/caru6.jpg'
   }
 ];

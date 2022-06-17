@@ -30,12 +30,12 @@ export class ListarSexoComponent implements OnInit {
 
 
   listar() {
-    this._servicioSexo._listar().subscribe((dato: any) => {
+    this._servicioSexo._listarSexo().subscribe((dato: any) => {
       this.enviaraHtml = dato;
     });
   }
 
-  eliminar(id: number) {
+ /*  eliminar(id: number) {
     this._servicioSexo._eliminar(id).subscribe((respuesta: any) => {
 
       this.toastr.error(JSON.stringify('El sexo fue eliminado con éxito'),
@@ -45,6 +45,6 @@ export class ListarSexoComponent implements OnInit {
       });
       this.listar();
     });
-  }
+  } */
 
 }

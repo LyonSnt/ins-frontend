@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <button class="btn btn-primary mb-3" routerLink="/admin/estudiante/agregar">Agregar</button><!-- routerLink="/panel/sexo/agregar" -->
+<div class="lyon-card2 card text-center">
+
+  <div class="lyon-card-header card-header">
+    <h4>LISTA DE ESTUDIANTE</h4>
+
+  </div>
+  <div class="card-body">
+
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Foto</th>
+          <th>Cédula</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aux of enviaraHtml">
+          <td>{{aux.id}}</td>
+          <td><img [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/estudiante/image_placeholder.jpg  '" alt="" width="30px;"></td>
+          <td>{{aux.est_cedula}}</td>
+          <td>{{aux.est_apellido}}</td>
+          <td>{{aux.est_nombre}}</td>
+
+
+          <td>
+
+            <i class="far fa-eye text-warning"></i>
+           <!--  <i class="fas fa-eye text-warning"></i> -->
+            <i class="far fa-trash-alt text-danger" (click)="eliminar(aux.id)"></i>
+            <i class="far fa-edit text-info" routerLink="/panel/sexo/editar/{{aux.id}}"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+</div>
+

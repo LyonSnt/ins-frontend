@@ -37,7 +37,7 @@ export class AgregarSexoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  crear() {
+ /*  crear() {
 
     if (!this.form.valid) {
       return;
@@ -53,7 +53,7 @@ export class AgregarSexoComponent implements OnInit {
       this.ruteador.navigateByUrl('/panel/sexo/listar')
 
     });
-  }
+  } */
 
   nav() {
     this.ruteador.navigateByUrl('/panel/sexo/agregar');

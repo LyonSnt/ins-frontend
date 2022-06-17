@@ -21,9 +21,17 @@ export class InicioComponent implements OnInit {
 
   }
 
-  redirigirPanelPrincipal(){
-    this.ruteador.navigate(['login']);
+  loginAdmin(){
+    this.ruteador.navigate(['/login']);
   }
+
+  loginProfesor(){
+    this.ruteador.navigate(['/logadm']);
+  }
+
+/*   loginEstudiante(){
+    this.ruteador.navigate(['/logadm']);
+  } */
 
 
 }

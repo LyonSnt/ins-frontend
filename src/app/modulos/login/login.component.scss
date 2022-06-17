@@ -1,31 +1,54 @@
-.lyon-card1 {
-  margin-top: 7rem;
-  font-size: 12px;
-  text-align: center;
-}
+ .lyon-card1 {
+   margin-top: 7rem;
+   font-size: 12px;
+   text-align: center;
+ }
 
-.lyon-card2 {
-  margin-top: 0.5rem;
- /*  padding: 1rem; */
-  text-align: center;
-  &:label {
-    text-align: left;
-  }
-}
+ .lyon-card2 {
+   margin-top: 0.5rem;
+   // padding: 1rem;
+   text-align: center;
 
-button{
-  background-color: #5b97e5;
-  border: #5b97e5;
-}
+   &:label {
+     text-align: left;
+   }
+ }
 
-/* .lyon-card-header {
-  background-color: #212529;
-}
+ button {
+   background-color: #5b97e5;
+   border: #5b97e5;
+ }
+
+ .lyon-card-header {
+   background-color: #212529;
+ }
 
  .lyon-form {
    opacity: 10px;
    background-color: rgb(220, 226, 226);
  }
- */
+
+ /*
+ .body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+ }
+
+ .lyon-login{
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+ } */
 
 
+ .bg {
+   background-image: url(../../../assets/carusel/study.jpg);
+   background-position: center center;
+   background-repeat: no-repeat;
+ 
+ }
+ .container {
+  margin-top: 5rem;
+ }

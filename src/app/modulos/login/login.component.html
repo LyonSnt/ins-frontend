@@ -1,9 +1,5 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
-   <!--  <div class="col-md-4">
-
-
-    </div> -->
     <div class="col-lg-4 offset-lg-4">
 
       <div class="lyon-card1 card list-group-item-secondary">
@@ -21,7 +17,7 @@
             <div class="form-group">
               <label for="email">Email address</label>
               <input type="email" class="form-control" formControlName="email" placeholder="">
-              <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+
             </div>
             <div class="form-group mb-3">
               <label for="contrasena">Password</label>
@@ -37,9 +33,85 @@
         </div>
       </div>
     </div>
-   <!--  <div class="col-md-4">
+  </div>
+</div> -->
+
+<!-- <div class="container w-75 mt-5 rounded shadow">
+  <div class="row align-items-stretch">
+    <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+
+    </div>
+    <div class="col p-5 rounded-end">
+      <div class="text-end">
+        <img src="./assets/images/logo/lo2.png" width="50" alt="">
+      </div>
+      <h2 class="fw-bold text-center py-5"> Bienvenido</h2>
+      <form action="#">
+        <div class="mb-4">
+          <label for="email" class="form-label text-left"> Correo Electronico</label>
+          <input type="email" class="form-control">
+        </div>
+        <div class="mb-4">
+          <label for="password" class="form-label text-center"> Contraseña</label>
+          <input type="password" class="form-control">
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Iniciair sesion</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div> -->
 
 
-    </div> -->
+<div class="container w-75 rounded shadow bg-white">
+  <div class="row align-items-stretch">
+    <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+
+    </div>
+    <div class="col p-5 rounded-end">
+
+      <div class="text-center">
+
+        <img src="./assets/images/logo/logoalianza2.jpg" width="50" alt="">
+      </div>
+      <h5 class="fw-bold text-center">Instituto Bíblico Alianza Otavalo</h5>
+      <h6 class="fw-bold text-center py-3"> Bienvenido/a</h6>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+        <div class="input-group input-group mb-4">
+          <span class="input-group-text">
+            <i class="fas fa-user-circle"></i>
+          </span>
+          <input type="email" formControlName="email" class="form-control" placeholder="Usuario">
+          <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
+          *ngIf="(fm.email.dirty || fm.email.touched) && fm.email.errors && loginSubmitted"
+          >
+            <ng-container [ngSwitch]="fm.email.value">
+              <ng-container *ngSwitchCase="''">El email es requerido</ng-container>
+              <ng-container *ngSwitchDefault>El email es invalido</ng-container>
+            </ng-container>
+          </small>
+        </div>
+
+        <div class="input-group input-group mb-4">
+          <span class="input-group-text">
+            <i class="fas fa-key"></i>
+          </span>
+          <input type="password" formControlName="password" class="form-control"
+            placeholder="Contraseña"
+>
+          </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </div>
+
+      </form>
+
+    </div>
   </div>
 </div>
+

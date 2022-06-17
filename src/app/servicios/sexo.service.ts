@@ -18,28 +18,28 @@ export class SexoService {
   constructor(private http: HttpClient) { }
 
 
-  _create(sexo): Observable<ISexo> {
+  _createSexo(sexo): Observable<ISexo> {
     return this.http.post<ISexo>(this.urlLaravel + "sexo", JSON.stringify(sexo), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  _listar(): Observable<ISexo[]> {
+  _listarSexo(): Observable<ISexo[]> {
     return this.http.get<ISexo[]>(this.urlLaravel + "sexo")
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  _buscarPorId(id): Observable<ISexo> {
+  _buscarSexoPorId(id): Observable<ISexo> {
     return this.http.get<ISexo>(this.urlLaravel + "sexo" + '/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  _editar(id: number, sexo: ISexo): Observable<ISexo> {
+  _editarSexo(id: number, sexo: ISexo): Observable<ISexo> {
     return this.http.put<ISexo>(this.urlLaravel + "sexo"+ '/' + id, JSON.stringify(sexo), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
@@ -47,7 +47,7 @@ export class SexoService {
   }
 
 
-  _eliminar(id: number){
+  _eliminarSexo(id: number){
     return this.http.delete<ISexo>(this.urlLaravel + "sexo" + '/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)

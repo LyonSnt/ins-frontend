@@ -6,5 +6,5 @@ export interface ILeftNavMenu {
     link?: string;
     metodo?: () => any;
   }[];
-};
+}
 

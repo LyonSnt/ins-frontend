@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+   <!--  <div class="col-md-4">
+
+
+    </div> -->
+    <div class="col-lg-4 offset-lg-4">
+
+      <div class="lyon-card1 card list-group-item-secondary">
+      </div>
+      <div class="lyon-card2 card list-group-item-secondary">
+        Iniciar Sesión
+        <div class="card-body">
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" formControlName="email" placeholder="">
+              <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group mb-3">
+              <label for="contrasena">Password</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="">
+            </div>
+
+<!--
+            <div class="form-group mb-3">
+              <input type="hidden" class="form-control" formControlName="vervisita">
+            </div>
+ -->
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              <button type="button" class="btn btn-primary">Ayuda</button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+   <!--  <div class="col-md-4">
+
+
+    </div> -->
+  </div>
+</div>

@@ -1,0 +1,142 @@
+<div class="container pt-4">
+  <div class="row">
+
+    <div class="col-6 offset-3">
+
+      <div class="card text-center">
+        <div class="card-body mb-3">
+          <h3>Agregar Estudiante</h3>
+
+
+          <form class="mt-4" [formGroup]="form" (ngSubmit)="crearEstudiante2();">
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+
+              <input type="text" formControlName="est_cedula" class="form-control" placeholder="Cédula">
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="text" formControlName="est_apellido" class="form-control" placeholder="Apellido">
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="text" formControlName="est_nombre" class="form-control" placeholder="Nombre">
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select name="" id="" formControlName="sex_id" class="form-control">
+                <option value="">--Seleccione Sexo--</option>
+                <option [value]="sexo.id" *ngFor="let sexo of listaSexo">
+                  {{sexo.sex_descripcion}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select name="" id="" formControlName="esc_id" class="form-control">
+                <option value="">--Seleccione Estado Civil--</option>
+                <option [value]="estcivil.id" *ngFor="let estcivil of listaEstadocivil">
+                  {{estcivil.esc_descripcion}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="date" formControlName="est_fechanacimiento" class="form-control"
+                placeholder="Fecha nacimiento">
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="date" formControlName="est_fechabautismo" class="form-control" placeholder="Fecha bautismo">
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="number" formControlName="est_celular" class="form-control" placeholder="Celular">
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="text" formControlName="est_direccion" class="form-control" placeholder="Dirección">
+            </div>
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select name="" id="" formControlName="igl_id" class="form-control">
+                <option value="">--Seleccione Iglesia--</option>
+                <option [value]="iglesia.id" *ngFor="let iglesia of listaIglesia">
+                  {{iglesia.igl_nombre}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="file" (change)="subirimagen($event)" formControlName="est_imagen" class="form-control" placeholder="Imagen">
+
+            </div>
+
+            <div class="input-group input-group mb-3 text-center">
+
+             <!--    <img [src]="imgSrc" width="100px" alt="" (click)="capturarImagen.click()"> -->
+
+            </div>
+
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-database"></i>&nbsp; Agregar</button>
+              <button type="button" class="btn btn-danger" routerLink="/admin/estudiante/listar">
+                <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

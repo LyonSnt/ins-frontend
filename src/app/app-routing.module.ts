@@ -1,41 +1,34 @@
+import { EstructuraAdm1Component } from './layout/layoutbase/estructura-adm1/estructura-adm1.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EstructuraComponent } from '@layout/estructura/estructura.component';
-import { LoginFormComponent } from '@modulos/login/login-form/login-form.component';
+import { EstructuraPrfComponent } from '@layout/layoutprf/estructura-prf/estructura-prf.component';
 import { LoginComponent } from '@modulos/login/login.component';
-
-
 import { LoginGuard } from './guards/login.guard';
 import { InicioComponent } from './inicio/inicio.component';
+import { IsProfeGuard } from './guards/is-profe.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: InicioComponent },
+  { path: 'login', component: LoginComponent },
   {
-    path: 'login', component: LoginComponent,
-    children: [
-      {
-        path: 'logine', component: LoginFormComponent
-      }
-    ]
-  },
-  {
-    //esta parte es para que se visualice lo que esta en estructura en el app component
-    path: 'panel',
-    component: EstructuraComponent, canActivate: [LoginGuard],
+    path: 'admin',
+    component: EstructuraAdm1Component, canActivate: [LoginGuard],
+/*     component: EstructuraAdmComponent, canActivate: [LoginGuard, IsAdminGuard], */
     children: [
       {
         path: 'comunidad',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
-          import('@modulos/comunidad/comunidad.module').then((m) => m.ComunidadModule) //carga todos los modulos cuando esten ya listas
+          import('@modulos/administrador/comunidad/comunidad.module').then((m) => m.ComunidadModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'sexo',
-        loadChildren: () =>
-          import('@modulos/sexo/sexo.module').then((m1) => m1.SexoModule)
+        path: 'estudiante',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/estudiante/estudiante.module').then((m) => m.EstudianteModule) //carga todos los modulos cuando esten ya listas
       }
     ]
   },
+  { path: 'prof', component: EstructuraPrfComponent, canActivate: [LoginGuard, IsProfeGuard] },
   {
     path: '**', // toda esta parte es para que cuando se ponga una ruta que no exista nos redirija a panel user
     redirectTo: '/', //hay que poner a la vista que tiene que ir por defecto

@@ -10,9 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared/shared/shared.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NopageFoundComponent } from './nopage-found/nopage-found.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    NopageFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +28,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       preventDuplicates: true,
-     // positionClass: 'toast-top-center',
+      // positionClass: 'toast-top-center',
+
+
     }),
+
     SharedModule,
     NgbModule,
 

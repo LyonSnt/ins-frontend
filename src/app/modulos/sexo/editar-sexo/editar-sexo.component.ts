@@ -42,12 +42,14 @@ export class EditarSexoComponent implements OnInit {
         console.log(this.sexo);
       });
       */
-    this.activarRuter.paramMap.subscribe((param: ParamMap) => {
+
+
+   /*  this.activarRuter.paramMap.subscribe((param: ParamMap) => {
       this.idSexo = param.get('id');
       console.log(this.idSexo);
       this.obtenerDato();
 
-    });
+    }); */
 
 
     /*  const routParams = this.activarRuter.snapshot.paramMap;
@@ -62,7 +64,7 @@ export class EditarSexoComponent implements OnInit {
 
   }
 
-  obtenerDato() {
+/*   obtenerDato() {
 
     if (this.idSexo) {
       this._servicioSexo._buscarPorId(this.idSexo).subscribe((dato: ISexo) => {
@@ -86,7 +88,7 @@ export class EditarSexoComponent implements OnInit {
       });
       this.ruteador.navigateByUrl('/panel/sexo/listar');
     })
-  }
+  } */
 
 
 }
