@@ -34,6 +34,9 @@ export class ListarEstudianteComponent implements OnInit {
   listar() {
     this._servicioEstudiante._listar().subscribe((dato: any) => {
       this.enviaraHtml = dato;
+
+      console.log("DATO EN LISTAR", this.enviaraHtml);
+
     });
   }
 

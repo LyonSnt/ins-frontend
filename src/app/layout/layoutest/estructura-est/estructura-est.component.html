@@ -1,0 +1,16 @@
+<app-header-est></app-header-est>
+<app-sidebar-est></app-sidebar-est>
+<div class="content-wrapper">
+  <app-breadcrumbs-est></app-breadcrumbs-est>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<app-footer-est></app-footer-est>
+
+<ng-container *ngIf="isLoading">
+  <div class="lyon-loader">
+    <img [src]="loader" alt="">
+  </div>
+</ng-container>

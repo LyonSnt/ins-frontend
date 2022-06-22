@@ -1,3 +1,5 @@
+
+import { EstudianteestModule } from './../../modulos/estudiante/estudianteest.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@layout/layout.module';
@@ -6,15 +8,14 @@ import { ModulosModule } from '@modulos/modulos.module';
 import { EstadocivilModule } from '@modulos/estadocivil/estadocivil.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComunidadModule } from '@modulos/administrador/comunidad/comunidad.module';
-import { LayoutadmModule } from '@layout/layoutadm/layoutadm.module';
 import { LayoutprfModule } from '@layout/layoutprf/layoutprf.module';
 import { LoginModule } from '@modulos/login/login.module';
 import { EstudianteModule } from '@modulos/administrador/estudiante/estudiante.module';
 import { SexoModule } from '@modulos/administrador/sexo/sexo.module';
 import { LayoutbaseModule } from '@layout/layoutbase/layoutbase.module';
-
-
-
+import { LayoutestModule } from '@layout/layoutest/layoutest.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ProfesorprfModule } from '@modulos/profesor/profesorprf.module';
 
 
 @NgModule({
@@ -24,20 +25,25 @@ import { LayoutbaseModule } from '@layout/layoutbase/layoutbase.module';
     InicioModule,
     LayoutModule,
     ModulosModule,
-
+    HttpClientModule,
     //PARTE DEL ADMINISTRADOR
     ComunidadModule,
     EstadocivilModule,
     EstudianteModule,
     SexoModule,
 
+    //PARTE DEL PROFESOR
+    ProfesorprfModule,
 
+    //PARTE DEL ESTUDIANTE
+    EstudianteestModule,
 
     ReactiveFormsModule,
     // LAYOUTS
-    LayoutadmModule,
-    LayoutprfModule,
     LayoutbaseModule,
+    LayoutprfModule,
+    LayoutestModule,
+
 
     //LOGIN
     LoginModule
@@ -53,11 +59,18 @@ import { LayoutbaseModule } from '@layout/layoutbase/layoutbase.module';
     EstadocivilModule,
     SexoModule,
 
+     //PARTE DEL PROFESOR
+     ProfesorprfModule,
+
+    //PARTE DEL ESTUDIANTE
+    EstudianteestModule,
+
+
     ReactiveFormsModule,
     // LAYOUTS
-    LayoutadmModule,
-    LayoutprfModule,
     LayoutbaseModule,
+    LayoutprfModule,
+    LayoutestModule,
     //LOGIN
     LoginModule
   ]

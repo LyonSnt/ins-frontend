@@ -12,22 +12,7 @@ export class LoginGuard implements CanActivate {
   userData: any;
   constructor(private ruteador: Router,
     private _servicioLogin: LoginService) {
-
-
   }
-  /*  canActivate(): any {
-     this.token = localStorage.getItem('token');
-     this.userData = jwt_decode(this.token);
-     if (this.token) {
-       if (this.userData.rol === 'Admin' || this.userData.rol === 'User') {
-         return true;
-       }
-     } else {
-       this.ruteador.navigateByUrl('login')
-     }
-
-   } */
-
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -42,25 +27,5 @@ export class LoginGuard implements CanActivate {
       return false;
     }
   }
-
-/*    canActivate(
-     next: ActivatedRouteSnapshot,
-     state: RouterStateSnapshot
-   ): boolean {
-     const usuarioActual = this._servicioLogin.getUsuario;
-     if (usuarioActual) {
-       if (next.data.roles && !this._servicioLogin.hasAccessToModule(next.data.roles)) {
-         alert('NO tiene permisos');
-         return false;
-       }
-       return true;
-     } else {
-       this.ruteador.navigate(['login'], {
-         queryParams: { returnUrl: state.url }
-       });
-       return false;
-     }
-   } */
-
 
 }

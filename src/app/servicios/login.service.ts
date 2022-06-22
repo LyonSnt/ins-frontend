@@ -1,6 +1,6 @@
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILogin } from '@modelos/ilogin';
 import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
@@ -27,7 +27,16 @@ export class LoginService {
   }
 
   login(usuario: ILogin) {
+/* 
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    });
+ */
     return this.http.post(this.urlLaravel + "login", usuario);
+  }
+
+  logout() {
+    return this.http.post(this.urlLaravel + "cerrarSesion", null);
   }
 
 
@@ -51,10 +60,19 @@ export class LoginService {
 
   IsAdmin() {
     this.datos = localStorage.getItem("id_rol");
+   // console.log("Rol en services", this.datos);
+    return this.datos;
+
+  }
+
+
+  IsUsuario() {
+    this.datos = localStorage.getItem("id_rol");
     console.log("Rol en services", this.datos);
     return this.datos;
 
   }
+
 
   IsAdmint(){
     this.datos = JSON.parse(JSON.stringify(localStorage.getItem('token')));

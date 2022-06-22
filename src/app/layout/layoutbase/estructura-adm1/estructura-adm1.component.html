@@ -2,10 +2,15 @@
 <app-sidebar-adm1></app-sidebar-adm1>
 <div class="content-wrapper">
   <app-breadcrumbs-adm1></app-breadcrumbs-adm1>
-
   <div class="container">
     <router-outlet></router-outlet>
   </div>
 </div>
 
 <app-footer-adm1></app-footer-adm1>
+
+<ng-container *ngIf="isLoading">
+  <div class="lyon-loader">
+    <img [src]="loader" alt="">
+  </div>
+</ng-container>

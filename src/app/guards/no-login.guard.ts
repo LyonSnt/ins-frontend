@@ -16,16 +16,7 @@ export class NoLoginGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const expectedRole = next.data.roleparaentrar;
-
-    const token = localStorage.getItem('token');
-   const rol = localStorage.getItem('rol');
-    const tokenPayload = decode(token!);
     const usuarioActual = this._servicioLogin.IsLogged;
-
-    console.log('GUARD NO LOGIN', tokenPayload);
-    console.log('ROLES', rol);
-    console.log('token', token);
 
     if (usuarioActual()) {
       this.ruteador.navigate(['/admin'], {

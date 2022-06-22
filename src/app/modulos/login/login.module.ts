@@ -5,9 +5,6 @@ import { LayoutModule } from '@layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
-
-
 @NgModule({
   declarations: [
     LoginadmComponent
@@ -21,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     LayoutModule,
     ReactiveFormsModule,
- 
+
   ]
 })
 export class LoginModule { }

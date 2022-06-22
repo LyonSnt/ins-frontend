@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CAROUSEL_DATA_ITEMS } from './carousel/carousel.const';
 import { ICarouselItem } from './carousel/Icarousel-item.metadata';
 
@@ -8,30 +8,27 @@ import { ICarouselItem } from './carousel/Icarousel-item.metadata';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss']
 })
-export class InicioComponent implements OnInit {
+export class InicioComponent implements AfterViewInit, OnInit {
   public carouselData: ICarouselItem[];
-
+  public loader = 'assets/images/loader/loader1.gif'
+  public isLoading = true;
   constructor(
-    private ruteador : Router
+    private ruteador: Router
   ) {
-   this.carouselData = CAROUSEL_DATA_ITEMS;
+    this.carouselData = CAROUSEL_DATA_ITEMS;
+  }
+
+  ngAfterViewInit(): void {
+
   }
 
   ngOnInit(): void {
-
+   
   }
 
-  loginAdmin(){
+  loginAdmin() {
     this.ruteador.navigate(['/login']);
   }
-
-  loginProfesor(){
-    this.ruteador.navigate(['/logadm']);
-  }
-
-/*   loginEstudiante(){
-    this.ruteador.navigate(['/logadm']);
-  } */
 
 
 }

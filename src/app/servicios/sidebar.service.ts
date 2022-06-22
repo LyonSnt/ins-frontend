@@ -1,11 +1,28 @@
 import { Injectable } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
 
-  constructor() { }
+  constructor(private _loginServicio: LoginService) { }
+
+  dashboard: any = [
+    {
+      titulo: 'Dashboard',
+      icono: 'nav-icon fas fa-tachometer-alt',
+      url: 'dashboard'
+    }
+  ];
+
+  _cerarSesion: any = [
+    {
+      titulo: 'Cerrar Sesión',
+      icono: 'nav-icon fas fa-sign-out-alt',
+      metodo: () => this._loginServicio.remove()
+    }
+  ];
 
   menuAdmin1: any[] = [
     {
@@ -21,7 +38,7 @@ export class SidebarService {
 
   menuAdmin2: any[] = [
     {
-      titulo: 'Administrar Categoria',
+      titulo: 'Administrar',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
         { titulo: 'Iglesia', url: 'estudiante/listar', icono: 'fa fa-users' },
@@ -49,8 +66,27 @@ export class SidebarService {
     }
   ];
 
+  /* MENU PROFESOR */
+
+  dashboardProfe: any = [
+    {
+      titulo: 'Dashboard',
+      icono: 'nav-icon fas fa-tachometer-alt',
+      url: 'dashboard'
+    }
+  ];
+
+  perfiProfesor: any = [
+    {
+      titulo: 'Perfil',
+      icono: 'fas fa-user-graduate',
+      url: 'prf2022::/perfil'
+    }
+  ];
+
+
   menuProfe: any[] = [{
-    titulo: 'Dashboard',
+    titulo: 'Administrar',
     icono: 'nav-icon fas fa-tachometer-alt',
     submenu: [
       { titulo: 'Usuarios', url: 'usuarios', icono: 'fa fa-users' },
@@ -59,13 +95,49 @@ export class SidebarService {
     ]
   }];
 
+
+
+
+
+  /* MENU ESTUDIANTE */
+
+  dashboardEst: any = [
+    {
+      titulo: 'Dashboard',
+      icono: 'nav-icon fas fa-tachometer-alt',
+      url: 'dashboard'
+    }
+  ];
+
+  perfilEst: any = [
+    {
+      titulo: 'Perfil',
+      icono: 'fas fa-user-graduate',
+      url: 'est2022::/perfil'
+    }
+  ];
+
+  resgisacademicoEst: any = [
+    {
+      titulo: 'Registro Academico',
+      icono: 'fas fa-book',
+      url: 'est2022::/regacademico'
+    }
+  ];
+
+  notasEst: any = [
+    {
+      titulo: 'Notas',
+      icono: 'fas fa-book-open',
+      url: 'est2022::/notas'
+    }
+  ];
   menuEstudiante: any[] = [{
-    titulo: 'Dashboard',
+    titulo: 'Notas',
     icono: 'nav-icon fas fa-tachometer-alt',
     submenu: [
-      { titulo: 'Usuarios', url: 'usuarios', icono: 'fa fa-users' },
-      { titulo: 'Productos', url: 'usuarios', icono: 'fa fa-cubes' },
-      { titulo: 'Categoria', url: 'usuarios', icono: 'fa fa-cubes' }
+      { titulo: 'Notas', url: 'notas', icono: 'fa fa-users' },
+
     ]
   }]
 

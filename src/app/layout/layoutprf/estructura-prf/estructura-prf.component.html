@@ -1,10 +1,17 @@
-<section class="lyon-{{$theme}} {{showLeftNav ? 'lyon-main-container': 'lyon-main-container-full'}}">
-  <app-header-prf class="lyon-header" (showMenu)="showMenu()"></app-header-prf>
-  <app-left-nav-prf class="lyon-left-nav" *ngIf="showLeftNav" (showMenu)="showMenu()"></app-left-nav-prf>
-
-  <main class="lyon-main-content">
+<app-header-prf></app-header-prf>
+<app-sidebar-prf></app-sidebar-prf>
+<div class="content-wrapper">
+  <app-breadcrumbs-prf></app-breadcrumbs-prf>
+  <div class="container">
     <router-outlet></router-outlet>
-  </main>
-  <app-footer-prf class="lyon-footer"></app-footer-prf>
+  </div>
+</div>
 
-</section>
+<app-footer-prf></app-footer-prf>
+
+<ng-container *ngIf="isLoading">
+  <div class="lyon-loader">
+    <img [src]="loader" alt="">
+  </div>
+</ng-container>
+

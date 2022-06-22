@@ -13,10 +13,10 @@ export class BreadcrumbsAdm1Component implements OnDestroy {
   public tituloSubs$: Subscription;
   constructor(
     private ruteador: Router
-  ) { 
+  ) {
     this.tituloSubs$ = this.getArgumentos().subscribe(({titulo}) => {
       this.titulo = titulo;
-      document.title = `Adminlte - ${titulo}`;
+      document.title = `Instituto - ${titulo}`;
     })
   }
 

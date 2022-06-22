@@ -1,41 +1,3 @@
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4 offset-lg-4">
-
-      <div class="lyon-card1 card list-group-item-secondary">
-        <h6>MENSAJE</h6>
-        <div class="card-body">
-          <p>Para los estudiantes nuevos, favor ingresar con la E y el numero de cédula tanto en usuario como en
-            contraseña, posteriormente se recomienda cambiarla por seguridad.</p>
-        </div>
-      </div>
-      <div class="lyon-card2 card list-group-item-secondary">
-        Iniciar Sesión
-        <div class="card-body">
-
-          <form [formGroup]="form" (ngSubmit)="submit()">
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" formControlName="email" placeholder="">
-
-            </div>
-            <div class="form-group mb-3">
-              <label for="contrasena">Password</label>
-              <input type="password" class="form-control" formControlName="password" placeholder="">
-            </div>
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-              <button type="button" class="btn btn-primary">Ayuda</button>
-            </div>
-          </form>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <!-- <div class="container w-75 mt-5 rounded shadow">
   <div class="row align-items-stretch">
     <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
@@ -79,39 +41,43 @@
       </div>
       <h5 class="fw-bold text-center">Instituto Bíblico Alianza Otavalo</h5>
       <h6 class="fw-bold text-center py-3"> Bienvenido/a</h6>
-      <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
+      <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="input-group input-group mb-4">
           <span class="input-group-text">
             <i class="fas fa-user-circle"></i>
           </span>
-          <input type="email" formControlName="email" class="form-control" placeholder="Usuario">
-          <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
-          *ngIf="(fm.email.dirty || fm.email.touched) && fm.email.errors && loginSubmitted"
-          >
-            <ng-container [ngSwitch]="fm.email.value">
-              <ng-container *ngSwitchCase="''">El email es requerido</ng-container>
-              <ng-container *ngSwitchDefault>El email es invalido</ng-container>
-            </ng-container>
-          </small>
+          <input type="email" formControlName="email" class="form-control" placeholder="Usuario"
+            [class]="isvaldaFiled('email')">
+          <div *ngIf="!form.get('email')?.valid" class="invalid-feedback">
+            <div *ngIf="form.get('email')?.hasError('required')"> El usuario es requerido</div>
+            <div *ngIf="form.get('email')?.hasError('email')">Debe tener el formato de correcto</div>
+          </div>
+
         </div>
 
         <div class="input-group input-group mb-4">
           <span class="input-group-text">
             <i class="fas fa-key"></i>
           </span>
-          <input type="password" formControlName="password" class="form-control"
-            placeholder="Contraseña"
->
+          <input type="password" formControlName="password" class="form-control" placeholder="Contraseña"
+            [class]="isvaldaFiled('password')">
+          <div *ngIf="!form.get('password')?.valid" class="invalid-feedback">
+            <div *ngIf="form.get('password')?.hasError('required')"> La contraseña es requerido</div>
+            <div *ngIf="form.get('password')?.hasError('minlength')">Debe tener al menos 6 caracteres</div>
           </div>
+        </div>
 
         <div class="d-grid">
           <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </div>
-
       </form>
-
     </div>
   </div>
 </div>
 
+<ng-container *ngIf="isLoading">
+<div class="lyon-loader">
+<img [src]="loader" alt="">
+</div>
+</ng-container>

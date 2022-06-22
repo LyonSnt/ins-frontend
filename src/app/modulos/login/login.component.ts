@@ -1,10 +1,13 @@
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '@servicios/login.service';
 import { AuthServiceService } from '@servicios/auth-service.service';
+import { ErrorTailorModule } from '@ngneat/error-tailor';
+import { HttpHeaders } from '@angular/common/http';
+
 
 
 @Component({
@@ -12,13 +15,16 @@ import { AuthServiceService } from '@servicios/auth-service.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements AfterViewInit, OnInit {
 
-  public loginForm: FormGroup;
-  public loginSubmitted = false;
+  public loader = 'assets/images/loader/loader1.gif'
+  public isLoading = true;
+  public form: FormGroup;
+  public submited = false;
   data2: any;
   public listar: any;
   token: any;
+  user: any = {};
   tokenTipoAny: any;
 
   constructor(
@@ -26,58 +32,42 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private ruteador: Router,
-    private _authservice: AuthServiceService
 
   ) {
 
-    this.loginForm = this.fb.group({
-      email: ['',
-        [
-          Validators.required,
-          Validators.pattern(
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          )
-        ]
-      ],
-      password: ['', [Validators.required, Validators.maxLength(8)]]
-
-    });
-
+  }
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000)
   }
 
   ngOnInit(): void {
+    this.loginForm();
+
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    });
 
 
   }
 
-  get fm() {
-    return this.loginForm.controls;
-  }
-
- /*  loginForm() {
-     this.form = this.fb.group({
-      email: ['',
-        [
-          Validators.required,
-          Validators.pattern(
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          )
-        ]
-      ],
-      password: ['', [Validators.required, Validators.maxLength(8)]]
+  loginForm() {
+    this.form = this.fb.group({
+      email: ['a@a.com', [Validators.required, Validators.email]],
+      password: ['a', [Validators.required, Validators.minLength(1)]]
 
     });
-  } */
-
-
+  }
 
 
   submit() {
-    this.loginSubmitted = true;
-    if(!this.loginForm.valid){
+    this.submited = true;
+    if (this.form.invalid) {
       return;
     }
-    this._servicioLogin.login(this.loginForm.value).subscribe(
+    this._servicioLogin.login(this.form.value).subscribe(
       (resp) => {
         this.data2 = resp;
         if (this.data2.status == 1) {
@@ -91,8 +81,6 @@ export class LoginComponent implements OnInit {
 
           console.log("JWT", decoded);
 
-
-
           //  var base64Url = this.token.split('.')[1];
           //var base64 = base64Url.replace('-', '+').replace('_', '/');
           //console.log("QUE SERAA", JSON.parse(window.atob(base64)));
@@ -103,23 +91,23 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('id_rol', id_rol);
 
 
-          //console.log("QUIERO SACAR ROL:", id_rol);
+          console.log("QUIERO SACAR ROL:", id_rol);
 
 
-          if (id_rol == 1) {
-            this.ruteador.navigateByUrl('/admin')
-          } if (id_rol == 2) {
-            this.ruteador.navigateByUrl('/prof')
-          } if (id_rol == 3) {
-            this.ruteador.navigateByUrl('/')
+          if (id_rol == 'Administrador') {
+            this.ruteador.navigateByUrl('/admin/dashboard')
+          } if (id_rol == 'Profesor') {
+            this.ruteador.navigateByUrl('/prof/dashboard')
+          } if (id_rol == 'Estudiante') {
+            this.ruteador.navigateByUrl('/est/dashboard')
           }
 
-          this.toastr.success(JSON.stringify(this.data2.message), JSON.stringify(this.data2.code), {
+          this.toastr.success(JSON.stringify(this.data2.msg), JSON.stringify(this.data2.code), {
             timeOut: 2000,
             progressBar: true
           });
         } else if (this.data2.status == 0) {
-          this.toastr.error(JSON.stringify(this.data2.message), JSON.stringify(this.data2.code), {
+          this.toastr.error(JSON.stringify(this.data2.msg), JSON.stringify(this.data2.code), {
             timeOut: 2000,
             progressBar: true
           });
@@ -128,15 +116,42 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  autentificacion() {
-    this.loginSubmitted = true;
-    if (!this.loginForm.valid) {
-      return;
-    }
-    console.log('Autentificado', this.loginForm.value);
+  isvaldaFiled(field: string): string {
+    const validarCampo = this.form.get(field);
+    return (!validarCampo?.valid && validarCampo?.touched)
+      ? 'is-invalid' : validarCampo?.touched ? 'is-valid' : '';
+  }
 
-    this._authservice.login(this.loginForm.value).subscribe(r => {
-      console.log(r);
+
+  autentificacion() {
+    this._servicioLogin.login(this.form.value).subscribe(r => {
+      this.data2 = r;
+
+      this.token = this.data2.token;
+      localStorage.setItem('token', this.token);
+      console.log("TOKEN", this.token);
+
+      this.user = this.data2.data;
+
+      localStorage.setItem('user', this.user.est_id);
+      console.log("USUARIO EN LOGIN", this.user);
+
+
+      /*   const decoded = jwt_decode(atob(this.user));
+
+        console.log("JWT", decoded); */
+
+      const id_rol = this.user.id_rol;
+      localStorage.setItem('id_rol', id_rol);
+      console.log("ROL EN LOGIN:", id_rol);
+
+      if (id_rol == 'Administrador') {
+        this.ruteador.navigateByUrl('/admin/dashboard')
+      } if (id_rol == 'Profesor') {
+        this.ruteador.navigateByUrl('/prof/dashboard')
+      } if (id_rol == 'Estudiante') {
+        this.ruteador.navigateByUrl('/est/dashboard')
+      }
     });
   }
 }

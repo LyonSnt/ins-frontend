@@ -39,7 +39,7 @@ export class EstudianteService {
       )
   }
 
-  _buscarPorId(id): Observable<IEstudiante> {
+  _buscarEstudiantePorId(id): Observable<IEstudiante> {
     return this.http.get<IEstudiante>(this.urlLaravel + "estudiante" + '/' + id)
       .pipe(
         catchError(this.errorHandler)

@@ -85,9 +85,9 @@ data34: any;
 
   crearEstudiante2() {
 
-    if (this.form.valid) {
+ /*    if (this.form.valid) {
       return;  //AQUI FUNCIONO SIN ESTO NO SE PORQUE
-    }
+    } */
     const formData = new FormData();
     formData.append("est_imagen", this.files, this.files.name);
     formData.append("est_cedula", this.form.get('est_cedula')?.value);
@@ -108,7 +108,6 @@ data34: any;
       progressBar: true
     });
     this.ruteador.navigateByUrl('/admin/estudiante/listar');
-
     });
 
   }
