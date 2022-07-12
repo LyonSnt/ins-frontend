@@ -32,7 +32,7 @@ export class NivelService {
     )
   }
 
-  _buscarNivelPorId(id): Observable<INivel> {
+  _buscarNivelPorId(id: number): Observable<INivel> {
     return this.http.get<INivel>(this.urlLaravel + "nivel" + '/' + id)
     .pipe(
       catchError(this.errorHandler)

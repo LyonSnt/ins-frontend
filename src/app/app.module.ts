@@ -9,7 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared/shared/shared.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NopageadmFoundComponent } from './nopage-found/nopageadm-found/nopageadm-found.component';
 import { NopageprfFoundComponent } from './nopage-found/nopageprf-found/nopageprf-found.component';
 import { NopageestFoundComponent } from './nopage-found/nopageest-found/nopageest-found.component';
@@ -41,6 +41,7 @@ import { NopageestFoundComponent } from './nopage-found/nopageest-found/nopagees
 
     SharedModule,
     NgbModule,
+    NgbPaginationModule, NgbAlertModule
 
   ],
   providers: [

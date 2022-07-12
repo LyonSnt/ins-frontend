@@ -22,7 +22,7 @@ export class AgregarEstudianteComponent implements OnInit {
 
   data2: any;
   listar: any;
-data34: any;
+  data34: any;
   listaSexo: any;
   listaEstadocivil: any;
   listaIglesia: any;
@@ -85,9 +85,9 @@ data34: any;
 
   crearEstudiante2() {
 
- /*    if (this.form.valid) {
-      return;  //AQUI FUNCIONO SIN ESTO NO SE PORQUE
-    } */
+    /*    if (this.form.valid) {
+         return;  //AQUI FUNCIONO SIN ESTO NO SE PORQUE
+       } */
     const formData = new FormData();
     formData.append("est_imagen", this.files, this.files.name);
     formData.append("est_cedula", this.form.get('est_cedula')?.value);
@@ -103,11 +103,11 @@ data34: any;
     this._servicioEstudiate.uploadData(formData).subscribe(r => {
 
       this.toastr.success(JSON.stringify('El Estudiante fue registrado con exito'),
-      JSON.stringify('Registrado'), {
-      timeOut: 2000,
-      progressBar: true
-    });
-    this.ruteador.navigateByUrl('/admin/estudiante/listar');
+        JSON.stringify('Registrado'), {
+        timeOut: 2000,
+        progressBar: true
+      });
+      this.ruteador.navigateByUrl('/admin/estudiante/listar');
     });
 
   }
@@ -140,7 +140,7 @@ data34: any;
       this.files = event.target.files;
       let reader = new FileReader();
       reader.readAsDataURL(this.files[0]);
-      reader.onloadend = (event: any ) => {
+      reader.onloadend = (event: any) => {
         this.imgSrc = event.target.result;
       }
     } else {

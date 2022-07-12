@@ -32,8 +32,15 @@ export class ProfesorService {
     });
   }
 
-  _listar(): Observable<IProfesor[]> {
+  _listarProfesorH(): Observable<IProfesor[]> {
     return this.http.get<IProfesor[]>(this.urlLaravel + "profesor")
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+  _listarProfesorM(): Observable<IProfesor[]> {
+    return this.http.get<IProfesor[]>(this.urlLaravel + "profesorm")
       .pipe(
         catchError(this.errorHandler)
       )

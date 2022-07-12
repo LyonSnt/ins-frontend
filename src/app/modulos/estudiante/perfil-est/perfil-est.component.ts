@@ -21,9 +21,9 @@ export class PerfilEstComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token);  //ESTA PARTE TRAE LA INFORMACION
-    console.log("DATOS RELACIONADOS: ", this.userData.est_id);
+    console.log("DATOS RELACIONADOS: ", this.userData);
 
-    this._estudianteIdServicio._buscarEstudiantePorId(this.userData.est_id).subscribe(r => {
+    this._estudianteIdServicio._buscarEstudiante2PorId(this.userData.est_id).subscribe(r => {
       this.estudianteId = r;
       console.log("ESTUDIANTE ID", this.estudianteId);
 

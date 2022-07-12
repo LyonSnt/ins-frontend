@@ -29,34 +29,31 @@ export class AgregarSexoComponent implements OnInit {
   ) {
     this.form = this.fb.group({
 
-      sex_descripcion: ['', Validators.required]
+      sex_descripcion: ['', Validators.required],
+      sex_abreviatura: ['', Validators.required]
 
     });
   }
 
   ngOnInit(): void {
   }
-
- /*  crear() {
+ crear() {
 
     if (!this.form.valid) {
       return;
     }
 
-    this._servicioSexo._create(this.form.value).subscribe(r => {
+    this._servicioSexo._createSexo(this.form.value).subscribe(r => {
 
       this.toastr.success(JSON.stringify('El sexo fue registrada con exito'),
         JSON.stringify('Registrado'), {
         timeOut: 2000,
         progressBar: true
       });
-      this.ruteador.navigateByUrl('/panel/sexo/listar')
+    //  this.ruteador.navigateByUrl('/panel/sexo/listar')
 
     });
-  } */
-
-  nav() {
-    this.ruteador.navigateByUrl('/panel/sexo/agregar');
   }
+
 
 }

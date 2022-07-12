@@ -25,8 +25,15 @@ export class TrimestreService {
     )
   }
 
-  _listarTrimestre(): Observable<ITrimestre[]> {
-    return this.http.get<ITrimestre[]>(this.urlLaravel + "trimestre")
+  _listarTrimestreH(): Observable<ITrimestre[]> {
+    return this.http.get<ITrimestre[]>(this.urlLaravel + "trimestreh")
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  _listarTrimestreM(): Observable<ITrimestre[]> {
+    return this.http.get<ITrimestre[]>(this.urlLaravel + "trimestrem")
     .pipe(
       catchError(this.errorHandler)
     )

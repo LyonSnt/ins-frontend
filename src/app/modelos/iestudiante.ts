@@ -12,5 +12,6 @@ export interface IEstudiante {
     est_direccion: string;
     igl_id: number;
     est_imagen: string;
+    data: any;
 
   }

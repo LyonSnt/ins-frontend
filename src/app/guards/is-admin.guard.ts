@@ -17,7 +17,7 @@ export class IsAdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
+    if (this._servicioLogin.IsAdmin() == 'Administrador' || this._servicioLogin.IsAdmin() == 'Administrador2') {
       return true;
     } else {
       this.toastr.error(JSON.stringify('No tiene permiso'),

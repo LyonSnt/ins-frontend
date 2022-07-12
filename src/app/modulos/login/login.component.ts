@@ -94,7 +94,7 @@ export class LoginComponent implements AfterViewInit, OnInit {
           console.log("QUIERO SACAR ROL:", id_rol);
 
 
-          if (id_rol == 'Administrador') {
+          if (id_rol == 'Administrador' || id_rol == 'Administrador2') {
             this.ruteador.navigateByUrl('/admin/dashboard')
           } if (id_rol == 'Profesor') {
             this.ruteador.navigateByUrl('/prof/dashboard')

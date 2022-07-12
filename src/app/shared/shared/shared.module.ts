@@ -1,4 +1,3 @@
-
 import { EstudianteestModule } from './../../modulos/estudiante/estudianteest.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +15,8 @@ import { LayoutbaseModule } from '@layout/layoutbase/layoutbase.module';
 import { LayoutestModule } from '@layout/layoutest/layoutest.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfesorprfModule } from '@modulos/profesor/profesorprf.module';
+import { MatriculaModule } from '@modulos/administrador/matricula/matricula.module';
+
 
 
 @NgModule({
@@ -26,17 +27,18 @@ import { ProfesorprfModule } from '@modulos/profesor/profesorprf.module';
     LayoutModule,
     ModulosModule,
     HttpClientModule,
-    //PARTE DEL ADMINISTRADOR
-    ComunidadModule,
-    EstadocivilModule,
-    EstudianteModule,
-    SexoModule,
 
-    //PARTE DEL PROFESOR
-    ProfesorprfModule,
+    /*   //PARTE DEL ADMINISTRADOR
+      ComunidadModule,
+      EstadocivilModule,
+      EstudianteModule,
+      SexoModule,
 
-    //PARTE DEL ESTUDIANTE
-    EstudianteestModule,
+      //PARTE DEL PROFESOR
+      ProfesorprfModule,
+
+      //PARTE DEL ESTUDIANTE
+      EstudianteestModule, */
 
     ReactiveFormsModule,
     // LAYOUTS
@@ -46,24 +48,27 @@ import { ProfesorprfModule } from '@modulos/profesor/profesorprf.module';
 
 
     //LOGIN
-    LoginModule
+    LoginModule,
+
+
   ],
   exports: [
     CommonModule,
     InicioModule,
     LayoutModule,
-
-    //ADMINISTRADOR
     ModulosModule,
-    ComunidadModule,
-    EstadocivilModule,
-    SexoModule,
+    /*  //ADMINISTRADOR
+     ModulosModule,
+     ComunidadModule,
+     EstadocivilModule,
+     SexoModule,
+     MatriculaModule,
 
-     //PARTE DEL PROFESOR
-     ProfesorprfModule,
+      //PARTE DEL PROFESOR
+      ProfesorprfModule,
 
-    //PARTE DEL ESTUDIANTE
-    EstudianteestModule,
+     //PARTE DEL ESTUDIANTE
+     EstudianteestModule, */
 
 
     ReactiveFormsModule,

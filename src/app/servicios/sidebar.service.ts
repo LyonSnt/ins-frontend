@@ -26,11 +26,11 @@ export class SidebarService {
 
   menuAdmin1: any[] = [
     {
-      titulo: 'Matricula',
+      titulo: 'Matricular',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
         { titulo: 'Estudiante', url: 'estudiante/listar', icono: 'fa fa-users' },
-        { titulo: 'Productos', url: 'usuarios', icono: 'fa fa-cubes' },
+        { titulo: 'Matricula', url: 'matricula/listar', icono: 'fa fa-cubes' },
         { titulo: 'Categoria', url: 'usuarios', icono: 'fa fa-cubes' }
       ]
     }

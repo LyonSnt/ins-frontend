@@ -15,23 +15,25 @@ import { DashboardEstComponent } from '@modulos/estudiante/dashboard-est/dashboa
 import { NopageadmFoundComponent } from './nopage-found/nopageadm-found/nopageadm-found.component';
 import { NopageprfFoundComponent } from './nopage-found/nopageprf-found/nopageprf-found.component';
 import { NopageestFoundComponent } from './nopage-found/nopageest-found/nopageest-found.component';
+import { AgregarSexoComponent } from '@modulos/sexo/agregar-sexo/agregar-sexo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'nopage1', component: NopageadmFoundComponent },
-   { path: 'nopage2', component: NopageprfFoundComponent },
+  { path: 'nopage2', component: NopageprfFoundComponent },
   { path: 'nopage3', component: NopageestFoundComponent },
+  { path: 'sexo', component: AgregarSexoComponent},
 
   {
     path: 'admin',
     component: EstructuraAdm1Component, canActivate: [LoginGuard, IsAdminGuard],
     /*     component: EstructuraAdmComponent, canActivate: [LoginGuard, IsAdminGuard], */
     children: [
-     /*  { path: 'nopage1', component: NopageadmFoundComponent },
-      { path: 'nopage2', component: NopageprfFoundComponent },
-      { path: 'nopage3', component: NopageestFoundComponent }, */
+      /*  { path: 'nopage1', component: NopageadmFoundComponent },
+       { path: 'nopage2', component: NopageprfFoundComponent },
+       { path: 'nopage3', component: NopageestFoundComponent }, */
       { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
 
       {
@@ -43,6 +45,11 @@ const routes: Routes = [
         path: 'estudiante',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/estudiante/estudiante.module').then((m) => m.EstudianteModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
+        path: 'matricula',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/matricula/matricula.module').then((m) => m.MatriculaModule) //carga todos los modulos cuando esten ya listas
       }
     ]
   },
@@ -50,7 +57,7 @@ const routes: Routes = [
     path: 'prof', component: EstructuraPrfComponent, canActivate: [LoginGuard, IsProfeGuard],
 
     children: [
-    /*   { path: 'nopage2', component: NopageprfFoundComponent }, */
+      /*   { path: 'nopage2', component: NopageprfFoundComponent }, */
       { path: 'dashboard', component: DashboardPrfComponent, data: { titulo: 'Dashboard' } },
 
       {
@@ -58,11 +65,11 @@ const routes: Routes = [
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/profesor/profesorprf.module').then((m) => m.ProfesorprfModule) //carga todos los modulos cuando esten ya listas
       },
-    /*   {
-        path: 'estudiante',
-        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
-          import('@modulos/administrador/estudiante/estudiante.module').then((m) => m.EstudianteModule) //carga todos los modulos cuando esten ya listas
-      } */
+      /*   {
+          path: 'estudiante',
+          loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+            import('@modulos/administrador/estudiante/estudiante.module').then((m) => m.EstudianteModule) //carga todos los modulos cuando esten ya listas
+        } */
     ]
 
   },
@@ -70,7 +77,7 @@ const routes: Routes = [
     path: 'est', component: EstructuraEstComponent, canActivate: [LoginGuard, IsEstuGuard],
 
     children: [
-     /*  { path: 'nopage3', component: NopageestFoundComponent }, */
+      /*  { path: 'nopage3', component: NopageestFoundComponent }, */
       { path: 'dashboard', component: DashboardEstComponent, data: { titulo: 'Dashboard' } },
 
       {
