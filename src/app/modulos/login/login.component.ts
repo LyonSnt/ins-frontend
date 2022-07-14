@@ -4,8 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '@servicios/login.service';
-import { AuthServiceService } from '@servicios/auth-service.service';
-import { ErrorTailorModule } from '@ngneat/error-tailor';
 import { HttpHeaders } from '@angular/common/http';
 
 

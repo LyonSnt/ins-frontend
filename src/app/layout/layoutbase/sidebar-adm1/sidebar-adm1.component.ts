@@ -30,8 +30,8 @@ export class SidebarAdm1Component implements OnInit {
     this.menuItems12 = this._sidebarServicio.dashboard;
     this.menuItems1 = this._sidebarServicio.menuAdmin1;
     this.menuItems2 = this._sidebarServicio.menuAdmin2;
-    this.menuItems3 = this._sidebarServicio.menuAdmin3;
-
+   /*  this.menuItems3 = this._sidebarServicio.menuAdmin3;
+ */
     this.cerrarSesion = this._sidebarServicio._cerarSesion;
 
   }
@@ -40,7 +40,7 @@ export class SidebarAdm1Component implements OnInit {
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token);  //ESTA PARTE TRAE LA FOTO GRANDE
 
-    
+
   }
 
   logout() {

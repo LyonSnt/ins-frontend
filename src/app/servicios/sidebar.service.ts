@@ -26,19 +26,19 @@ export class SidebarService {
 
   menuAdmin1: any[] = [
     {
-      titulo: 'Matricular',
+      titulo: 'Administrar',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
         { titulo: 'Estudiante', url: 'estudiante/listar', icono: 'fa fa-users' },
-        { titulo: 'Matricula', url: 'matricula/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Categoria', url: 'usuarios', icono: 'fa fa-cubes' }
+        { titulo: 'Matriculado', url: 'matricula/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Nota', url: 'nota/agregar', icono: 'fa fa-cubes' }
       ]
     }
   ];
 
   menuAdmin2: any[] = [
     {
-      titulo: 'Administrar',
+      titulo: 'Categoria',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
         { titulo: 'Iglesia', url: 'estudiante/listar', icono: 'fa fa-users' },

@@ -6,13 +6,21 @@ export class Matricula {
   mes_id: number;
   ani_id: number;
   aul_id: number;
+  mtr_estado: number;
+
   nombre: string;
   ape: string;
   asg_nombre: string;
   mes_nombre: string;
   ani_anio: string;
   aul_nombre: string;
-  mtr_estado: number;
+  niv_descripcion: string;
+  tri_descripcion: string;
+
+  valorpagar: string;
+
+  abona: string;
+  saldo: string;
   data: any;
 }
 

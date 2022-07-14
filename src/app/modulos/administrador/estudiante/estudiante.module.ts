@@ -6,6 +6,7 @@ import { ListarEstudianteComponent } from './listar-estudiante/listar-estudiante
 import { EstudianteRoutingModule } from './estudiante-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -20,6 +21,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     EstudianteRoutingModule,    //AQUI IMPORTAMOS PARA QUE LA RUTA SE HABILITE Y FUNCIONE
     ReactiveFormsModule,
     NgbPaginationModule,
+    NgxPaginationModule,
 
 
   ]

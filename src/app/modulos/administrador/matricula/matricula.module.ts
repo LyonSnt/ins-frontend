@@ -4,18 +4,24 @@ import { MatriculaRoutingModule } from './matricula-routing.module';
 import { AgregarMatriculaComponent } from './agregar-matricula/agregar-matricula.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListarMatriculaComponent } from './listar-matricula/listar-matricula.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ImprimirMatriculaComponent } from './imprimir-matricula/imprimir-matricula.component';
+
 
 
 
 @NgModule({
   declarations: [
     AgregarMatriculaComponent,
-    ListarMatriculaComponent
+    ListarMatriculaComponent,
+    ImprimirMatriculaComponent
   ],
   imports: [
     CommonModule,
     MatriculaRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
+
   ]
 })
 export class MatriculaModule { }

@@ -5,6 +5,7 @@ export interface ICarouselItem {
       second: string;
   };
   subtitle?: string;
+  imagenlogo?: string;
   link?: string;
   image: string;
   order?: number;

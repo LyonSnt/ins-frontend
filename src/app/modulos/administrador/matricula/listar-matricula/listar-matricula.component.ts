@@ -3,6 +3,12 @@ import { MatriculaService } from '@servicios/matricula.service';
 import { Matricula } from '@modelos/matricula.model';
 import { LoginService } from '@servicios/login.service';
 
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+
+
 @Component({
   selector: 'app-listar-matricula',
   templateUrl: './listar-matricula.component.html',
@@ -17,7 +23,10 @@ export class ListarMatriculaComponent implements OnInit {
 
   cont = 1;
 
-  public n : number = 0;
+  pageactual: number = 1;
+
+  public n: number = 0;
+
 
   constructor(
     private _matriculaServicio: MatriculaService,
@@ -35,17 +44,19 @@ export class ListarMatriculaComponent implements OnInit {
 
   }
 
+
+
   buscarmatriculaH() {
     this._matriculaServicio.modeloMatriculaH.subscribe(res => {
       this.buscarmatriculaaHM = res;
-    //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
+      //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
 
     });
   }
   buscarmatriculaM() {
     this._matriculaServicio.modeloMatriculaM.subscribe(res => {
       this.buscarmatriculaaHM = res;
-    //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
+      //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
 
     });
   }
@@ -61,4 +72,22 @@ export class ListarMatriculaComponent implements OnInit {
 
   }
 
+  crearPdf() {
+    const document = this._matriculaServicio.obtenerDatosMatricula();
+    pdfMake.createPdf(document).open();
+  }
+
+  /* creaPdfPrueba() {
+    const pdfData: any = {
+      content: [
+        {
+          text: 'Holaaa'
+        }
+      ]
+    }
+
+    const pdf = pdfMake.createPdf(pdfData);
+    pdf.open();
+  }
+ */
 }

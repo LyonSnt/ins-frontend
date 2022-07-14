@@ -70,6 +70,8 @@ export class AgregarMatriculaComponent implements OnInit {
       aul_id: ['', [Validators.required]],
 
     }); */
+
+
   }
 
   ngOnInit(): void {
@@ -127,12 +129,15 @@ export class AgregarMatriculaComponent implements OnInit {
 
   }
 
+
+
+
   obtenerDato() {
 
     if (this.idEstudiante) {
       this._estudianteServicio._buscarEstudiantePorId(this.idEstudiante).subscribe((dato: IEstudiante) => {
         this.datos = dato;
-      //  console.log("DATO ESTUDIANTE: ", this.datos.id);
+        //  console.log("DATO ESTUDIANTE: ", this.datos.id);
       },
         (error) => {
           this.mensajeError = error;
@@ -160,7 +165,7 @@ export class AgregarMatriculaComponent implements OnInit {
       }
       this._asignaturaServicio._cargarNivelH(obj).subscribe((dato) => {
         this.materia = dato;
-      //  console.log("CARGAR MATERIA: ", this.materia);
+        //  console.log("CARGAR MATERIA: ", this.materia);
 
       });
     } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
@@ -202,13 +207,14 @@ export class AgregarMatriculaComponent implements OnInit {
 
 
   crear() {
-     this._matriculaServicio._createMatricula(this.form.value).subscribe(r => {
+    this._matriculaServicio._createMatricula(this.form.value).subscribe(r => {
       this.toastr.success(JSON.stringify('La matricula fue registrada con exito'),
         JSON.stringify('Registrado'), {
         timeOut: 2000,
         progressBar: true
       });
-     this.ruteador.navigateByUrl('/admin/estudiante/listar')
+      this.ruteador.navigateByUrl('/admin/matricula/imp2022::')
+    //  window.location.reload();
 
     });
   }

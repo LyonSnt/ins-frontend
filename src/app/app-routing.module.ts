@@ -35,12 +35,6 @@ const routes: Routes = [
        { path: 'nopage2', component: NopageprfFoundComponent },
        { path: 'nopage3', component: NopageestFoundComponent }, */
       { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
-
-      {
-        path: 'comunidad',
-        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
-          import('@modulos/administrador/comunidad/comunidad.module').then((m) => m.ComunidadModule) //carga todos los modulos cuando esten ya listas
-      },
       {
         path: 'estudiante',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
@@ -50,6 +44,11 @@ const routes: Routes = [
         path: 'matricula',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/matricula/matricula.module').then((m) => m.MatriculaModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
+        path: 'nota',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/nota/nota.module').then((m) => m.NotaModule) //carga todos los modulos cuando esten ya listas
       }
     ]
   },

@@ -1,3 +1,4 @@
+import { NotaModule } from './administrador/nota/nota.module';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '@modulos/login/login.component';
 import { NgModule } from '@angular/core';
@@ -32,6 +33,8 @@ import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component
     SexoModule,
     MatriculaModule,
     NivelModule,
+    NotaModule,
+
 
     //PARTE DEL PROFESOR
     ProfesorprfModule,
@@ -49,6 +52,7 @@ import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component
     SexoModule,
     MatriculaModule,
     NivelModule,
+    NotaModule,
 
     //PARTE DEL PROFESOR
     ProfesorprfModule,

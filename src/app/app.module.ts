@@ -14,6 +14,10 @@ import { NopageadmFoundComponent } from './nopage-found/nopageadm-found/nopagead
 import { NopageprfFoundComponent } from './nopage-found/nopageprf-found/nopageprf-found.component';
 import { NopageestFoundComponent } from './nopage-found/nopageest-found/nopageest-found.component';
 
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 
 @NgModule({
