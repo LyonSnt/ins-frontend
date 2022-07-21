@@ -16,6 +16,8 @@ import { NopageadmFoundComponent } from './nopage-found/nopageadm-found/nopagead
 import { NopageprfFoundComponent } from './nopage-found/nopageprf-found/nopageprf-found.component';
 import { NopageestFoundComponent } from './nopage-found/nopageest-found/nopageest-found.component';
 import { AgregarSexoComponent } from '@modulos/sexo/agregar-sexo/agregar-sexo.component';
+import { ListarSexoComponent } from '@modulos/sexo/listar-sexo/listar-sexo.component';
+import { EditarSexoComponent } from '@modulos/sexo/editar-sexo/editar-sexo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'nopage2', component: NopageprfFoundComponent },
   { path: 'nopage3', component: NopageestFoundComponent },
   { path: 'sexo', component: AgregarSexoComponent},
+  { path: 'listar/:id', component: ListarSexoComponent},
+  { path: 'editar/:id', component: EditarSexoComponent},
 
   {
     path: 'admin',
@@ -49,6 +53,11 @@ const routes: Routes = [
         path: 'nota',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/nota/nota.module').then((m) => m.NotaModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
+        path: 'comunidad',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/comunidad/comunidad.module').then((m) => m.ComunidadModule) //carga todos los modulos cuando esten ya listas
       }
     ]
   },
@@ -98,7 +107,11 @@ const routes: Routes = [
 
 @NgModule({
   //imports: [RouterModule.forRoot(routes, { useHash: true })], //EL USEHASH ES PARA QUE QUITE EL GATO INICIAL DE ANGULAR AL MOMENTO DE AGREGAR LA RUTA
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { useHash: true })
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }

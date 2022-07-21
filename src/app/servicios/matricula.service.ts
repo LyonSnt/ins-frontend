@@ -7,9 +7,6 @@ import { environment } from 'environments/environment.prod';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { EstudianteService } from './estudiante.service';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,13 +17,13 @@ export class MatriculaService {
   modeloMatricula2 = new BehaviorSubject<Matricula[]>(null!);
   modeloMatriculaH = new BehaviorSubject<Matricula[]>(null!);
   modeloMatriculaM = new BehaviorSubject<Matricula[]>(null!);
+  modeloMatriculaHn = new BehaviorSubject<Matricula[]>(null!);
+  modeloMatriculaId = new BehaviorSubject<Matricula[]>(null!);
   parametre: any = {};
   list: any = [];
-
   anioActual: number;
   tiempoTranscurrido: number;
   hoy: Date;
-
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -37,27 +34,22 @@ export class MatriculaService {
     private _estudianteServ: EstudianteService,
     private _institucionServicio: InstitucionService,
 
-
   ) {
-
 
     this.anioActual = new Date().getFullYear();
 
-   // console.log("AÑO ACTUAL2", this.anioActual);
-
-/*     this.tiempoTranscurrido = Date.now(); */
-  /*   console.log("AÑO ACTUAL4", this.tiempoTranscurrido);
-     this.hoy = new Date(this.tempoTranscurrido);
- */
-
-
     this._buscarmatriculaH("");
     this._buscarmatriculaM("");
+    this._buscarmatriculaHn("");
     this.obtenerDatosMatricula();
+    this._matriculaId();
+
+    this._leer4();
+
   }
 
   _createMatricula(matricula): Observable<IMatricula> {
-    return this.http.post<IMatricula>(this.urlLaravel + "matricula", JSON.stringify(matricula), this.httpOptions)
+    return this.http.post<IMatricula>(this.urlLaravel + "crearMatricula", JSON.stringify(matricula), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -67,6 +59,7 @@ export class MatriculaService {
   _createMatricula2(rv2: IMatricula): Observable<IMatricula> {
     return this.http.post<IMatricula>(this.urlLaravel + "matricula", rv2)
   }
+
   _listarMatriculaH(): Observable<IMatricula[]> {
     return this.http.get<IMatricula[]>(this.urlLaravel + "matricula")
       .pipe(
@@ -74,8 +67,25 @@ export class MatriculaService {
       )
   }
 
-  _buscarMatriculaPorId(id): Observable<IMatricula> {
-    return this.http.get<IMatricula>(this.urlLaravel + "matricula" + '/' + id)
+  _leer4() {
+    return this.http.get(this.urlLaravel + "ultimoDatoMatricula").subscribe(res => {
+      var r: any = res;
+      this.modeloMatriculaId.next(r.datoDesdeLaravel);
+
+    //  console.log("In services:", this.modeloMatriculaId.value);
+
+    });
+  }
+
+  _matriculaId(): Observable<Matricula[]> {
+    return this.http.get<Matricula[]>(this.urlLaravel + "ultimodato")
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+  _buscarMatriculaPorId(id): Observable<Matricula> {
+    return this.http.get<Matricula>(this.urlLaravel + "matricula23" + '/' + id)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -101,17 +111,23 @@ export class MatriculaService {
         catchError(this.errorHandler)
       )
   }
-
   _buscarmatriculaH(query) {
     return this.http.post(this.urlLaravel + "buscarmatriculaH?buscar=" + query, null).subscribe(res => {
       var r: any = res;
       this.modeloMatriculaH.next(r.data);
     });
   }
+
   _buscarmatriculaM(query) {
     return this.http.post(this.urlLaravel + "buscarmatriculaM?buscar=" + query, null).subscribe(res => {
       var r: any = res;
       this.modeloMatriculaM.next(r.data);
+    });
+  }
+  _buscarmatriculaHn(query) {
+    return this.http.post(this.urlLaravel + "buscarmatriculaHn?buscar=" + query, null).subscribe(res => {
+      var r: any = res;
+      this.modeloMatriculaHn.next(r.data);
     });
   }
 
@@ -123,7 +139,6 @@ export class MatriculaService {
 
       })
   }
-
 
 
   obtenerDatosMatricula() {

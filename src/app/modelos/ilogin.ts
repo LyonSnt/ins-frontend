@@ -1,5 +1,3 @@
-import { ROLES_ENUM } from "app/enum/roles.enum";
-
 export interface ILogin {
   id?: number;
   name: string;
@@ -7,6 +5,4 @@ export interface ILogin {
   password: string;
   id_rol: number;
   accessToken: string;
-
-  //esValido: () => boolean;
 };

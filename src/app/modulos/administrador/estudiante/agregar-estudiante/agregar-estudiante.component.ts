@@ -16,27 +16,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AgregarEstudianteComponent implements OnInit {
 
-
   public form: FormGroup;
-  listarch: IEstudiante[] = [];
-
-  data2: any;
-  listar: any;
-  data34: any;
   listaSexo: any;
   listaEstadocivil: any;
   listaIglesia: any;
-
   recarga = false;
-
-  estudiante = new Estudiante2();
-
-  public archivos: any = [];
-
   imgSrc: string = '/assets/images/estudiante/image_placeholder.jpg';
-  selectedImage: any = null;
-
   files: any;
+  datoUltimoDato: Estudiante2[];
+
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
@@ -49,17 +37,21 @@ export class AgregarEstudianteComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       sex_descripcion: ['', Validators.required],
-      est_cedula: ['', Validators.required],
-      est_apellido: ['', Validators.required],
-      est_nombre: ['', Validators.required],
-      sex_id: ['', Validators.required],
-      esc_id: ['', Validators.required],
+      est_cedula: ['202020202', Validators.required],
+      est_apellido: ['dddd', Validators.required],
+      est_nombre: ['sss', Validators.required],
+      sex_id: ['1', Validators.required],
+      esc_id: ['1', Validators.required],
       est_fechanacimiento: ['', Validators.required],
       est_fechabautismo: ['', Validators.required],
       est_celular: ['', Validators.required],
       est_direccion: ['', Validators.required],
-      igl_id: ['', Validators.required],
+      igl_id: ['1', Validators.required],
       est_imagen: [null, Validators.required],
+      est_correo: ['d@gmail.com', Validators.required],
+      est_rol: ['Estudiante', Validators.required],
+      usuario_id: ['', [Validators.required]],
+      est_contra: ['', [Validators.required]],
 
     });
   }
@@ -77,10 +69,27 @@ export class AgregarEstudianteComponent implements OnInit {
       this.listaIglesia = dato;
     });
 
+
+    this.ultimoDato();
+
   }
 
   subirimagen(event) {
     this.files = event.target.files[0];
+  }
+
+  /*  ultimoDatoOriginal() {
+     this._servicioEstudiate.modeloUltimoDato.subscribe(res => {
+       this.datoUltimoDato = res;
+       console.log("DATOS ULTIMOS", this.datoUltimoDato);
+     });
+   } */
+
+  ultimoDato() {
+      this._servicioEstudiate._ultimodato().subscribe(res => {
+        this.datoUltimoDato = res;
+        console.log("DATOS ULTIMOS", this.datoUltimoDato);
+      });
   }
 
   crearEstudiante2() {
@@ -100,52 +109,22 @@ export class AgregarEstudianteComponent implements OnInit {
     formData.append("est_celular", this.form.get('est_celular')?.value);
     formData.append("est_direccion", this.form.get('est_direccion')?.value);
     formData.append("igl_id", this.form.get('igl_id')?.value);
-    this._servicioEstudiate.uploadData(formData).subscribe(r => {
+
+    formData.append("est_correo", this.form.get('est_correo')?.value);
+    formData.append("est_rol", this.form.get('est_rol')?.value);
+    formData.append("usuario_id", this.form.get('usuario_id')?.value);
+    formData.append("est_contra", this.form.get('est_contra')?.value);
+
+    this._servicioEstudiate._crearEstudiante(formData).subscribe(r => {
 
       this.toastr.success(JSON.stringify('El Estudiante fue registrado con exito'),
         JSON.stringify('Registrado'), {
         timeOut: 2000,
         progressBar: true
       });
-      this.ruteador.navigateByUrl('/admin/estudiante/listar');
+      // this.ruteador.navigateByUrl('/admin/estudiante/listar');
     });
 
-  }
-
-  capturarImagen2(event): any {
-
-    const archivoCapturado = event.target.files[0];
-    this.archivos.push(archivoCapturado);
-    console.log(this.archivos);
-
-  }
-
-  capturarImagen(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => this.imgSrc = e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-      console.log(' NO SE QUE ES', this.selectedImage);
-
-    } else {
-      this.imgSrc = '/assets/images/estudiante/image_placeholder.jpg';
-      this.selectedImage = null;
-    }
-  }
-
-
-  selectChange(event: any) {
-    if (event.target.files.length > 0) {
-      this.files = event.target.files;
-      let reader = new FileReader();
-      reader.readAsDataURL(this.files[0]);
-      reader.onloadend = (event: any) => {
-        this.imgSrc = event.target.result;
-      }
-    } else {
-      this.imgSrc;
-    }
   }
 
 }

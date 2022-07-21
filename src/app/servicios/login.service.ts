@@ -1,10 +1,9 @@
-import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILogin } from '@modelos/ilogin';
-import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 import { environment } from 'environments/environment.prod';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,35 +13,21 @@ export class LoginService {
   private urlLaravel = environment.baseLaravel;
 
   datos: any = {};
-  token: any;
-  userData: any;
+
   constructor(
     private http: HttpClient,
     private ruteador: Router) {
 
   }
 
-  crear(rv2: ILogin): Observable<ILogin> {
-    return this.http.post<ILogin>(this.urlLaravel + "login", rv2)
-  }
-
-  login(usuario: ILogin) {
-/* 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    });
- */
+  _login(usuario: ILogin) {
     return this.http.post(this.urlLaravel + "login", usuario);
   }
 
-  logout() {
-    return this.http.post(this.urlLaravel + "cerrarSesion", null);
-  }
-
-
-  listarPrueba11(): Observable<ILogin[]> {
-    return this.http.get<ILogin[]>(this.urlLaravel + "login");
-
+  IsAdmin() {
+    this.datos = localStorage.getItem("id_rol");
+   // console.log("Rol en services", this.datos);
+    return this.datos;
   }
 
   remove() {
@@ -50,46 +35,17 @@ export class LoginService {
     return this.ruteador.navigateByUrl('/');
   }
 
-  getToken() {
-    return localStorage.getItem('token');
-  }
-
   IsLogged() {
     return localStorage.getItem("token") != null;
   }
 
-  IsAdmin() {
-    this.datos = localStorage.getItem("id_rol");
-   // console.log("Rol en services", this.datos);
-    return this.datos;
-
+/*
+  logout() {
+    return this.http.post(this.urlLaravel + "cerrarSesion", null);
   }
-
-
-  IsUsuario() {
-    this.datos = localStorage.getItem("id_rol");
-    console.log("Rol en services", this.datos);
-    return this.datos;
-
+  getToken() {
+    return localStorage.getItem('token');
   }
-
-
-  IsAdmint(){
-    this.datos = JSON.parse(JSON.stringify(localStorage.getItem('token')));
-    console.log("Rol en services", this.datos.id_rol);
-
- /*    const decoded = jwt_decode(this.datos);
-
-    console.log("DCODOG¿FICADOR", decoded); */
-
-    return this.datos.id_rol;
-
-  }
-
-  IsAdmin23(token: string): void {
-    const decode = jwt_decode<ILogin>(token);
-    localStorage.setItem('token', token);
-    localStorage.setItem('id_rol', JSON.stringify(decode.id_rol));
-  }
+ */
 
 }

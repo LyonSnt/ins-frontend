@@ -1,4 +1,4 @@
-import decode from 'jwt-decode';
+/* import decode from 'jwt-decode';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { LoginService } from '@servicios/login.service';
@@ -19,7 +19,7 @@ export class RoleGuardServiceGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    /*   JSON.stringify(this.data2.code)
+      JSON.stringify(this.data2.code)
       const expectedRole = route.data.expectedRole;
       const token = localStorage.getItem('token');
      const tokenPayload = decode(token!);
@@ -31,8 +31,9 @@ export class RoleGuardServiceGuard implements CanActivate {
         this.router.navigate(['/logadm']);
         return false;
       }
-      return true; */
+      return true;
       return true;
   }
 
 }
+ */

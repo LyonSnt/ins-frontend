@@ -89,9 +89,9 @@ export class SidebarService {
     titulo: 'Administrar',
     icono: 'nav-icon fas fa-tachometer-alt',
     submenu: [
-      { titulo: 'Usuarios', url: 'usuarios', icono: 'fa fa-users' },
-      { titulo: 'Productos', url: 'usuarios', icono: 'fa fa-cubes' },
-      { titulo: 'Categoria', url: 'usuarios', icono: 'fa fa-cubes' }
+      { titulo: 'Matriculados', url: 'prf2022::/matriculados', icono: 'fa fa-users' },
+      { titulo: 'Asistencia', url: 'usuarios', icono: 'fa fa-cubes' },
+      { titulo: 'Notas', url: 'usuarios', icono: 'fa fa-cubes' }
     ]
   }];
 

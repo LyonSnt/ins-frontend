@@ -1,33 +1,3 @@
-<!-- <div class="container w-75 mt-5 rounded shadow">
-  <div class="row align-items-stretch">
-    <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
-
-    </div>
-    <div class="col p-5 rounded-end">
-      <div class="text-end">
-        <img src="./assets/images/logo/lo2.png" width="50" alt="">
-      </div>
-      <h2 class="fw-bold text-center py-5"> Bienvenido</h2>
-      <form action="#">
-        <div class="mb-4">
-          <label for="email" class="form-label text-left"> Correo Electronico</label>
-          <input type="email" class="form-control">
-        </div>
-        <div class="mb-4">
-          <label for="password" class="form-label text-center"> Contraseña</label>
-          <input type="password" class="form-control">
-        </div>
-        <div class="d-grid">
-          <button type="submit" class="btn btn-primary">Iniciair sesion</button>
-        </div>
-
-      </form>
-
-    </div>
-  </div>
-</div> -->
-
-
 <div class="container w-75 rounded shadow bg-white">
   <div class="row align-items-stretch">
     <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
@@ -42,13 +12,13 @@
       <h5 class="fw-bold text-center">Instituto Bíblico Alianza Otavalo</h5>
       <h6 class="fw-bold text-center py-3"> Bienvenido/a</h6>
 
-      <form [formGroup]="form" (ngSubmit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="login()">
         <div class="input-group input-group mb-4">
           <span class="input-group-text">
             <i class="fas fa-user-circle"></i>
           </span>
           <input type="email" formControlName="email" class="form-control" placeholder="Usuario"
-            [class]="isvaldaFiled('email')">
+            [class]="validarCampo('email')">
           <div *ngIf="!form.get('email')?.valid" class="invalid-feedback">
             <div *ngIf="form.get('email')?.hasError('required')"> El usuario es requerido</div>
             <div *ngIf="form.get('email')?.hasError('email')">Debe tener el formato de correcto</div>
@@ -61,7 +31,7 @@
             <i class="fas fa-key"></i>
           </span>
           <input type="password" formControlName="password" class="form-control" placeholder="Contraseña"
-            [class]="isvaldaFiled('password')">
+            [class]="validarCampo('password')">
           <div *ngIf="!form.get('password')?.valid" class="invalid-feedback">
             <div *ngIf="form.get('password')?.hasError('required')"> La contraseña es requerido</div>
             <div *ngIf="form.get('password')?.hasError('minlength')">Debe tener al menos 6 caracteres</div>

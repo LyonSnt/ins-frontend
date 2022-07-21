@@ -6,9 +6,18 @@ import { RegistroacademicoEstComponent } from './registroacademico-est/registroa
 
 const routes: Routes = [
 
-  { path: 'perfil', component: PerfilEstComponent, data: {titulo: 'Perfil'} },
-  { path: 'regacademico', component: RegistroacademicoEstComponent, data: {titulo: 'Registro Academico'} },
-  { path: 'notas', component: NotasEstComponent, data: {titulo: 'Notas'} },
+  {
+    path: '',
+    children: [
+      { path: 'perfil', component: PerfilEstComponent, data: { titulo: 'Perfil' } },
+      { path: 'regacademico', component: RegistroacademicoEstComponent, data: { titulo: 'Registro Academico' } },
+      { path: 'notas', component: NotasEstComponent, data: { titulo: 'Notas' } },
+      { path: '**', redirectTo: 'est/est2022::/perfil' }
+
+    ]
+
+  }
+
 
 ];
 

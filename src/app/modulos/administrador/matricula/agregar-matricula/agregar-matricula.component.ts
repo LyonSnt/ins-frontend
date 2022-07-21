@@ -1,5 +1,5 @@
 import { AnioacademicoService } from './../../../../servicios/anioacademico.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { IEstudiante } from '@modelos/iestudiante';
@@ -20,7 +20,8 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-agregar-matricula',
   templateUrl: './agregar-matricula.component.html',
-  styleUrls: ['./agregar-matricula.component.scss']
+  styleUrls: ['./agregar-matricula.component.scss'],
+
 })
 export class AgregarMatriculaComponent implements OnInit {
   listaNivel: any = [];
@@ -28,7 +29,6 @@ export class AgregarMatriculaComponent implements OnInit {
   public datos: IEstudiante = {} as IEstudiante;
 
   public form: FormGroup;
-  listaProfesor: any;
   listaMes: any;
   listaAnioacademico: any;
   listAula: any;
@@ -36,9 +36,16 @@ export class AgregarMatriculaComponent implements OnInit {
 
   trimestre: any;
   idEstudiante: any;
+
   public mensajeError: string | null = null;
 
-  idestudiante2 = this.datos.id;
+  public datoMatriculaId: any;
+
+  datosMatriId: Matricula[];
+
+  seleccionadoAnio = 6;
+  seleccionadoAula = 1;
+  seleccionadoMatricula = 1;
 
   constructor(
     private _nivelServicio: NivelService,
@@ -56,24 +63,8 @@ export class AgregarMatriculaComponent implements OnInit {
     private toastr: ToastrService,
     private ruteador: Router
   ) {
-    /* this.form = this.fb.group({
-      est_id: ['', [Validators.required]],
-      asg_id: ['', [Validators.required]],
-      niv_id: ['', [Validators.required]],
-      sex_id: ['', [Validators.required]],
-      tri_id: ['', [Validators.required]],
-      est_cedula: ['', [Validators.required]],
-      est_apellido: ['', [Validators.required]],
-      est_nombre: ['', [Validators.required]],
-      mes_id: ['', [Validators.required]],
-      ani_id: ['', [Validators.required]],
-      aul_id: ['', [Validators.required]],
-
-    }); */
-
 
   }
-
   ngOnInit(): void {
     this._nivelServicio._listarNivel().subscribe((dato: any) => {
       this.listaNivel = dato;
@@ -90,8 +81,6 @@ export class AgregarMatriculaComponent implements OnInit {
     this._aulaServicio._listarAula().subscribe((dato: any) => {
       this.listAula = dato;
     });
-
-
 
     if (this._servicioLogin.IsAdmin() == 'Administrador') {
       this._trimestreServicio._listarTrimestreH().subscribe((dato: any) => {
@@ -114,6 +103,7 @@ export class AgregarMatriculaComponent implements OnInit {
 
     this.form = this.fb.group({
       est_id: [this.idEstudiante, [Validators.required]],
+      mtr_id: ['', [Validators.required]],
       asg_id: ['', [Validators.required]],
       niv_id: ['', [Validators.required]],
       sex_id: ['', [Validators.required]],
@@ -126,11 +116,25 @@ export class AgregarMatriculaComponent implements OnInit {
       aul_id: ['', [Validators.required]],
 
     });
+    this.obtenerIdmat();
 
   }
 
+  obtenerIdmat() {
+    /*   const comunidad: any = {
+        est_cedula: this.form.get('est_cedula')?.value,
+        mtr_id: this.form.get('mtr_id')?.value,
+        est_nombre: this.form.get('est_nombre')?.value,
+
+      } */
+    this._matriculaServicio.modeloMatriculaId.subscribe(res => {
+      this.datosMatriId = res;
+      console.log("DATOS MUJERES", this.datosMatriId);
 
 
+    });
+
+  }
 
   obtenerDato() {
 
@@ -214,12 +218,9 @@ export class AgregarMatriculaComponent implements OnInit {
         progressBar: true
       });
       this.ruteador.navigateByUrl('/admin/matricula/imp2022::')
-    //  window.location.reload();
+      //  window.location.reload();
 
     });
   }
-
-
-
 
 }

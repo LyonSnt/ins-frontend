@@ -24,6 +24,12 @@ export class ProfesorService {
         catchError(this.errorHandler)
       )
   }
+  _matriculaEstudiateProfesor(id): Observable<IProfesor> {
+    return this.http.get<IProfesor>(this.urlLaravel + "matriculaEstudiateProfesor" + '/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
 
   uploadData(data) {
     const headers = new HttpHeaders();

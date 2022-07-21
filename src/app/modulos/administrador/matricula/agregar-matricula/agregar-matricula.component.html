@@ -12,6 +12,20 @@
 
           <form [formGroup]="form" (ngSubmit)="crear()">
 
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select formControlName="mtr_id" class="form-control">
+                <option value="">--Seleccione Num Matricula--</option>
+                <option [value]="datosMatriId">
+                  {{'Matricula'+ ' '+ '000'+datosMatriId}}
+                </option>
+              </select>
+            </div>
+
+
 
             <div class="input-group input-group mb-3">
               <span class="input-group-text">
@@ -105,8 +119,8 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <select formControlName="ani_id" class="form-control">
-                <option value="">--Seleccione Año--</option>
+              <select formControlName="ani_id" class="form-control" [ngModel]="seleccionadoAnio">
+               <!--  <option value="">--Seleccione Año--</option> -->
                 <option [value]="anioacade.id" *ngFor="let anioacade of listaAnioacademico">
                   {{anioacade.ani_anio}}
                 </option>
@@ -118,7 +132,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <select formControlName="aul_id" class="form-control">
+              <select formControlName="aul_id" class="form-control" [ngModel]="seleccionadoAula">
                 <option value="">--Seleccione Aula--</option>
                 <option [value]="aula.id" *ngFor="let aula of listAula">
                   {{aula.aul_nombre}}
@@ -142,3 +156,4 @@
   </div>
 
 </div>
+

@@ -20,7 +20,8 @@ import { ImprimirMatriculaComponent } from './imprimir-matricula/imprimir-matric
     CommonModule,
     MatriculaRoutingModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
 
   ]
 })

@@ -1,62 +1,63 @@
 <div class="container-fluid">
   <!-- routerLink="/panel/sexo/agregar" -->
 
-  <button (click)="crearPdf()"> crear pdf</button>
+  <!-- <button (click)="crearPdf()"> crear pdf</button> -->
   <div class="lyon-card-header card-header text-center">
 
     <div class="search-box">
       <input name="buscador" #buscarInput (keyup)="buscar(buscarInput.value)" type="text" class="form-control"
         placeholder="Buscar">
     </div>
+  </div>
+  <div class="lyon-card2 card text-center mt-2">
 
-    <div class="lyon-card2 card text-center mt-2">
+    <div class="lyon-card-header card-header">
+      <h4>LISTA DE MATRICULADOS</h4>
 
-      <div class="lyon-card-header card-header">
-        <h4>LISTA DE MATRICULADOS</h4>
-
-      </div>
-      <div class="card-body">
-
-
-        <table class="table table-striped table-hover table-responsive-lg">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Estudiante</th>
-              <th>Materia</th>
-              <th>Mes</th>
-              <th>Año</th>
-              <th>Aula</th>
-              <th>Estado</th>
-              <th>Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let aux of buscarmatriculaaHM | paginate: { itemsPerPage: 3, currentPage: pageactual }; let item=index;">
+    </div>
+    <div class="card-body">
 
 
-              <td>{{item+1}}</td>
-             <!--  <td>{{aux.id}}</td> -->
-             <td>{{aux.ape+' '+aux.nombre}}</td>
-              <td>{{aux.asg_nombre}}</td>
-              <td>{{aux.mes_nombre}}</td>
-              <td>{{aux.ani_anio}}</td>
-              <td>{{aux.aul_nombre}}</td>
-              <td *ngIf="aux.mtr_estado==1">MASCULINO</td>
-              <td *ngIf="aux.mtr_estado==0">FEMENINO</td>
+      <table class="table table-striped table-hover table-responsive-lg">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Estudiante</th>
+            <th>Materia</th>
+            <th>Mes</th>
+            <th>Año</th>
+            <th>Aula</th>
+            <th>Estado</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let aux of buscarmatriculaaHM | paginate: { itemsPerPage: 3, currentPage: pageactual }; let item=index;">
 
-              <td>
 
-                <i class="fab fa-elementor text-danger" routerLink="/admin/matricula/agregar/{{aux.id}}"> Anular</i>
+            <td>{{item+1}}</td>
+            <!--  <td>{{aux.id}}</td> -->
+            <td>{{aux.ape+' '+aux.nombre}}</td>
+            <td>{{aux.asg_nombre}}</td>
+            <td>{{aux.mes_nombre}}</td>
+            <td>{{aux.ani_anio}}</td>
+            <td>{{aux.aul_nombre}}</td>
+            <td *ngIf="aux.mtr_estado==1">MASCULINO</td>
+            <td *ngIf="aux.mtr_estado==0">FEMENINO</td>
+
+            <td>
+
+              <i class="fab fa-elementor text-danger" routerLink="/admin/matricula/agregar/{{aux.id}}"> Anular</i>
 
               <!--   <i class="fas fa-print text-success"> Imprimir</i> -->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <pagination-controls (pageChange)="pageactual = $event"></pagination-controls>
-      </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageactual = $event"></pagination-controls>
     </div>
-
-
   </div>
+
+
+</div>

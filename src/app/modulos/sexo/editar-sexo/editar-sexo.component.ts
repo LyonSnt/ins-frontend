@@ -44,12 +44,12 @@ export class EditarSexoComponent implements OnInit {
       */
 
 
-   /*  this.activarRuter.paramMap.subscribe((param: ParamMap) => {
+    this.activarRuter.paramMap.subscribe((param: ParamMap) => {
       this.idSexo = param.get('id');
       console.log(this.idSexo);
       this.obtenerDato();
 
-    }); */
+    });
 
 
     /*  const routParams = this.activarRuter.snapshot.paramMap;
@@ -64,10 +64,10 @@ export class EditarSexoComponent implements OnInit {
 
   }
 
-/*   obtenerDato() {
+  obtenerDato() {
 
     if (this.idSexo) {
-      this._servicioSexo._buscarPorId(this.idSexo).subscribe((dato: ISexo) => {
+      this._servicioSexo._buscarSexoPorId(this.idSexo).subscribe((dato: ISexo) => {
         this.datos = dato;
         console.log(this.datos);
       },
@@ -79,7 +79,7 @@ export class EditarSexoComponent implements OnInit {
 
   editar() {
     console.log(this.form.value);
-    this._servicioSexo._editar(this.idSexo, this.form.value).subscribe(res => {
+    this._servicioSexo._editarSexo(this.idSexo, this.form.value).subscribe(res => {
       console.log('Actualizado Correctamente');
       this.toastr.warning(JSON.stringify('El sexo fue actualizado con exito'),
         JSON.stringify('Actualizado'), {
@@ -88,7 +88,7 @@ export class EditarSexoComponent implements OnInit {
       });
       this.ruteador.navigateByUrl('/panel/sexo/listar');
     })
-  } */
+  }
 
-
+//
 }

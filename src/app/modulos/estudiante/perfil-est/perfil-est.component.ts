@@ -1,6 +1,7 @@
 import jwt_decode from 'jwt-decode';
 import { Component, OnInit } from '@angular/core';
 import { EstudianteService } from '@servicios/estudiante.service';
+import { MatriculaService } from '@servicios/matricula.service';
 
 @Component({
   selector: 'app-perfil-est',
@@ -14,8 +15,10 @@ export class PerfilEstComponent implements OnInit {
 
 
   estudianteId: any;
+  estudianteIdMatricula: any;
   constructor(
-    private _estudianteIdServicio: EstudianteService
+    private _estudianteIdServicio: EstudianteService,
+   private _matriculaServicio: MatriculaService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +30,15 @@ export class PerfilEstComponent implements OnInit {
       this.estudianteId = r;
       console.log("ESTUDIANTE ID", this.estudianteId);
 
-      console.log("DATO DE UNO: ", this.estudianteId.data.est_cedula);
+     // console.log("DATO DE UNO: ", this.estudianteId.data.est_cedula);
+
+    });
+
+    this._matriculaServicio._buscarMatriculaPorId(this.userData.est_id).subscribe(r => {
+      this.estudianteIdMatricula = r;
+      console.log("ESTUDIANTE ID Matricula", this.estudianteIdMatricula);
+
+     // console.log("DATO DE UNO: ", this.estudianteId.data.est_cedula);
 
     });
 

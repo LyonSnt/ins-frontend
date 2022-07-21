@@ -39,8 +39,8 @@ export class ComunidadService {
     )
   }
 
-  update(id, person): Observable<IComunidad> {
-    return this.http.put<IComunidad>(this.urlLaravel + "comunidad"+ '/' + id, JSON.stringify(person), this.httpOptions)
+  _actualizarComunidad(id: number, comunidad: any): Observable<IComunidad> {
+    return this.http.put<IComunidad>(this.urlLaravel + "comunidad"+ '/' + id, JSON.stringify(comunidad), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -4,6 +4,8 @@ import { AgregarlistarComunidadComponent } from './agregarlistar-comunidad/agreg
 
 const routes: Routes = [
   { path: 'agregar', component: AgregarlistarComunidadComponent },
+ // { path: 'editar/:id', component: Editarco},
+
 ];
 
 @NgModule({

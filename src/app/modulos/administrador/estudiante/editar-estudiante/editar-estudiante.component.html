@@ -5,33 +5,16 @@
 
       <div class="card text-center">
         <div class="card-body mb-3">
-          <h3>Agregar Estudiante</h3>
-          <form class="mt-4" [formGroup]="form" (ngSubmit)="crearEstudiante2();">
+          <h3>Actualizar Datos</h3>
+          <form class="mt-4" [formGroup]="form" (ngSubmit)="editar()">
+
+
             <div class="input-group input-group mb-3">
               <span class="input-group-text">
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <select formControlName="usuario_id" class="form-control">
-                <option value="">--Crear Cuenta--</option>
-                <option [value]="datoUltimoDato">
-                  {{'Cuenta'+ ' '+ '000'+datoUltimoDato}}
-                </option>
-              </select>
-            </div>
-            <div class="input-group input-group mb-3">
-              <span class="input-group-text">
-                <i class="fab fa-digital-ocean">
-                </i>
-              </span>
-              <input type="text" formControlName="est_correo" class="form-control" placeholder="Correo">
-            </div>
-            <div class="input-group input-group mb-3">
-              <span class="input-group-text">
-                <i class="fab fa-digital-ocean">
-                </i>
-              </span>
-              <input type="text" formControlName="est_contra" class="form-control" placeholder="cont">
+              <input type="text" formControlName="est_cedula" class="form-control" placeholder="Cédula" [value]="datos.est_cedula">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -39,20 +22,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-
-              <input type="text" formControlName="est_cedula" class="form-control" placeholder="Cédula">
-            </div>
-
-
-
-              <input type="hidden" formControlName="est_rol" class="form-control" placeholder="roll">
-
-            <div class="input-group input-group mb-3">
-              <span class="input-group-text">
-                <i class="fab fa-digital-ocean">
-                </i>
-              </span>
-              <input type="text" formControlName="est_apellido" class="form-control" placeholder="Apellido">
+              <input type="text" formControlName="est_apellido" class="form-control" placeholder="Apellido" [value]="datos.est_apellido">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -60,7 +30,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="text" formControlName="est_nombre" class="form-control" placeholder="Nombre">
+              <input type="text" formControlName="est_nombre" class="form-control" placeholder="Nombre" [value]="datos.est_nombre">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -111,7 +81,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="number" formControlName="est_celular" class="form-control" placeholder="Celular">
+              <input type="number" formControlName="est_celular" class="form-control" placeholder="Celular" [value]="datos.est_celular">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -119,7 +89,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="text" formControlName="est_direccion" class="form-control" placeholder="Dirección">
+              <input type="text" formControlName="est_direccion" class="form-control" placeholder="Dirección" [value]="datos.est_direccion">
             </div>
 
 
@@ -136,23 +106,10 @@
               </select>
             </div>
 
-            <div class="input-group input-group mb-3">
-              <span class="input-group-text">
-                <i class="fab fa-digital-ocean">
-                </i>
-              </span>
-              <input type="file" (change)="subirimagen($event)" formControlName="est_imagen" class="form-control" placeholder="Imagen">
 
-            </div>
-
-            <div class="input-group input-group mb-3 text-center">
-
-             <!--    <img [src]="imgSrc" width="100px" alt="" (click)="capturarImagen.click()"> -->
-
-            </div>
             <div class="d-grid gap-2">
               <button type="submit" class="btn btn-primary">
-                <i class="fas fa-database"></i>&nbsp; Guardar</button>
+                <i class="fas fa-database"></i>&nbsp; Actualizar</button>
               <button type="button" class="btn btn-danger" routerLink="/admin/estudiante/listar">
                 <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
             </div>

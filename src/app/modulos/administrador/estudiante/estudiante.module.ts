@@ -1,4 +1,3 @@
-import { FilterPipe } from './listar-estudiante/filter.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgregarEstudianteComponent } from './agregar-estudiante/agregar-estudiante.component';
@@ -7,6 +6,7 @@ import { EstudianteRoutingModule } from './estudiante-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditarEstudianteComponent } from './editar-estudiante/editar-estudiante.component';
 
 
 
@@ -14,7 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     AgregarEstudianteComponent,
     ListarEstudianteComponent,
-    FilterPipe
+    EditarEstudianteComponent,
   ],
   imports: [
     CommonModule,

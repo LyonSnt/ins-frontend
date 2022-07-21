@@ -77,17 +77,4 @@ export class ListarMatriculaComponent implements OnInit {
     pdfMake.createPdf(document).open();
   }
 
-  /* creaPdfPrueba() {
-    const pdfData: any = {
-      content: [
-        {
-          text: 'Holaaa'
-        }
-      ]
-    }
-
-    const pdf = pdfMake.createPdf(pdfData);
-    pdf.open();
-  }
- */
 }

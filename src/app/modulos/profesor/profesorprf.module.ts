@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { DashboardPrfComponent } from './dashboard-prf/dashboard-prf.component';
 import { PerfilPrfComponent } from './perfil-prf/perfil-prf.component';
 import { ProfesorprfRoutingModule } from './profesorprf-routing.module';
+import { ListaestudiantePrfComponent } from './listaestudiante-prf/listaestudiante-prf.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardPrfComponent,
-    PerfilPrfComponent
+    PerfilPrfComponent,
+    ListaestudiantePrfComponent
   ],
   imports: [
     CommonModule,

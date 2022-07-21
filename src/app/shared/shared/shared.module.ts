@@ -27,19 +27,6 @@ import { MatriculaModule } from '@modulos/administrador/matricula/matricula.modu
     LayoutModule,
     ModulosModule,
     HttpClientModule,
-
-    /*   //PARTE DEL ADMINISTRADOR
-      ComunidadModule,
-      EstadocivilModule,
-      EstudianteModule,
-      SexoModule,
-
-      //PARTE DEL PROFESOR
-      ProfesorprfModule,
-
-      //PARTE DEL ESTUDIANTE
-      EstudianteestModule, */
-
     ReactiveFormsModule,
     // LAYOUTS
     LayoutbaseModule,
@@ -57,19 +44,6 @@ import { MatriculaModule } from '@modulos/administrador/matricula/matricula.modu
     InicioModule,
     LayoutModule,
     ModulosModule,
-    /*  //ADMINISTRADOR
-     ModulosModule,
-     ComunidadModule,
-     EstadocivilModule,
-     SexoModule,
-     MatriculaModule,
-
-      //PARTE DEL PROFESOR
-      ProfesorprfModule,
-
-     //PARTE DEL ESTUDIANTE
-     EstudianteestModule, */
-
 
     ReactiveFormsModule,
     // LAYOUTS

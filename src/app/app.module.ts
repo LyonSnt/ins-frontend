@@ -16,6 +16,8 @@ import { NopageestFoundComponent } from './nopage-found/nopageest-found/nopagees
 
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { ListarSexoComponent } from '@modulos/sexo/listar-sexo/listar-sexo.component';
+import { EditarSexoComponent } from '@modulos/sexo/editar-sexo/editar-sexo.component';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
@@ -26,6 +28,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
     NopageadmFoundComponent,
     NopageprfFoundComponent,
     NopageestFoundComponent,
+    ListarSexoComponent,
+    EditarSexoComponent
   ],
   imports: [
     BrowserModule,

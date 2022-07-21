@@ -1,4 +1,4 @@
-import jwt_decode from 'jwt-decode';
+/* import jwt_decode from 'jwt-decode';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Route, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -46,3 +46,4 @@ export class RolGuard implements CanActivate {
 
 
 }
+ */
