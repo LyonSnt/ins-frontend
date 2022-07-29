@@ -101,16 +101,6 @@ export class AgregarNotaComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
-      // this.listarNota();
-
-
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      //this.buscarmatriculaM();
-    }
-  
-
     this.nivel().subscribe(result => {
       if (result === '2') {
         this.NivelesStatico[0].checked = true;
@@ -206,7 +196,7 @@ export class AgregarNotaComponent implements OnInit {
       delete suc.id;
       console.log("ARREGLO:", suc);
       /*  this._matriculaServicio._createMatricula(suc).subscribe(res => {
- 
+
        }); */
 
       /* this.sucursalesService.saveSucursal(suc).subscribe(

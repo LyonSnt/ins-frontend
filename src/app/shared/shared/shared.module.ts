@@ -33,6 +33,8 @@ import { MatriculaModule } from '@modulos/administrador/matricula/matricula.modu
     LayoutprfModule,
     LayoutestModule,
 
+    LayoutModule,
+
 
     //LOGIN
     LoginModule,
@@ -50,6 +52,7 @@ import { MatriculaModule } from '@modulos/administrador/matricula/matricula.modu
     LayoutbaseModule,
     LayoutprfModule,
     LayoutestModule,
+    LayoutModule,
     //LOGIN
     LoginModule
   ]

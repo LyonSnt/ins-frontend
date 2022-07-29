@@ -17,29 +17,29 @@ export class IglesiaService {
   constructor(private http: HttpClient) { }
 
 
-  _createIglesia(iglesia): Observable<IIglesia> {
-    return this.http.post<IIglesia>(this.urlLaravel + "iglesia", JSON.stringify(iglesia), this.httpOptions)
+  _crearIglesia(iglesia): Observable<IIglesia> {
+    return this.http.post<IIglesia>(this.urlLaravel + "crearIglesia", JSON.stringify(iglesia), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _listarIglesia(): Observable<IIglesia[]> {
-    return this.http.get<IIglesia[]>(this.urlLaravel + "iglesia")
+    return this.http.get<IIglesia[]>(this.urlLaravel + "listarIglesia")
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _buscarIglesiaPorId(id): Observable<IIglesia> {
-    return this.http.get<IIglesia>(this.urlLaravel + "iglesia" + '/' + id)
+    return this.http.get<IIglesia>(this.urlLaravel + "buscarIglesiaPorId" + '/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _editarIglesia(id: number, iglesia: IIglesia): Observable<IIglesia> {
-    return this.http.put<IIglesia>(this.urlLaravel + "iglesia"+ '/' + id, JSON.stringify(iglesia), this.httpOptions)
+    return this.http.put<IIglesia>(this.urlLaravel + "editarIglesia"+ '/' + id, JSON.stringify(iglesia), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -47,7 +47,7 @@ export class IglesiaService {
 
 
   _eliminarIglesia(id: number){
-    return this.http.delete<IIglesia>(this.urlLaravel + "iglesia" + '/' + id, this.httpOptions)
+    return this.http.delete<IIglesia>(this.urlLaravel + "eliminarIglesia" + '/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

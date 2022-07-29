@@ -8,11 +8,14 @@ import { EstudianteService } from '@servicios/estudiante.service';
 import { IglesiaService } from '@servicios/iglesia.service';
 import { SexoService } from '@servicios/sexo.service';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-editar-estudiante',
   templateUrl: './editar-estudiante.component.html',
-  styleUrls: ['./editar-estudiante.component.scss']
+  styleUrls: ['./editar-estudiante.component.scss'],
+  providers: [MessageService]
 })
 export class EditarEstudianteComponent implements OnInit {
 
@@ -27,7 +30,9 @@ export class EditarEstudianteComponent implements OnInit {
   idEstudiante: any;
   public datos: IEstudiante = {} as IEstudiante;
   public mensajeError: string | null = null;
-
+  datosany: any;
+  datosarreglo: Estudiante2[];
+  $userData: Observable<Estudiante2> ;
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +43,7 @@ export class EditarEstudianteComponent implements OnInit {
     private _servicioEstadocivil: EstadocivilService,
     private _servicioIglesia: IglesiaService,
     private activarRuter: ActivatedRoute,
+    private messageService: MessageService,
 
   ) {
     this.form = this.fb.group({
@@ -53,6 +59,7 @@ export class EditarEstudianteComponent implements OnInit {
       est_direccion: ['', Validators.required],
       igl_id: ['', Validators.required],
       est_correo: ['', Validators.required],
+      // est_imagen: [null, Validators.required],
 
     });
   }
@@ -70,41 +77,46 @@ export class EditarEstudianteComponent implements OnInit {
       this.listaIglesia = dato;
     });
 
-    this.activarRuter.paramMap.subscribe((param: ParamMap) => {
-      this.idEstudiante = param.get('id');
-    //  console.log("ID ESTUDIANTE",this.idEstudiante);
-      this.obtenerDato();
 
+    const __id = this.activarRuter.snapshot.paramMap.get('id');
+    this._servicioEstudiate._buscarEstudiantePorId(__id).subscribe(res => {
+      this.datosany = res;
+      console.log("DATOS ANY:", this.datosany);
+      this.form = this.fb.group({
+        est_cedula: [this.datosany.est_cedula],
+        est_apellido: [this.datosany.est_apellido],
+        est_nombre: [this.datosany.est_nombre],
+        sex_id: [this.datosany.sex_id],
+        esc_id: [this.datosany.esc_id],
+        est_fechabautismo: [this.datosany.est_fechabautismo],
+        est_fechanacimiento: [this.datosany.est_fechanacimiento],
+        est_celular: [this.datosany.est_celular],
+        est_direccion: [this.datosany.est_direccion],
+        igl_id: [this.datosany.igl_id],
+        // est_imagen: [this.datosany.est_imagen],
+      });
     });
 
-
-  }
-
-
-  obtenerDato() {
-
-    if (this.idEstudiante) {
-      this._servicioEstudiate._buscarEstudiantePorId(this.idEstudiante).subscribe((dato: IEstudiante) => {
-        this.datos = dato;
-         console.log("DATO ESTUDIANTE: ", this.datos);
-      },
-        (error) => {
-          this.mensajeError = error;
-        });
-    }
   }
 
   editar() {
-    console.log(this.form.value);
-    this._servicioEstudiate._editarEstudiante(this.idEstudiante, this.form.value).subscribe(res => {
-     // console.log('Actualizado Correctamente');
-      this.toastr.warning(JSON.stringify('Actualizado Correctamente'),
+    const __id = this.activarRuter.snapshot.paramMap.get('id');
+    this._servicioEstudiate._editarEstudiante(__id, this.form.value).subscribe(res => {
+    this.toastr.warning(JSON.stringify('Actualizado Correctamente'),
         JSON.stringify('Actualizado'), {
-        timeOut: 2000,
+        timeOut: 3000,
         progressBar: true
       });
+
+      //this.messageService.add({ severity: 'info', summary: 'Actualizado', detail: 'Correctamente' });
+
       this.ruteador.navigateByUrl('/admin/estudiante/listar');
+
+    //  this.listarEstudianteH();
+      //window.location.href="/est/dashboard";
     })
   }
 
+
+  /*  */
 }

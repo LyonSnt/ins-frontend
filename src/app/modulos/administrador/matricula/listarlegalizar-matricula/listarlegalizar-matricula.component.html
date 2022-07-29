@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <!-- routerLink="/panel/sexo/agregar" -->
+
+  <!-- <button (click)="crearPdf()"> crear pdf</button> -->
+  <div class="lyon-card-header card-header text-center">
+
+    <!--  <div class="search-box">
+      <input name="buscador" #buscarInput (keyup)="buscar(buscarInput.value)" type="text" class="form-control"
+        placeholder="Buscar">
+    </div> -->
+  </div>
+  <div class="lyon-card2 card text-center mt-2">
+
+    <div class="lyon-card-header card-header">
+      <h4>LEGALIZAR</h4>
+
+    </div>
+    <div class="card-body">
+
+
+
+      <p-table [value]="datos" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
+        [totalRecords]="totalRecords" [pageLinks]="3">
+        <ng-template pTemplate="header">
+
+          <tr>
+            <th>Cod.Matri</th>
+            <th>Cod.Est</th>
+            <th>Foto</th>
+            <th>Cédula</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+
+        </ng-template>
+        <ng-template pTemplate="body" let-aux>
+          <tr>
+
+            <td>{{'Matr-'+aux.id}}</td>
+            <td>{{'Estu-'+aux.idest}}</td>
+
+
+
+            <td><img
+                [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/estudiante/image_placeholder.jpg  '"
+                alt="" width="30px;"></td>
+
+            <td>{{aux.est_cedula}}</td>
+            <td>{{aux.ape}}</td>
+            <td>{{aux.nombre}}</td>
+            <td class="porlegalizado-td" *ngIf="aux.mtr_estado==0">Por legalizar</td>
+
+            <td class="legalizado-td" *ngIf="aux.mtr_estado==1">Legalizado</td>
+            <!--     -->
+            <!--    <td>{{aux.est_cedula}}</td>
+            <td>{{aux.est_apellido}}</td>
+            <td>{{aux.est_nombre}}</td> -->
+            <!--  -->
+
+            <td>
+
+              <i class="far fa-edit text-info" routerLink="/admin/matricula/legalizar/{{aux.id}}">LEGALIZAR</i>
+              <!--  <i class="far fa-trash-alt text-danger" (click)="eliminarEstudiante(aux.id)"></i> -->
+            </td>
+          </tr>
+
+        </ng-template>
+
+      </p-table>
+
+    </div>
+  </div>
+
+
+</div>

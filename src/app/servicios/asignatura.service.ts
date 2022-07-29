@@ -18,6 +18,14 @@ export class AsignaturaService {
   constructor(private http: HttpClient) { }
 
 
+
+
+  _listarNivelAsignatura(event) {
+    return this.http.post(this.urlLaravel + "listarNivelAsignatura", event, {
+    });
+  }
+
+
   _listarAsignatura(): Observable<IAsignatura[]> {
     return this.http.get<IAsignatura[]>(this.urlLaravel + "asignatura")
       .pipe(
@@ -44,6 +52,7 @@ export class AsignaturaService {
     });
   }
 
+ 
   _cargarNivelH(event) {
     return this.http.post(this.urlLaravel + "nivelasgh", event, {
     });

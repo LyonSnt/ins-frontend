@@ -7,7 +7,7 @@
         <!-- <div class="lyon-card2 card text-center"> -->
         <div class="card-body mb-3">
           <h5 class="titulo text-center"> {{accion | uppercase}} NOTA</h5>
-
+          <hr>
 
           <form class="mt-4" [formGroup]="form" (ngSubmit)="guardarNota()">
 
@@ -85,7 +85,7 @@
           <table class="table table-hover table-responsive-lg table-responsive-sm table-responsive-md">
             <thead>
               <tr>
-               
+
                 <th>#</th>
                 <th>Cod</th>
                 <th>Nombre</th>
@@ -111,7 +111,7 @@
                 </td>
                 <!--  <td>{{item+1}}</td>
                -->
-                <!-- 
+                <!--
                 <td>{{aux.nivid}}</td>
                 <td>{{aux.asg_nombre}}</td> -->
                 <td>{{'Cod-'+aux.id}}</td>
@@ -124,12 +124,12 @@
                 <td>{{aux.nota4 | number:'1.0'}}</td>
                 <td>{{aux.s1 | number:'1.0'}}</td>
                 <td>{{aux.promedio | number:'1.0'}}</td>
-               
-               
+
+
                 <td *ngIf="aux.promedio>=7">S</td>
                 <td *ngIf="aux.promedio<7">N</td>
-               
-               
+
+
                 <!--  <td>{{aux.nota2}}</td> -->
 
                 <!--   <td>{{aux.ani_anio}}</td>

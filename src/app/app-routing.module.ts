@@ -19,6 +19,7 @@ import { AgregarSexoComponent } from '@modulos/sexo/agregar-sexo/agregar-sexo.co
 import { ListarSexoComponent } from '@modulos/sexo/listar-sexo/listar-sexo.component';
 import { EditarSexoComponent } from '@modulos/sexo/editar-sexo/editar-sexo.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: InicioComponent },
@@ -26,10 +27,15 @@ const routes: Routes = [
   { path: 'nopage1', component: NopageadmFoundComponent },
   { path: 'nopage2', component: NopageprfFoundComponent },
   { path: 'nopage3', component: NopageestFoundComponent },
-  { path: 'sexo', component: AgregarSexoComponent},
-  { path: 'listar/:id', component: ListarSexoComponent},
-  { path: 'editar/:id', component: EditarSexoComponent},
+  { path: 'sexo', component: AgregarSexoComponent },
+  { path: 'listar/:id', component: ListarSexoComponent },
+  { path: 'editar/:id', component: EditarSexoComponent },
 
+/*   {
+    path: 'admin2',
+   // component: AdminLayoutComponent, canActivate: [LoginGuard, IsAdminGuard],
+  },
+ */
   {
     path: 'admin',
     component: EstructuraAdm1Component, canActivate: [LoginGuard, IsAdminGuard],
@@ -39,6 +45,26 @@ const routes: Routes = [
        { path: 'nopage2', component: NopageprfFoundComponent },
        { path: 'nopage3', component: NopageestFoundComponent }, */
       { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
+      {
+        path: 'institucion',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/institucion/institucion.module').then((m) => m.InstitucionModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
+        path: 'cargo',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/cargo/cargo.module').then((m) => m.CargoModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
+        path: 'aniacade',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/anioacademico/anioacademico.module').then((m) => m.AnioacademicoModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
+        path: 'iglesia',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/iglesia/iglesia.module').then((m) => m.IglesiaModule) //carga todos los modulos cuando esten ya listas
+      },
       {
         path: 'estudiante',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando

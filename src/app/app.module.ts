@@ -1,3 +1,4 @@
+import { CalendarModule } from 'primeng/calendar';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
     ReactiveFormsModule,
     RouterModule,
     BrowserAnimationsModule,
+    CalendarModule,
+    
 
     //ES PARA EL MENSAJE
     ToastrModule.forRoot({

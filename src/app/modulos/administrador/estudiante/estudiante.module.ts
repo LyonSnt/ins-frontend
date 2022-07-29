@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AgregarEstudianteComponent } from './agregar-estudiante/agregar-estudiante.component';
 import { ListarEstudianteComponent } from './listar-estudiante/listar-estudiante.component';
 import { EstudianteRoutingModule } from './estudiante-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EditarEstudianteComponent } from './editar-estudiante/editar-estudiante.component';
+import { CalendarModule } from 'primeng/calendar';
+import { AdministradorModule } from '../administrador.module';
+import { VistaEstudianteComponent } from './vista-estudiante/vista-estudiante.component';
 
 
 
@@ -15,6 +18,7 @@ import { EditarEstudianteComponent } from './editar-estudiante/editar-estudiante
     AgregarEstudianteComponent,
     ListarEstudianteComponent,
     EditarEstudianteComponent,
+    VistaEstudianteComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +26,10 @@ import { EditarEstudianteComponent } from './editar-estudiante/editar-estudiante
     ReactiveFormsModule,
     NgbPaginationModule,
     NgxPaginationModule,
+    FormsModule,
+    CalendarModule,
+    AdministradorModule
+
 
 
   ]

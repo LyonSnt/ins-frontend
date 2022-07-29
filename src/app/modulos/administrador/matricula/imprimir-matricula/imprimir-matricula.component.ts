@@ -22,13 +22,9 @@ export class ImprimirMatriculaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
       this.imprimirmatriculaH();
-
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-
-    }
   }
+
   imprimirmatriculaH() {
     this._matriculaServicio._imprimirmatricula().subscribe(res => {
       this.imprimirmatriculaHH = res;

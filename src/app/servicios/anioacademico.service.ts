@@ -18,29 +18,29 @@ export class AnioacademicoService {
   constructor(private http: HttpClient) { }
 
 
-  _createAnioacademico(anioacademico): Observable<IAnioacademico> {
-    return this.http.post<IAnioacademico>(this.urlLaravel + "anioacademico", JSON.stringify(anioacademico), this.httpOptions)
+  _crearAnioacademico(anioacademico): Observable<IAnioacademico> {
+    return this.http.post<IAnioacademico>(this.urlLaravel + "crearAnioacademico", JSON.stringify(anioacademico), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _listarAnioacademico(): Observable<IAnioacademico[]> {
-    return this.http.get<IAnioacademico[]>(this.urlLaravel + "anioacademico")
+    return this.http.get<IAnioacademico[]>(this.urlLaravel + "listarAnioacademico")
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _buscarAnioacademicoPorId(id): Observable<IAnioacademico> {
-    return this.http.get<IAnioacademico>(this.urlLaravel + "anioacademico" + '/' + id)
+    return this.http.get<IAnioacademico>(this.urlLaravel + "buscarAnioacademicoPorId" + '/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _editarAnioacademico(id: number, anioacademico: IAnioacademico): Observable<IAnioacademico> {
-    return this.http.put<IAnioacademico>(this.urlLaravel + "anioacademico"+ '/' + id, JSON.stringify(anioacademico), this.httpOptions)
+    return this.http.put<IAnioacademico>(this.urlLaravel + "editarAnioacademico"+ '/' + id, JSON.stringify(anioacademico), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -48,7 +48,7 @@ export class AnioacademicoService {
 
 
   _eliminarAnioacademico(id: number){
-    return this.http.delete<IAnioacademico>(this.urlLaravel + "anioacademico" + '/' + id, this.httpOptions)
+    return this.http.delete<IAnioacademico>(this.urlLaravel + "eliminarAnioacademico" + '/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

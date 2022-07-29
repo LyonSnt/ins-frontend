@@ -23,7 +23,7 @@ export class InicioComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-   
+
   }
 
   loginAdmin() {

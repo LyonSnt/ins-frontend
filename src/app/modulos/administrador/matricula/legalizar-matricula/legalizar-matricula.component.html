@@ -1,0 +1,177 @@
+<div class="container pt-4">
+  <div class="row">
+
+    <div class="col-8 offset-2">
+
+      <div class="card text-center">
+        <div class="card-body mb-3">
+          <h3>Seleccione Datos</h3>
+          <hr>
+
+          <!--    <form class="mt-4" [formGroup]="form"> -->
+
+          <form [formGroup]="form" (ngSubmit)="editar()">
+
+
+
+
+            <!--    <div class="field text-left mb-2">
+              <label for="est_contra" class="block">Contraseña</label>
+              <input type="text" aria-describedby="est_contra-help" pInputText formControlName="est_contra"
+                class="form-control" [class]="validarCampo('est_contra')" placeholder="Ingrese nombre">
+
+              <div *ngIf="!form.get('est_contra')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('est_contra')?.hasError('required')"> La contraseña es requerido</div>
+                <div *ngIf="form.get('est_contra')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div> -->
+
+
+            <!-- <div class="field text-left mb-2">
+              <label for="seleccione" class="block">Num Matricula y Código de Estudiante</label>
+              <div class="input-group input-group mb-3">
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i> </span>
+                <input type="text" formControlName="idv" class="form-control" readonly>
+
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+                <input type="text" formControlName="est_idv" class="form-control" readonly>
+              </div>
+            </div> -->
+            <input type="hidden" formControlName="mtr_estadov" class="form-control">
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="idv" class="form-control" readonly>
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_idv" class="form-control" readonly>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="text" formControlName="est_cedulav" class="form-control" readonly>
+            </div>
+
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_apellidov" class="form-control" readonly>
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_nombrev" class="form-control" readonly>
+            </div>
+
+
+            <!--  <div class="field text-left mb-2">
+              <label for="seleccione" class="block">Seleccione</label>
+              <div class="input-group input-group mb-3">
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i> </span>
+                <select name="" id="" formControlName="sex_id" class="form-control">
+                  <option value="">Sexo</option>
+                  <option [value]="sexo.id" *ngFor="let sexo of listaSexo">
+                    {{sexo.sex_descripcion}}
+                  </option>
+                </select>
+
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+                <select name="" id="" formControlName="esc_id" class="form-control">
+                  <option value="">Estado Civil</option>
+                  <option [value]="estcivil.id" *ngFor="let estcivil of listaEstadocivil">
+                    {{estcivil.esc_descripcion}}
+                  </option>
+                </select>
+              </div>
+            </div> -->
+
+
+            <!--  <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <select formControlName="tri_idv" class="form-control">
+                <option value="">--Seleccione Trimestre--</option>
+                <option [value]="tri.id" *ngFor="let tri of listaTrimestre">
+                  {{tri.tri_descripcion}}
+                </option>
+              </select>
+            </div>
+-->
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <select formControlName="niv_idv" class="form-control" (change)="cargarNivel($event)">
+                <option value="">--Seleccione Nivel--</option>
+                <option [value]="nivel.id" *ngFor="let nivel of listaNivel">
+                  {{nivel.niv_descripcion}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <select name="" id="" formControlName="asg_idv" class="form-control">
+                <option value="">--Asignatura--</option>
+                <option [value]="asignatura.id" *ngFor="let asignatura of listaAsignatura">
+                  {{asignatura.tri_id}} - {{asignatura.asg_nombre}}
+                </option>
+              </select>
+            </div>
+
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select formControlName="mes_idv" class="form-control">
+                <option value="">--Seleccione Mes--</option>
+                <option [value]="mes.id" *ngFor="let mes of listaMes">
+                  {{mes.mes_nombre}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select formControlName="ani_idv" class="form-control">
+                <option value="">--Seleccione Año--</option>
+                <option [value]="anioacade.id" *ngFor="let anioacade of listaAnioacademico">
+                  {{anioacade.ani_anio}}
+                </option>
+              </select>
+            </div>
+       <!--
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select formControlName="aul_id" class="form-control">
+                <option value="">--Seleccione Aula--</option>
+                <option [value]="aula.id" *ngFor="let aula of listAula">
+                  {{aula.aul_nombre}}
+                </option>
+              </select>
+            </div>
+ -->
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-database"></i>&nbsp; Matricular</button>
+              <button type="button" class="btn btn-danger" routerLink="/admin/estudiante/listar">
+                <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

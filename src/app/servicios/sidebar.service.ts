@@ -30,7 +30,8 @@ export class SidebarService {
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
         { titulo: 'Estudiante', url: 'estudiante/listar', icono: 'fa fa-users' },
-        { titulo: 'Matriculado', url: 'matricula/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Matricular', url: 'matricula/listamatricular', icono: 'fa fa-cubes' },
+        { titulo: 'Matriculados', url: 'matricula/listar', icono: 'fa fa-cubes' },
         { titulo: 'Nota', url: 'nota/agregar', icono: 'fa fa-cubes' }
       ]
     }
@@ -41,11 +42,10 @@ export class SidebarService {
       titulo: 'Categoria',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
-        { titulo: 'Iglesia', url: 'estudiante/listar', icono: 'fa fa-users' },
-        { titulo: 'Cargo', url: 'usuarios', icono: 'fa fa-cubes' },
-        { titulo: 'Año', url: 'usuarios', icono: 'fa fa-cubes' },
-        { titulo: 'Cargo', url: 'usuarios', icono: 'fa fa-cubes' },
-        { titulo: 'Año', url: 'usuarios', icono: 'fa fa-cubes' }
+        { titulo: 'Institucion', url: 'institucion/listar', icono: 'fa fa-users' },
+        { titulo: 'Cargo', url: 'cargo/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Año', url: 'aniacade/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Iglesia', url: 'iglesia/listar', icono: 'fa fa-cubes' },
       ]
     }
   ];

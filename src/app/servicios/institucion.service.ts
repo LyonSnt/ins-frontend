@@ -18,29 +18,29 @@ export class InstitucionService {
   constructor(private http: HttpClient) { }
 
 
-  _createInstitucion(institucion): Observable<IInstitucion> {
-    return this.http.post<IInstitucion>(this.urlLaravel + "institucion", JSON.stringify(institucion), this.httpOptions)
+  _crearInstitucion(institucion): Observable<IInstitucion> {
+    return this.http.post<IInstitucion>(this.urlLaravel + "crearInstitucion", JSON.stringify(institucion), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _listarInstitucion(): Observable<IInstitucion[]> {
-    return this.http.get<IInstitucion[]>(this.urlLaravel + "institucion")
+    return this.http.get<IInstitucion[]>(this.urlLaravel + "listarInstitucion")
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _buscarInstitucionPorId(id): Observable<IInstitucion> {
-    return this.http.get<IInstitucion>(this.urlLaravel + "institucion" + '/' + id)
+    return this.http.get<IInstitucion>(this.urlLaravel + "buscarInstitucionPorId" + '/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   _editarInstitucion(id: number, institucion: IInstitucion): Observable<IInstitucion> {
-    return this.http.put<IInstitucion>(this.urlLaravel + "institucion"+ '/' + id, JSON.stringify(institucion), this.httpOptions)
+    return this.http.put<IInstitucion>(this.urlLaravel + "editarInstitucion"+ '/' + id, JSON.stringify(institucion), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -48,7 +48,7 @@ export class InstitucionService {
 
 
   _eliminarInstitucion(id: number){
-    return this.http.delete<IInstitucion>(this.urlLaravel + "institucion" + '/' + id, this.httpOptions)
+    return this.http.delete<IInstitucion>(this.urlLaravel + "eliminarInstitucion" + '/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

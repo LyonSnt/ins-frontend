@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IEstudiante } from '@modelos/iestudiante';
 import { environment } from 'environments/environment.prod';
-import { catchError, Observable, throwError, BehaviorSubject } from 'rxjs';
+import { catchError, Observable, throwError, BehaviorSubject, Subject, tap } from 'rxjs';
 import { LoginService } from './login.service';
 
 @Injectable({
@@ -13,9 +13,15 @@ export class EstudianteService {
 
   private urlLaravel = environment.baseLaravel;
 
-  allestudent = new BehaviorSubject<Estudiante2[]>(null!);
-  allestudent2 = new BehaviorSubject<Estudiante2[]>(null!);
+/*   allestudent = new BehaviorSubject<Estudiante2[]>(null!);
+  allestudent2 = new BehaviorSubject<Estudiante2[]>(null!); */
+  ___filtrarEstudiante = new BehaviorSubject<Estudiante2[]>(null!);
+  ___filtrarMatriculaEstudiante = new BehaviorSubject<Estudiante2[]>(null!);
+
   modeloUltimoDato = new BehaviorSubject<Estudiante2[]>(null!);
+
+  private _refresh$ = new Subject<void>();
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -24,20 +30,61 @@ export class EstudianteService {
   constructor(
     private http: HttpClient,
     private _servicioLogin: LoginService
-    ) {
+  ) {
 
-
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
-      this._estudianteH("");
+    this._filtrarEstudiante("");
+    this._filtrarMatricularEstudiante("");
+    this._ultimodato();
+ /*    if (this._servicioLogin.IsAdmin() == 'Administrador') {
+     // this._estudianteH("");
+     this._filtrarEstudiante("");
       this._ultimodato();
     } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      this._estudianteM("");
+     // this._estudianteM("");
     }
-
+ */
 
   }
 
-  _estudianteH(query) {
+  _crearEstudiante(data) {
+    return this.http.post(this.urlLaravel + "crearEstudiante", data)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+        }),
+        catchError(this.errorHandler)
+      );;
+  }
+
+  _filtrarEstudiante(query) {
+    return this.http.post(this.urlLaravel + "filtrarEstudiante?buscar=" + query, null).subscribe(res => {
+      var r: any = res;
+      this.___filtrarEstudiante.next(r.data);
+    });
+  }
+
+  _buscarEstudiantePorId2(id): Observable<Estudiante2> {
+    return this.http.get<Estudiante2>(this.urlLaravel + "buscarEstudiantePorId" + '/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+  _buscarEstudiantePorId(id): Observable<IEstudiante> { //ESTO REVISAR Y QUITAR SI NO ES NECESARIO
+    return this.http.get<IEstudiante>(this.urlLaravel + "estudiante" + '/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+
+
+  _filtrarMatricularEstudiante(query) {
+    return this.http.post(this.urlLaravel + "filtrarMatricularEstudiante?buscar=" + query, null).subscribe(res => {
+      var r: any = res;
+      this.___filtrarMatriculaEstudiante.next(r.data);
+    });
+  }
+ /*  _estudianteH(query) {
     return this.http.post(this.urlLaravel + "estudianteH?buscar=" + query, null).subscribe(res => {
       var r: any = res;
       this.allestudent.next(r.data);
@@ -49,12 +96,9 @@ export class EstudianteService {
       var r: any = res;
       this.allestudent2.next(r.data);
     });
-  }
+  } */
 
-  _crearEstudiante(data) {
-    return this.http.post(this.urlLaravel + "crearEstudiante", data, {
-    });
-  }
+
 
   _ultimodato(): Observable<Estudiante2[]> {
     return this.http.get<Estudiante2[]>(this.urlLaravel + "ultimoDatoEstudiante")
@@ -78,12 +122,11 @@ export class EstudianteService {
       )
   }
 
-  _buscarEstudiantePorId(id): Observable<IEstudiante> {
-    return this.http.get<IEstudiante>(this.urlLaravel + "estudiante" + '/' + id)
-      .pipe(
-        catchError(this.errorHandler)
-      )
+  _listar(): Observable<any> {
+    return this.http.get(this.urlLaravel + "estudiante");
   }
+
+
 
   _buscarEstudiante2PorId(id): Observable<IEstudiante> {
     return this.http.get<IEstudiante>(this.urlLaravel + "estudiante2" + '/' + id)
@@ -92,15 +135,22 @@ export class EstudianteService {
       )
   }
 
-  _editarEstudiante(id: number, estudiante: IEstudiante): Observable<IEstudiante> {
-    return this.http.put<IEstudiante>(this.urlLaravel + "actualizarEstudiante" + '/' + id, JSON.stringify(estudiante), this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      )
+  get refresh() {
+    return this._refresh$;
   }
 
-  _eliminar(id: number) {
-    return this.http.delete<IEstudiante>(this.urlLaravel + "estudiante" + '/' + id, this.httpOptions)
+  _editarEstudiante(id, estudiante: Estudiante2): Observable<Estudiante2> {
+    return this.http.put<Estudiante2>(this.urlLaravel + "actualizarEstudiante" + '/' + id, JSON.stringify(estudiante), this.httpOptions)
+      .pipe(
+        tap(() => {
+          this._refresh$.next(); //SUSPUESTA MENTE ERA PARA QUE RECARGUE LA PAGINA
+        }),
+        catchError(this.errorHandler)
+      );
+  }
+
+  _eliminarEstudiante(id) {
+    return this.http.delete<Estudiante2>(this.urlLaravel + "eliminarEstudiante" + '/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

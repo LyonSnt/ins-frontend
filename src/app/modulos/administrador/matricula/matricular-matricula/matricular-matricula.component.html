@@ -1,0 +1,110 @@
+<div class="container pt-4">
+  <div class="row">
+
+    <div class="col-8 offset-2">
+
+      <div class="card text-center">
+        <div class="card-body mb-3">
+          <h3>Seleccione Datos</h3>
+          <hr>
+
+          <!--    <form class="mt-4" [formGroup]="form"> -->
+
+          <form [formGroup]="form" (ngSubmit)="crear()">
+
+            <input type="hidden" formControlName="mtr_estadov" class="form-control">
+            <input type="hidden" formControlName="idv" class="form-control" readonly>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+
+              <select name="" id="" formControlName="mtr_id" class="form-control">
+                <option value="">--Seleccione código de matricula--</option>
+                <option [value]="aux.con_contador+1" *ngFor="let aux of contadorDatoMatricula">
+                  {{aux.con_descripcion}}{{aux.con_contador+1}}
+                </option>
+              </select>
+
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="codigoestudiante" class="form-control" readonly>
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_cedulav" class="form-control" readonly>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_apellidov" class="form-control" readonly>
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_nombrev" class="form-control" readonly>
+            </div>
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <select formControlName="niv_idv" class="form-control" (change)="cargarNivel($event)">
+                <option value="">--Seleccione Nivel--</option>
+                <option [value]="nivel.id" *ngFor="let nivel of listaNivel">
+                  {{nivel.niv_descripcion}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <select name="" id="" formControlName="asg_idv" class="form-control">
+                <option value="">--Asignatura--</option>
+                <option [value]="asignatura.id" *ngFor="let asignatura of listaAsignatura">
+                  {{asignatura.tri_id}} - {{asignatura.asg_nombre}}
+                </option>
+              </select>
+            </div>
+
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select formControlName="mes_idv" class="form-control">
+                <option value="">--Seleccione Mes--</option>
+                <option [value]="mes.id" *ngFor="let mes of listaMes">
+                  {{mes.mes_nombre}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select formControlName="ani_idv" class="form-control">
+                <option value="">--Seleccione Año--</option>
+                <option [value]="anioacade.id" *ngFor="let anioacade of listaAnioacademico">
+                  {{anioacade.ani_anio}}
+                </option>
+              </select>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-database"></i>&nbsp; Matricular</button>
+              <button type="button" class="btn btn-danger" routerLink="/admin/matricula/listarmatricular">
+                <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

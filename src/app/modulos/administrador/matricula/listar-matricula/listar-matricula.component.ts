@@ -12,15 +12,19 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-listar-matricula',
   templateUrl: './listar-matricula.component.html',
-  styleUrls: ['./listar-matricula.component.scss']
+  styleUrls: ['./listar-matricula.component.scss'],
+  //providers: [MessageService]
 })
 export class ListarMatriculaComponent implements OnInit {
 
   buscarmatriculaaHM: Matricula[];
-
+  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
   verdadero = 1;
   falso = 0;
+  totalRecords: number;
 
+  datos: Matricula[];
+  listaMatricula: any;
   cont = 1;
 
   pageactual: number = 1;
@@ -35,18 +39,27 @@ export class ListarMatriculaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
-      this.buscarmatriculaH();
 
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      this.buscarmatriculaM();
-    }
-
+    this.listarMatriculaLegalizado();
   }
 
+  listarMatriculaLegalizado() {
+    this._matriculaServicio._listarMatriculaLegalizado().subscribe(res => {
+      this.datos = res;
+      console.log("LISTA MATRICULA", this.datos);
+
+    });
+  }
+
+/*   eliminarEstudiante(id) {
+    this._servicioEstudiante._eliminarEstudiante(id).subscribe((respuesta: any) => {
+      this.messageService.add({ severity: 'error', summary: 'Eliminado', detail: 'Correctamente' });
+      this.filtrarEstudiante();
+    });
+  } */
 
 
-  buscarmatriculaH() {
+/*   buscarmatriculaH() {
     this._matriculaServicio.modeloMatriculaH.subscribe(res => {
       this.buscarmatriculaaHM = res;
       //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
@@ -75,6 +88,6 @@ export class ListarMatriculaComponent implements OnInit {
   crearPdf() {
     const document = this._matriculaServicio.obtenerDatosMatricula();
     pdfMake.createPdf(document).open();
-  }
+  } */
 
 }

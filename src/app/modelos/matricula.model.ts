@@ -27,9 +27,11 @@ export class Matricula {
 
   abona: string;
   saldo: string;
-
+  
   mtr_id: number;
   data: any;
   ultimodato: any;
+  datol:any;
+
 }
 

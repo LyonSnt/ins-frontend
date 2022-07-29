@@ -6,6 +6,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListarMatriculaComponent } from './listar-matricula/listar-matricula.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ImprimirMatriculaComponent } from './imprimir-matricula/imprimir-matricula.component';
+import { MatricularMatriculaComponent } from './matricular-matricula/matricular-matricula.component';
+import { LegalizarMatriculaComponent } from './legalizar-matricula/legalizar-matricula.component';
+import { AdministradorModule } from '../administrador.module';
+import { ListarlegalizarMatriculaComponent } from './listarlegalizar-matricula/listarlegalizar-matricula.component';
+import { ListarmatricularMatriculaComponent } from './listarmatricular-matricula/listarmatricular-matricula.component';
 
 
 
@@ -14,13 +19,18 @@ import { ImprimirMatriculaComponent } from './imprimir-matricula/imprimir-matric
   declarations: [
     AgregarMatriculaComponent,
     ListarMatriculaComponent,
-    ImprimirMatriculaComponent
+    ImprimirMatriculaComponent,
+    MatricularMatriculaComponent,
+    LegalizarMatriculaComponent,
+    ListarlegalizarMatriculaComponent,
+    ListarmatricularMatriculaComponent
   ],
   imports: [
     CommonModule,
     MatriculaRoutingModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    AdministradorModule
     
 
   ]

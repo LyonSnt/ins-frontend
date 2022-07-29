@@ -141,7 +141,7 @@ export class AgregarMatriculaComponent implements OnInit {
     if (this.idEstudiante) {
       this._estudianteServicio._buscarEstudiantePorId(this.idEstudiante).subscribe((dato: IEstudiante) => {
         this.datos = dato;
-        //  console.log("DATO ESTUDIANTE: ", this.datos.id);
+    //  console.log("DATO ESTUDIANTE: ", this.datos.id);
       },
         (error) => {
           this.mensajeError = error;
@@ -163,7 +163,7 @@ export class AgregarMatriculaComponent implements OnInit {
   }
 
   cargarNivel(event) {
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
+
       var obj = {
         niv_id: event.target.value
       }
@@ -172,20 +172,10 @@ export class AgregarMatriculaComponent implements OnInit {
         //  console.log("CARGAR MATERIA: ", this.materia);
 
       });
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      var obj = {
-        niv_id: event.target.value
-      }
-      this._asignaturaServicio._cargarNivelM(obj).subscribe((dato) => {
-        this.materia = dato;
-        // console.log("CARGAR MATERIA: ", this.materia);
 
-      });
-    }
   }
 
   cargarTrimestre(event) {
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
       var obj = {
         tri_id: event.target.value
         //  sex_id: event.target.value,
@@ -195,17 +185,7 @@ export class AgregarMatriculaComponent implements OnInit {
         //  console.log("cargar materia", this.trimestre);
 
       });
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      var obj = {
-        tri_id: event.target.value
-        // sex_id: event.target.value
-      }
-      this._asignaturaServicio._cargarTrimestre2(obj).subscribe((dato) => {
-        this.trimestre = dato;
-        //  console.log("cargar materia", this.trimestre);
 
-      });
-    }
 
   }
 

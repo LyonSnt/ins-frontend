@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AgregarlistarCargoComponent } from './agregarlistar-cargo/agregarlistar-cargo.component';
 
 const routes: Routes = [
+  { path: 'listar', component: AgregarlistarCargoComponent, data: {titulo: 'Cargo'} },
 
 ];
 

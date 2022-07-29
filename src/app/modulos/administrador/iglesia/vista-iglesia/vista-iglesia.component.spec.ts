@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarCargoComponent } from './editar-cargo.component';
+import { VistaIglesiaComponent } from './vista-iglesia.component';
 
-describe('EditarCargoComponent', () => {
-  let component: EditarCargoComponent;
-  let fixture: ComponentFixture<EditarCargoComponent>;
+describe('VistaIglesiaComponent', () => {
+  let component: VistaIglesiaComponent;
+  let fixture: ComponentFixture<VistaIglesiaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditarCargoComponent ]
+      declarations: [ VistaIglesiaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditarCargoComponent);
+    fixture = TestBed.createComponent(VistaIglesiaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

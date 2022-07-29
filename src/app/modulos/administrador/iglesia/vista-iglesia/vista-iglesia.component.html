@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="card list-group">
+
+
+    <div class="card-body">
+      <h5 class="titulo text-center">INSTITUCION</h5>
+      <hr>
+
+      <div class="row align-items-center"  *ngIf="listaIglesia">
+        <div class="col-sm-4 text-center">
+
+          <img class="lyon-imagen" width="80%" [src]="'assets/images/estudiante/image_placeholder.jpg'" alt="">
+
+        </div>
+
+        <div class="col-sm-8">
+          <ul class="list-group">
+            <li class="list-group-item">NOMBRE: <span class="fw-bold">{{ listaIglesia.igl_nombre}}</span></li>
+             <li class="list-group-item">DIRECCIÓN: <span class="fw-bold">{{ listaIglesia.igl_direccion}}</span></li>
+            <li class="list-group-item">TELÉFONO: <span class="fw-bold"> {{listaIglesia.igl_telefono}}</span></li>
+            <li class="list-group-item">CORREO: <span class="fw-bold"> {{listaIglesia.igl_correo}}</span></li>
+
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <a class="btn btn-danger" routerLink="/admin/institucion/listar">
+        <i class="fa fa-arrow-alt-circle-left">&nbsp; Regresar</i>
+      </a>
+
+    </div>
+  </div>
+</div>

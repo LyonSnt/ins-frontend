@@ -14,7 +14,15 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="text" formControlName="est_cedula" class="form-control" placeholder="Cédula" [value]="datos.est_cedula">
+              <input type="text" formControlName="est_cedula" class="form-control" placeholder="Cédula">
+            </div>
+<!--  -->
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="text" formControlName="est_apellido" class="form-control" placeholder="Apellido">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -22,15 +30,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="text" formControlName="est_apellido" class="form-control" placeholder="Apellido" [value]="datos.est_apellido">
-            </div>
-
-            <div class="input-group input-group mb-3">
-              <span class="input-group-text">
-                <i class="fab fa-digital-ocean">
-                </i>
-              </span>
-              <input type="text" formControlName="est_nombre" class="form-control" placeholder="Nombre" [value]="datos.est_nombre">
+              <input type="text" formControlName="est_nombre" class="form-control" placeholder="Nombre">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -81,7 +81,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="number" formControlName="est_celular" class="form-control" placeholder="Celular" [value]="datos.est_celular">
+              <input type="number" formControlName="est_celular" class="form-control" placeholder="Celular">
             </div>
 
             <div class="input-group input-group mb-3">
@@ -89,7 +89,7 @@
                 <i class="fab fa-digital-ocean">
                 </i>
               </span>
-              <input type="text" formControlName="est_direccion" class="form-control" placeholder="Dirección" [value]="datos.est_direccion">
+              <input type="text" formControlName="est_direccion" class="form-control" placeholder="Dirección">
             </div>
 
 
@@ -105,6 +105,15 @@
                 </option>
               </select>
             </div>
+<!--
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <input type="file" (change)="subirimagen($event)" formControlName="est_imagen" class="form-control" placeholder="Imagen">
+
+            </div> -->
 
 
             <div class="d-grid gap-2">
@@ -120,5 +129,4 @@
     </div>
 
   </div>
-
 </div>

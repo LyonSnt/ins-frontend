@@ -21,7 +21,7 @@
             [class]="validarCampo('email')">
           <div *ngIf="!form.get('email')?.valid" class="invalid-feedback">
             <div *ngIf="form.get('email')?.hasError('required')"> El usuario es requerido</div>
-            <div *ngIf="form.get('email')?.hasError('email')">Debe tener el formato de correcto</div>
+            <div *ngIf="form.get('email')?.hasError('email')">Debe tener el formato de correo</div>
           </div>
 
         </div>

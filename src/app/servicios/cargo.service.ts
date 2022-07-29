@@ -18,37 +18,37 @@ export class CargoService {
   constructor(private http: HttpClient) { }
 
 
-  _create(cargo): Observable<ICargo> {
-    return this.http.post<ICargo>(this.urlLaravel + "cargo", JSON.stringify(cargo), this.httpOptions)
+  _crearCargo(cargo): Observable<ICargo> {
+    return this.http.post<ICargo>(this.urlLaravel + "crearCargo", JSON.stringify(cargo), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  _listar(): Observable<ICargo[]> {
-    return this.http.get<ICargo[]>(this.urlLaravel + "cargo")
+  _listarCargo(): Observable<ICargo[]> {
+    return this.http.get<ICargo[]>(this.urlLaravel + "listarCargo")
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  _buscarPorId(id): Observable<ICargo> {
-    return this.http.get<ICargo>(this.urlLaravel + "cargo" + '/' + id)
+  _buscarCargoPorId(id): Observable<ICargo> {
+    return this.http.get<ICargo>(this.urlLaravel + "buscarCargoPorId" + '/' + id)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  _editar(id: number, cargo: ICargo): Observable<ICargo> {
-    return this.http.put<ICargo>(this.urlLaravel + "cargo" + '/' + id, JSON.stringify(cargo), this.httpOptions)
+  _editarCargo(id: number, cargo: ICargo): Observable<ICargo> {
+    return this.http.put<ICargo>(this.urlLaravel + "editarCargo" + '/' + id, JSON.stringify(cargo), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
 
-  _eliminar(id: number) {
-    return this.http.delete<ICargo>(this.urlLaravel + "cargo" + '/' + id, this.httpOptions)
+  _eliminarCargo(id: number) {
+    return this.http.delete<ICargo>(this.urlLaravel + "eliminarCargo" + '/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

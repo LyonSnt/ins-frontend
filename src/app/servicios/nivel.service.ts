@@ -26,7 +26,7 @@ export class NivelService {
   }
 
   _listarNivel(): Observable<INivel[]> {
-    return this.http.get<INivel[]>(this.urlLaravel + "nivel")
+    return this.http.get<INivel[]>(this.urlLaravel + "listarNivel")
     .pipe(
       catchError(this.errorHandler)
     )
