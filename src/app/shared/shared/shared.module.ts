@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { EstudianteestModule } from './../../modulos/estudiante/estudianteest.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -28,6 +29,7 @@ import { MatriculaModule } from '@modulos/administrador/matricula/matricula.modu
     ModulosModule,
     HttpClientModule,
     ReactiveFormsModule,
+    TranslateModule,
     // LAYOUTS
     LayoutbaseModule,
     LayoutprfModule,
@@ -46,6 +48,7 @@ import { MatriculaModule } from '@modulos/administrador/matricula/matricula.modu
     InicioModule,
     LayoutModule,
     ModulosModule,
+    TranslateModule,
 
     ReactiveFormsModule,
     // LAYOUTS

@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -17,7 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,       //hay que importar esto para que funcione el router outlet
     FontAwesomeModule,  //agregado el 17-05-2022
     MenubarModule,
-
+    TranslateModule
 
   ],
   exports: [
@@ -25,6 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,       //hay que importar esto para que funcione el router outlet
     FontAwesomeModule,  //agregado el 17-05-2022
     MenubarModule,
+    TranslateModule
 
   ]
 })

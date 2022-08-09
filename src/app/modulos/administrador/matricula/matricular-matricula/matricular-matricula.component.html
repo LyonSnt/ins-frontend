@@ -14,6 +14,7 @@
 
             <input type="hidden" formControlName="mtr_estadov" class="form-control">
             <input type="hidden" formControlName="idv" class="form-control" readonly>
+            <!--   <input type="text" formControlName="est_estadov" class="form-control"> -->
 
             <div class="input-group input-group mb-3">
               <span class="input-group-text">
@@ -100,6 +101,15 @@
                 <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
             </div>
           </form>
+
+          <table class="table">
+            <tr>
+              <th>holaa</th>
+            </tr>
+            <tr *ngFor="let asignatura of listaAsignatura">
+              <td> {{asignatura.tri_id}} - {{asignatura.asg_nombre}}</td>
+            </tr>
+          </table>
 
         </div>
       </div>

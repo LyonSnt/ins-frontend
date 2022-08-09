@@ -7,6 +7,7 @@ import { ListarMatriculaComponent } from './listar-matricula/listar-matricula.co
 import { LegalizarMatriculaComponent } from './legalizar-matricula/legalizar-matricula.component';
 import { ListarlegalizarMatriculaComponent } from './listarlegalizar-matricula/listarlegalizar-matricula.component';
 import { ListarmatricularMatriculaComponent } from './listarmatricular-matricula/listarmatricular-matricula.component';
+import { AnularMatriculaComponent } from './anular-matricula/anular-matricula.component';
 
 const routes: Routes = [
   { path: 'agregar/:id', component: AgregarMatriculaComponent, data: {titulo: 'Agregar Matricula'} },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'listaLegalizar', component: ListarlegalizarMatriculaComponent, data: {titulo: 'Legalizar Matricula Lista'} },
   { path: 'listamatricular', component: ListarmatricularMatriculaComponent, data: {titulo: 'Lista Matricular'} },
   { path: 'matricular/:id', component: MatricularMatriculaComponent, data: {titulo: 'Matricular'} },
+  { path: 'anular/:id', component: AnularMatriculaComponent, data: {titulo: 'Anular Matricular'} },
 ];
 
 @NgModule({

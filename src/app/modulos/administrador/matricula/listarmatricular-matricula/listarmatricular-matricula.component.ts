@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListarmatricularMatriculaComponent implements OnInit {
 
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
   datos: Estudiante2[];
   datoMatEst: Estudiante2[];
   datosany: any;

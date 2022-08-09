@@ -1,6 +1,6 @@
 import { CalendarModule } from 'primeng/calendar';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,10 +20,15 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { ListarSexoComponent } from '@modulos/sexo/listar-sexo/listar-sexo.component';
 import { EditarSexoComponent } from '@modulos/sexo/editar-sexo/editar-sexo.component';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
 
-
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +46,14 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
     RouterModule,
     BrowserAnimationsModule,
     CalendarModule,
-    
+
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
 
     //ES PARA EL MENSAJE
     ToastrModule.forRoot({

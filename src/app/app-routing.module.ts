@@ -81,6 +81,11 @@ const routes: Routes = [
           import('@modulos/administrador/nota/nota.module').then((m) => m.NotaModule) //carga todos los modulos cuando esten ya listas
       },
       {
+        path: 'profesor',
+        loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
+          import('@modulos/administrador/profesor/profesor.module').then((m) => m.ProfesorModule) //carga todos los modulos cuando esten ya listas
+      },
+      {
         path: 'comunidad',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/comunidad/comunidad.module').then((m) => m.ComunidadModule) //carga todos los modulos cuando esten ya listas

@@ -11,6 +11,7 @@ import { LegalizarMatriculaComponent } from './legalizar-matricula/legalizar-mat
 import { AdministradorModule } from '../administrador.module';
 import { ListarlegalizarMatriculaComponent } from './listarlegalizar-matricula/listarlegalizar-matricula.component';
 import { ListarmatricularMatriculaComponent } from './listarmatricular-matricula/listarmatricular-matricula.component';
+import { AnularMatriculaComponent } from './anular-matricula/anular-matricula.component';
 
 
 
@@ -23,7 +24,8 @@ import { ListarmatricularMatriculaComponent } from './listarmatricular-matricula
     MatricularMatriculaComponent,
     LegalizarMatriculaComponent,
     ListarlegalizarMatriculaComponent,
-    ListarmatricularMatriculaComponent
+    ListarmatricularMatriculaComponent,
+    AnularMatriculaComponent
   ],
   imports: [
     CommonModule,

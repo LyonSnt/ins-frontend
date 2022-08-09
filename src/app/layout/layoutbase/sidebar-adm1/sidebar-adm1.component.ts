@@ -15,6 +15,7 @@ export class SidebarAdm1Component implements OnInit {
   menuItems1: any[];
   menuItems2: any[];
   menuItems3: any[];
+  menuItems4: any[];
   userData: any;
 
   menuItems12: any;
@@ -30,8 +31,8 @@ export class SidebarAdm1Component implements OnInit {
     this.menuItems12 = this._sidebarServicio.dashboard;
     this.menuItems1 = this._sidebarServicio.menuAdmin1;
     this.menuItems2 = this._sidebarServicio.menuAdmin2;
-   /*  this.menuItems3 = this._sidebarServicio.menuAdmin3;
- */
+    this.menuItems3 = this._sidebarServicio.menuAdmin3;
+
     this.cerrarSesion = this._sidebarServicio._cerarSesion;
 
   }

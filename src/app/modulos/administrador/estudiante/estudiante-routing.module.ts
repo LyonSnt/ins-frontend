@@ -6,7 +6,7 @@ import { ListarEstudianteComponent } from './listar-estudiante/listar-estudiante
 import { VistaEstudianteComponent } from './vista-estudiante/vista-estudiante.component';
 
 const routes: Routes = [
-  { path: 'agregar', component: AgregarEstudianteComponent },
+  { path: 'agregar', component: AgregarEstudianteComponent, data: {titulo: 'Agregar Estudiante'} },
   { path: 'listar', component: ListarEstudianteComponent, data: {titulo: 'Lista Estudiante'} },
   { path: 'editar/:id', component: EditarEstudianteComponent, data: {titulo: 'Editar Estudiante'} },
   { path: 'vista/:id', component: VistaEstudianteComponent, data: {titulo: 'Vista Estudiante'} },

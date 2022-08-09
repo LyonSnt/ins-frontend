@@ -4,6 +4,7 @@ import { AgregarNotaComponent } from './agregar-nota/agregar-nota.component';
 import { NotaRoutingModule } from './nota-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdministradorModule } from '../administrador.module';
 //import { AgGridModule } from 'ag-grid-angular';
 
 
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NotaRoutingModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    AdministradorModule
   ]
 })
 export class NotaModule { }

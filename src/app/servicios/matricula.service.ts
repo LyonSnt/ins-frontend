@@ -88,6 +88,32 @@ export class MatriculaService {
 
 
 
+  _anularMatricula(id, estudiante: Estudiante2): Observable<Estudiante2> {
+    return this.http.put<Estudiante2>(this.urlLaravel + "anularMatricula" + '/' + id, JSON.stringify(estudiante), this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+  _listarMatriculaLegalizadoId(id): Observable<Matricula> {
+    return this.http.get<Matricula>(this.urlLaravel + "listarMatriculaLegalizadoId" + '/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+  _matriculados(): Observable<Matricula[]> {
+    return this.http.get<Matricula[]>(this.urlLaravel + "matriculados")
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+  _matriculasAnuladas(): Observable<Matricula[]> {
+    return this.http.get<Matricula[]>(this.urlLaravel + "matriculasAnuladas")
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
 
 
   _listarParaMatricular(): Observable<Matricula[]> {
@@ -130,7 +156,7 @@ export class MatriculaService {
   }
 
 /* no seeee */
-  _AnularMatricula(id) {
+  _AnularMatricula1(id) {
     return this.http.delete<Matricula>(this.urlLaravel + "eliminarEstudiante" + '/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)

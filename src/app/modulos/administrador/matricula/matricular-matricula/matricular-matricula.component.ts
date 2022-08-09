@@ -64,6 +64,7 @@ export class MatricularMatriculaComponent implements OnInit {
   cont: any;
   cont2: any;
   cont3: any;
+  datoCrear: any;
 
   constructor(
     private _nivelServicio: NivelService,
@@ -96,7 +97,8 @@ export class MatricularMatriculaComponent implements OnInit {
       ani_idv: ['', [Validators.required]],
       mtr_estadov: ['', [Validators.required]],
       mtr_id: ['', [Validators.required]],
-
+      /*   est_estadov: ['', [Validators.required]],
+   */
 
     });
 
@@ -112,7 +114,7 @@ export class MatricularMatriculaComponent implements OnInit {
 
         this.cont2 = this.cont.con_contador;
 
-        this.cont3 = this.cont2+1;
+        this.cont3 = this.cont2 + 1;
 
         console.log("CONTADOR MATRI:", this.cont3);
       }
@@ -142,7 +144,7 @@ export class MatricularMatriculaComponent implements OnInit {
       console.log("DATOS ANY:", this.datosany);
       this.form = this.fb.group({
         idv: [this.datosany.id],
-        codigoestudiante: ['Estu-'+this.datosany.id],
+        codigoestudiante: ['Estu-' + this.datosany.id],
         est_cedulav: [this.datosany.est_cedula],
         est_apellidov: [this.datosany.est_apellido],
         est_nombrev: [this.datosany.est_nombre],
@@ -152,6 +154,7 @@ export class MatricularMatriculaComponent implements OnInit {
         ani_idv: [''],
         mtr_estadov: [''],
         mtr_id: [''],
+        /*   est_estadov: ['1'], */
       });
     });
 
@@ -186,12 +189,30 @@ export class MatricularMatriculaComponent implements OnInit {
 
   crear() {
     this._matriculaServicio._createMatricula(this.form.value).subscribe(r => {
-      this.toastr.success(JSON.stringify('La matricula fue registrada con exito'),
-        JSON.stringify('Registrado'), {
-        timeOut: 2000,
-        progressBar: true
-      });
-      this.ruteador.navigateByUrl('/admin/matricula/imp2022::')
+      this.datoCrear = r;
+      if (this.datoCrear.status == 1) {
+
+        this.toastr.info(JSON.stringify(this.datoCrear.msg2), JSON.stringify(this.datoCrear.msg1), {
+          timeOut: 3000,
+          progressBar: true
+        });
+        window.location.href = "/admin/matricula/imp2022::";
+
+
+      } else if (this.datoCrear.status == 0) {
+        this.toastr.error(JSON.stringify(this.datoCrear.msg), JSON.stringify('ERROR'), {
+          timeOut: 3000,
+          progressBar: true
+        });
+      }
+
+      /*  this.toastr.success(JSON.stringify('La matricula fue registrada con exito'),
+         JSON.stringify('Registrado'), {
+         timeOut: 2000,
+         progressBar: true
+       }); */
+      // this.ruteador.navigateByUrl('/admin/matricula/imp2022::')
+    
       //  window.location.reload();
 
     });

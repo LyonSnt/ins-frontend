@@ -1,0 +1,47 @@
+{
+  "login": {
+    "titulo": "Instituto Bíblico Alianza Otavalo",
+    "subtitulo": "Bienvenido/a",
+    "boton": "Iniciar sesión"
+  },
+  "sidebar": {
+    "titulo": "Instituto Bíblico",
+    "dashboard": "Panel",
+    "roladmin": "Administrador",
+    "rolprofe": "Profesor",
+    "rolestu": "Estudiante",
+    "procesoacademico": "Proceso Académico",
+    "estudiante": "Estudiante",
+    "profesor": "Profesor",
+    "matricular": "Matricular",
+    "matriculados": "Matriculados",
+    "nota": "Nota",
+    "item2": "Categoria",
+    "institucion": "Institución",
+    "cargo": "Cargo",
+    "anio": "Año",
+    "iglesia": "Iglesia",
+    "item3": "Reporte",
+    "extra": "Extra",
+    "cerrar": "Cerrar Sesión"
+  },
+  "dashboard": {
+    "histestudiante": "Historial Estudiante",
+    "masinfo": "Más info",
+    "totmatriculados": "Total Matriculados",
+    "totprofesores": "Total Profesores",
+    "matanuladas": "Matriculas Anuladas"
+  },
+  "sidebarp": {
+    "titulo": "Instituto Bíblico",
+    "dashboard": "Panel",
+    "rolusuario": "poner algo",
+    "perfil": "Perfil",
+    "menu": "Administrar",
+    "Matriculados": "Matriculados",
+    "Asistencia": "Asistencia",
+    "Notas": "Notas",
+    "extra": "Extra",
+    "cerrar": "Cerrar Sesión"
+  }
+}

@@ -18,7 +18,7 @@ import { LayoutModule } from '@layout/layout.module';
     BreadcrumbsEstComponent
   ],
   imports: [
-    LayoutModule     /* ESTO TRAER MODULOS GENERALES */
+    LayoutModule,     /* ESTO TRAER MODULOS GENERALES */
 
 
   ],

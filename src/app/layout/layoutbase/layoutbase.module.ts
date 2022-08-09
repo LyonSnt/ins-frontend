@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@layout/layout.module';
 import { HeaderAdm1Component } from './header-adm1/header-adm1.component';
@@ -17,11 +18,13 @@ import { EstructuraAdm1Component } from './estructura-adm1/estructura-adm1.compo
     EstructuraAdm1Component
   ],
   imports: [
-    LayoutModule     /* ESTO TRAER MODULOS GENERALES */
+    LayoutModule,     /* ESTO TRAER MODULOS GENERALES */
+
 
   ],
   exports: [
-    LayoutModule     /* ESTO TRAER MODULOS GENERALES */
+    LayoutModule,     /* ESTO TRAER MODULOS GENERALES */
+    
   ]
 })
 export class LayoutbaseModule { }

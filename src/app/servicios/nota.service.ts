@@ -47,6 +47,7 @@ export class NotaService {
         catchError(this.errorHandler)
       )
   }
+  
 
   _actualizarNota(id: number, nota: any): Observable<Nota> {
     return this.http.put<Nota>(this.urlLaravel + "actualizarNota" + '/' + id, JSON.stringify(nota), this.httpOptions)

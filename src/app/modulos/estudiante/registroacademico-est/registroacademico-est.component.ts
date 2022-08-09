@@ -12,7 +12,7 @@ export class RegistroacademicoEstComponent implements OnInit {
 
   token: any;
   userData: any;
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_profesor/';
   estudianteId: any;
   estudianteIdMatricula: any;
 
@@ -35,7 +35,7 @@ export class RegistroacademicoEstComponent implements OnInit {
 
     });
 
-    this._matriculaServicio._buscarMatriculaPorId(this.userData.est_id).subscribe(r => {
+    this._matriculaServicio._buscarMatriculaEstudiantePorId(this.userData.est_id).subscribe(r => {
       this.estudianteIdMatricula = r;
       console.log("ESTUDIANTE ID Matricula", this.estudianteIdMatricula);
 

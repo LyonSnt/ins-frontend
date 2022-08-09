@@ -5,6 +5,8 @@ import { LoginService } from '@servicios/login.service';
 
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { delay, Observable, of } from 'rxjs';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
@@ -18,7 +20,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class ListarMatriculaComponent implements OnInit {
 
   buscarmatriculaaHM: Matricula[];
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
   verdadero = 1;
   falso = 0;
   totalRecords: number;
@@ -30,17 +32,63 @@ export class ListarMatriculaComponent implements OnInit {
   pageactual: number = 1;
 
   public n: number = 0;
+  public form: FormGroup;
 
+  __ni1: number;
+  legalizadoIdany: any;
+
+  public NivelesStatico: any = [
+    { valId: '1', label: 'Uno', checked: false },
+    { valId: '2', label: 'Dos', checked: true },
+    { valId: '3', label: 'Tres', checked: false },
+    { valId: '4', label: 'Cuatro', checked: false },
+    { valId: '5', label: 'Cinto', checked: false },
+    { valId: '6', label: '6', checked: false },
+  ];
+  public TrimesreStatico: any = [
+    { valId: '1', label: 'Uno', checked: false },
+    { valId: '2', label: 'Dos', checked: true },
+    { valId: '3', label: 'Tres', checked: false },
+    { valId: '4', label: 'Cuatro', checked: false },
+  ];
 
   constructor(
     private _matriculaServicio: MatriculaService,
-    private _servicioLogin: LoginService
-  ) { }
+    private _servicioLogin: LoginService,
+    private fb: FormBuilder,
+  ) {
+  
+
+    this.form = this.fb.group({
+      ni1: ['1', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
 
+    this.nivel().subscribe(result => {
+      if (result === '2') {
+        this.NivelesStatico[0].checked = true;
+        this.NivelesStatico[1].checked = false;
+      }
+    });
 
-    this.listarMatriculaLegalizado();
+
+   // this.listarMatriculaLegalizado();
+  }
+
+  private nivel(): Observable<string> {
+    return of('2').pipe(delay(1000));
+  }
+
+  enviarRadio() {
+  this.__ni1 = this.form.get('ni1')?.value;
+     /*
+     this.__tri1 = this.form2.get('tri')?.value;
+     this.listarNota2(this.__ni1, this.__tri1); */
+
+    this.listarMatriculaLegalizadoId(this.__ni1);
+
   }
 
   listarMatriculaLegalizado() {
@@ -51,43 +99,50 @@ export class ListarMatriculaComponent implements OnInit {
     });
   }
 
-/*   eliminarEstudiante(id) {
-    this._servicioEstudiante._eliminarEstudiante(id).subscribe((respuesta: any) => {
-      this.messageService.add({ severity: 'error', summary: 'Eliminado', detail: 'Correctamente' });
-      this.filtrarEstudiante();
-    });
-  } */
-
-
-/*   buscarmatriculaH() {
-    this._matriculaServicio.modeloMatriculaH.subscribe(res => {
-      this.buscarmatriculaaHM = res;
-      //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
-
-    });
-  }
-  buscarmatriculaM() {
-    this._matriculaServicio.modeloMatriculaM.subscribe(res => {
-      this.buscarmatriculaaHM = res;
-      //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
-
+  listarMatriculaLegalizadoId(id: number) {
+    this._matriculaServicio._listarMatriculaLegalizadoId(id).subscribe(res => {
+      this.legalizadoIdany = res;
+      console.log("LEGALIZADO", this.legalizadoIdany);
     });
   }
 
+  /*   eliminarEstudiante(id) {
+      this._servicioEstudiante._eliminarEstudiante(id).subscribe((respuesta: any) => {
+        this.messageService.add({ severity: 'error', summary: 'Eliminado', detail: 'Correctamente' });
+        this.filtrarEstudiante();
+      });
+    } */
 
-  buscar(v) {
 
-    if (this._servicioLogin.IsAdmin() == 'Administrador') {
-      this._matriculaServicio._buscarmatriculaH(v);
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      this._matriculaServicio._buscarmatriculaM(v);
+  /*   buscarmatriculaH() {
+      this._matriculaServicio.modeloMatriculaH.subscribe(res => {
+        this.buscarmatriculaaHM = res;
+        //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
+
+      });
+    }
+    buscarmatriculaM() {
+      this._matriculaServicio.modeloMatriculaM.subscribe(res => {
+        this.buscarmatriculaaHM = res;
+        //  console.log("DATOS CON REALCION BUSQUEDA", this.buscarmatriculaaH);
+
+      });
     }
 
-  }
 
-  crearPdf() {
-    const document = this._matriculaServicio.obtenerDatosMatricula();
-    pdfMake.createPdf(document).open();
-  } */
+    buscar(v) {
+
+      if (this._servicioLogin.IsAdmin() == 'Administrador') {
+        this._matriculaServicio._buscarmatriculaH(v);
+      } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
+        this._matriculaServicio._buscarmatriculaM(v);
+      }
+
+    }
+
+    crearPdf() {
+      const document = this._matriculaServicio.obtenerDatosMatricula();
+      pdfMake.createPdf(document).open();
+    } */
 
 }

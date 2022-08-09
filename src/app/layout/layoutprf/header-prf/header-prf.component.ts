@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LoginService } from '@servicios/login.service';
 
 @Component({
@@ -9,10 +10,19 @@ import { LoginService } from '@servicios/login.service';
 })
 export class HeaderPrfComponent implements OnInit {
 
-  constructor(private _servicioLogin: LoginService,
-    private ruteador: Router) { }
+  constructor(
+    private _servicioLogin: LoginService,
+    private ruteador: Router,
+    public _traductorServicio: TranslateService
+    ) {
+      _traductorServicio.addLangs(['es', 'ki']);
+      _traductorServicio.setDefaultLang('es');
+     }
 
   ngOnInit(): void {
+  }
+  traductor(idioma: string) {
+    this._traductorServicio.use(idioma);
   }
 
   logout() {

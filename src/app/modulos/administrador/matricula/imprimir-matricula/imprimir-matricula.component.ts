@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '@servicios/login.service';
 import { MatriculaService } from '@servicios/matricula.service';
 
@@ -17,12 +18,13 @@ export class ImprimirMatriculaComponent implements OnInit {
   imprimirmatriculaHH: any;
   constructor(
     private _matriculaServicio: MatriculaService,
-    private _servicioLogin: LoginService
+    private _servicioLogin: LoginService,
+    private ruteador: Router
   ) { }
 
   ngOnInit(): void {
 
-      this.imprimirmatriculaH();
+    this.imprimirmatriculaH();
   }
 
   imprimirmatriculaH() {
@@ -36,8 +38,22 @@ export class ImprimirMatriculaComponent implements OnInit {
   crearPdf() {
     const document = this._matriculaServicio.obtenerDatosMatricula();
     pdfMake.createPdf(document).open();
+    // window.location.href = "/admin/matricula/listamatricular";
+    // this.ruteador.navigateByUrl('/admin/matricula/listamatricular');
+    //this.ruteador.navigateByUrl('/admin/matricula/listamatricular');
+    window.setTimeout(function () {
 
+      // REDIRIGIMOS A LOS 2 SEGUNDOS
+      window.location.href = "/admin/matricula/listamatricular";
 
+    }, 2000);
+
+    // window.location.reload();
+  }
+
+  nuevoEstudiante() { //METODO DE PRUEBA
+    //this.ruteador.navigate(['admin/estudiante/agregar']);
+    window.location.href = "admin/estudiante/agregar";
   }
 
 

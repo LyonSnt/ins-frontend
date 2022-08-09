@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import jwt_decode from 'jwt-decode';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,10 +17,17 @@ export class HeaderAdm1Component implements OnInit {
     private _sidebarServicio: SidebarService,
     private ruteador: Router,
     private _servicioLogin: LoginService,
-  ) { }
+    public _traductorServicio: TranslateService
+  ) { 
+    _traductorServicio.addLangs(['es', 'ki']);
+    _traductorServicio.setDefaultLang('es');
+  }
 
   ngOnInit(): void {
 
+  }
+  traductor(idioma: string) {
+    this._traductorServicio.use(idioma);
   }
 
   logout() {

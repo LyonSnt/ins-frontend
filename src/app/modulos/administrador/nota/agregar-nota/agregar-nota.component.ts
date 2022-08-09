@@ -68,6 +68,7 @@ export class AgregarNotaComponent implements OnInit {
     { valId: '4', label: 'Cuatro', checked: false },
   ];
 
+  totalRecords: number;
   constructor(
     private _matriculaServicio: MatriculaService,
     private _servicioLogin: LoginService,
@@ -87,6 +88,10 @@ export class AgregarNotaComponent implements OnInit {
       n3: ['', [Validators.required]],
       n4: ['', [Validators.required]],
       ni1: ['', [Validators.required]],
+      idv: ['', [Validators.required]],
+      estidv: ['', [Validators.required]],
+      nividv: ['', [Validators.required]],
+      triidv: ['', [Validators.required]],
 
     });
     this.form2 = this.fb.group({
@@ -133,7 +138,7 @@ export class AgregarNotaComponent implements OnInit {
   listarNota2(id: number, id2: number) {
     this._notaServicio._listarNota2(id, id2).subscribe(res => {
       this.__listarNota2 = res;
-      //console.log("DATOS NOTA2", this.__listarNota2);
+      console.log("DATOS NOTA2", this.__listarNota2);
     });
   }
 
@@ -146,6 +151,10 @@ export class AgregarNotaComponent implements OnInit {
       n2: notaany.nota2,
       n3: notaany.nota3,
       n4: notaany.nota4,
+      idv: notaany.id,
+      estidv: notaany.estid,
+      nividv: notaany.nivid,
+      triidv: notaany.triid,
     });
 
     //this.focusInputt();
@@ -158,6 +167,10 @@ export class AgregarNotaComponent implements OnInit {
       nota2: this.form.get('n2')?.value,
       nota3: this.form.get('n3')?.value,
       nota4: this.form.get('n4')?.value,
+      estid: this.form.get('estidv')?.value,
+      id: this.form.get('idv')?.value,
+      nivid: this.form.get('nividv')?.value,
+      triid: this.form.get('triidv')?.value,
 
     }
 
@@ -172,14 +185,16 @@ export class AgregarNotaComponent implements OnInit {
       notaV.notidlav = this.__notaId;
       this._notaServicio._actualizarNota(this.__notaId, notaV).subscribe(r => {
         this.datoany = r;
-        // console.log("DATOS", this.datoany);
+        console.log("DATOS", this.datoany);
         /*  this.recarga = false; */
         /*   */
+
+        /* PONER AQUI PARA QUE SE ACTUALIZE TBL ESTUDIANTE */
 
         this.form.reset();
         this.accion = 'Agregar';
         this.__notaId = undefined;
-        this.toastr.info(JSON.stringify('La comunidad fue actualizada con exito'),
+        this.toastr.info(JSON.stringify('La nota fue registrado con exito'),
           JSON.stringify('Actualizado'), {
           timeOut: 2000,
           progressBar: true

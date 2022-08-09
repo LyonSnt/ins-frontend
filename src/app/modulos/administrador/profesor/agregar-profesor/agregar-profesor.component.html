@@ -1,0 +1,182 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-8 offset-2">
+
+      <div class="card text-center">
+        <div class="card-body mb-3">
+          <h3>Agregar Profesor</h3>
+          <hr>
+          <form class="mt-4" [formGroup]="form" (ngSubmit)="crearProfesor();">
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+       
+
+
+              <select name="" id="" formControlName="usuario_id" class="form-control">
+                <option value="">Seleccione código de profesor</option>
+                <option [value]="aux.con_contador+1" *ngFor="let aux of contadorDato">
+                 {{aux.con_descripcion}}{{aux.con_contador+1}}
+                </option>
+              </select>
+
+            </div>
+
+            <div class="field text-left mb-3">
+              <label for="pro_correo" class="block">Correo</label>
+              <!-- <div class="input-group input-group mb-3">
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span> -->
+              <input type="text" aria-describedby="pro_correo-help" pInputText formControlName="pro_correo"
+                class="form-control" [class]="validarCampo('pro_correo')" placeholder="Ingrese correo">
+              <div *ngIf="!form.get('pro_correo')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_correo')?.hasError('required')"> El correo es requerido</div>
+                <div *ngIf="form.get('pro_correo')?.hasError('email')">Debe tener el formato de correo</div>
+              </div>
+            </div>
+            <!--    </div> -->
+
+
+            <div class="field text-left mb-2">
+              <label for="pro_contra" class="block">Contraseña</label>
+              <input type="text" aria-describedby="pro_contra-help" pInputText formControlName="pro_contra"
+                class="form-control" [class]="validarCampo('pro_contra')" placeholder="Ingrese nombre">
+
+              <div *ngIf="!form.get('pro_contra')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_contra')?.hasError('required')"> La contraseña es requerido</div>
+                <div *ngIf="form.get('pro_contra')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+
+
+            <div class="field text-left mb-2">
+              <label for="pro_cedula" class="block">Cédula</label>
+              <input type="text" aria-describedby="pro_cedula-help" pInputText formControlName="pro_cedula"
+                class="form-control" [class]="validarCampo('pro_cedula')" placeholder="Ingrese nombre">
+              <div *ngIf="!form.get('pro_cedula')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_cedula')?.hasError('required')"> La cédula es requerido</div>
+                <div *ngIf="form.get('pro_cedula')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+            <input type="hidden" formControlName="pro_rol" class="form-control" placeholder="roll">
+
+
+            <div class="field text-left mb-2">
+              <label for="pro_apellido" class="block">Apellido</label>
+              <input type="text" aria-describedby="pro_apellido-help" pInputText formControlName="pro_apellido"
+                class="form-control" [class]="validarCampo('pro_apellido')" placeholder="Ingrese nombre">
+              <div *ngIf="!form.get('pro_apellido')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_apellido')?.hasError('required')"> El apellido es requerido</div>
+                <div *ngIf="form.get('pro_apellido')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+            <div class="field text-left mb-2">
+              <label for="pro_nombre" class="block">Nombre</label>
+              <input type="text" aria-describedby="pro_nombre-help" pInputText formControlName="pro_nombre"
+                class="form-control" [class]="validarCampo('pro_nombre')" placeholder="Ingrese nombre">
+              <div *ngIf="!form.get('pro_nombre')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_nombre')?.hasError('required')"> El nombre es requerido</div>
+                <div *ngIf="form.get('pro_nombre')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+
+            <div class="field text-left mb-2">
+              <label for="seleccione" class="block">Seleccione</label>
+              <div class="input-group input-group mb-3">
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i> </span>
+                <select name="" id="" formControlName="sex_id" class="form-control">
+                  <option value="">Sexo</option>
+                  <option [value]="sexo.id" *ngFor="let sexo of listaSexo">
+                    {{sexo.sex_descripcion}}
+                  </option>
+                </select>
+
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+                <select name="" id="" formControlName="esc_id" class="form-control">
+                  <option value="">Estado Civil</option>
+                  <option [value]="estcivil.id" *ngFor="let estcivil of listaEstadocivil">
+                    {{estcivil.esc_descripcion}}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field text-left mb-2">
+              <label for="seleccione" class="block">Seleccione fecha de nacimiento y Bautismo</label>
+              <div class="input-group input-group mb-2">
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+                <input type="date" formControlName="pro_fechanacimiento" class="form-control">
+
+                <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+                <input type="date" formControlName="pro_fechabautismo" class="form-control">
+              </div>
+            </div>
+
+            <div class="field text-left mb-2">
+              <label for="pro_celular" class="block">Celular</label>
+              <input type="text" aria-describedby="pro_celular-help" pInputText formControlName="pro_celular"
+                class="form-control" [class]="validarCampo('pro_celular')" placeholder="Ingrese celular">
+              <div *ngIf="!form.get('pro_celular')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_celular')?.hasError('required')"> El celular es requerido</div>
+                <div *ngIf="form.get('pro_celular')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+
+            <div class="field text-left mb-3">
+              <label for="pro_direccion" class="block">Dirección</label>
+              <input type="text" aria-describedby="pro_direccion-help" pInputText formControlName="pro_direccion"
+                class="form-control" [class]="validarCampo('pro_direccion')" placeholder="Ingrese dirección">
+              <div *ngIf="!form.get('pro_direccion')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_direccion')?.hasError('required')"> La dirección es requerido</div>
+                <div *ngIf="form.get('pro_direccion')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text">
+                <i class="fab fa-digital-ocean">
+                </i>
+              </span>
+              <select name="" id="" formControlName="igl_id" class="form-control">
+                <option value="">--Seleccione Iglesia--</option>
+                <option [value]="iglesia.id" *ngFor="let iglesia of listaIglesia">
+                  {{iglesia.igl_nombre}}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"> </i></span>
+              <input type="file" (change)="subirimagen($event)" formControlName="pro_imagen" class="form-control"
+                class="form-control" [class]="validarCampo('pro_imagen')">
+              <div *ngIf="!form.get('pro_imagen')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('pro_imagen')?.hasError('required')"> La foto es requerido</div>
+
+              </div>
+            </div>
+
+            <div class="input-group input-group mb-3 text-center">
+
+              <!--    <img [src]="imgSrc" width="100px" alt="" (click)="capturarImagen.click()"> -->
+
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                <i class="fas fa-database"></i>&nbsp; Guardar</button>
+              <button type="button" class="btn btn-danger" routerLink="/admin/estudiante/listar">
+                <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
+            </div>
+          </form>
+          <p-toast [showTransformOptions]="'translateX(100%)'"></p-toast>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

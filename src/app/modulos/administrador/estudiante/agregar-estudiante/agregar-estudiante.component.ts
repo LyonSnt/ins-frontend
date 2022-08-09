@@ -68,6 +68,7 @@ export class AgregarEstudianteComponent implements OnInit {
   num: any;
   numbers: any;
   dateSubscription: Subscription;
+  datoCrear: any;
 
   constructor(
     private fb: FormBuilder,
@@ -180,13 +181,26 @@ export class AgregarEstudianteComponent implements OnInit {
     formData.append("est_contra", this.form.get('est_contra')?.value);
 
     this._servicioEstudiate._crearEstudiante(formData).subscribe(r => {
-      this.toastr.success(JSON.stringify('Correctamente'),
-        JSON.stringify('Registrado'), {
-        timeOut: 2000,
-        progressBar: true
-      });
-      // this.messageService.add({ severity: 'success', summary: 'Registrado', detail: 'Correctamente' });
-      this.ruteador.navigateByUrl('/admin/matricula/listaLegalizar');
+
+      this.datoCrear = r;
+
+      if (this.datoCrear.status == 1) {
+
+        this.toastr.info(JSON.stringify(this.datoCrear.msg2), JSON.stringify(this.datoCrear.msg1), {
+          timeOut: 3000,
+          progressBar: true
+        });
+
+        // this.messageService.add({ severity: 'success', summary: 'Registrado', detail: 'Correctamente' });
+        this.ruteador.navigateByUrl('/admin/matricula/listamatricular');
+      } else if (this.datoCrear.status == 0) {
+        this.toastr.error(JSON.stringify(this.datoCrear.msg), JSON.stringify('ERROR'), {
+          timeOut: 3000,
+          progressBar: true
+        });
+      }
+
+
     });
 
   }

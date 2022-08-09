@@ -13,6 +13,7 @@ import {MessageModule} from 'primeng/message';
 import {CardModule} from 'primeng/card';
 import {PanelModule} from 'primeng/panel';
 import {PasswordModule} from 'primeng/password';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -34,6 +35,7 @@ import {PasswordModule} from 'primeng/password';
     CardModule,
     PanelModule,
     PasswordModule,
+    TranslateModule
 
 
 
@@ -51,6 +53,7 @@ import {PasswordModule} from 'primeng/password';
     CardModule,
     PanelModule,
     PasswordModule,
+    TranslateModule
 
 
   ]

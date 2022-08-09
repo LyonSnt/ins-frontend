@@ -98,6 +98,13 @@ export class EstudianteService {
     });
   } */
 
+  _historialEstudiante(): Observable<Estudiante2[]> {
+    return this.http.get<Estudiante2[]>(this.urlLaravel + "historialEstudiante")
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
 
 
   _ultimodato(): Observable<Estudiante2[]> {

@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NotaModule } from './administrador/nota/nota.module';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '@modulos/login/login.component';
@@ -13,6 +14,7 @@ import { ProfesorprfModule } from './profesor/profesorprf.module';
 import { EstudianteestModule } from './estudiante/estudianteest.module';
 import { NivelModule } from './administrador/nivel/nivel.module';
 import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component';
+import { ProfesorModule } from './administrador/profesor/profesor.module';
 
 
 
@@ -25,6 +27,7 @@ import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+    TranslateModule,
     //ADMINISTRADOR
     ComunidadModule, //
     EstadocivilModule,
@@ -32,6 +35,8 @@ import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component
     MatriculaModule,
     NivelModule,
     NotaModule,
+    ProfesorModule,
+  
 
 
     //PARTE DEL PROFESOR
@@ -44,6 +49,7 @@ import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+    TranslateModule,
     //ADMINISTRADOR
     ComunidadModule,
     EstadocivilModule,
@@ -51,6 +57,7 @@ import { AgregarSexoComponent } from './sexo/agregar-sexo/agregar-sexo.component
     MatriculaModule,
     NivelModule,
     NotaModule,
+    ProfesorModule,
 
     //PARTE DEL PROFESOR
     ProfesorprfModule,

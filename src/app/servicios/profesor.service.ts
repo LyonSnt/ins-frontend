@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IProfesor } from '@modelos/iprofesor';
+import { Profesor } from '@modelos/profesor';
 import { environment } from 'environments/environment.prod';
-import { catchError, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +11,50 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class ProfesorService {
 
   private urlLaravel = environment.baseLaravel;
+
+  ___filtrarProfesor = new BehaviorSubject<Profesor[]>(null!);
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this._filtrarProfesor("");
+  }
 
 
-  _createProfesor(profesor): Observable<IProfesor> {
-    return this.http.post<IProfesor>(this.urlLaravel + "profesor", JSON.stringify(profesor), this.httpOptions)
+  _createProfesor2(profesor): Observable<Profesor> {
+    return this.http.post<Profesor>(this.urlLaravel + "crearProfesor", JSON.stringify(profesor), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
+
+  _createProfesor(data) {
+    return this.http.post(this.urlLaravel + "crearProfesor", data)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+  _filtrarProfesor(query) {
+    return this.http.post(this.urlLaravel + "filtrarProfesor?buscar=" + query, null).subscribe(res => {
+      var r: any = res;
+      this.___filtrarProfesor.next(r.datol);
+    });
+  }
+
+
+
+  _eliminarProfesor(id) {
+    return this.http.delete<Profesor>(this.urlLaravel + "eliminarProfesor" + '/' + id, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+
   _matriculaEstudiateProfesor(id): Observable<IProfesor> {
     return this.http.get<IProfesor>(this.urlLaravel + "matriculaEstudiateProfesor" + '/' + id)
       .pipe(
@@ -40,6 +71,12 @@ export class ProfesorService {
 
   _listarProfesorH(): Observable<IProfesor[]> {
     return this.http.get<IProfesor[]>(this.urlLaravel + "profesor")
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+  _historialProfesores(): Observable<IProfesor[]> {
+    return this.http.get<IProfesor[]>(this.urlLaravel + "historialProfesores")
       .pipe(
         catchError(this.errorHandler)
       )

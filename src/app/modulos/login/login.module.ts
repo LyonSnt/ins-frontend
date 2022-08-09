@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@layout/layout.module';
@@ -12,11 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     LayoutModule,
+    TranslateModule
 
   ],
   exports: [
     LayoutModule,
     ReactiveFormsModule,
+    TranslateModule
 
   ]
 })

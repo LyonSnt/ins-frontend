@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '@servicios/login.service';
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-login',
@@ -24,9 +25,13 @@ export class LoginComponent implements AfterViewInit, OnInit {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private ruteador: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public _traductorServicio: TranslateService
 
   ) {
+
+    _traductorServicio.addLangs(['es', 'ki']);
+    _traductorServicio.setDefaultLang('es');
 
   }
   ngAfterViewInit(): void {
@@ -39,10 +44,14 @@ export class LoginComponent implements AfterViewInit, OnInit {
     this.loginForm();
   }
 
+  traductor(idioma: string) {
+    this._traductorServicio.use(idioma);
+  }
+
   loginForm() {
     this.form = this.fb.group({
-      email: ['a@a.com', [Validators.required, Validators.email]],
-      password: ['a', [Validators.required, Validators.minLength(1)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(1)]]
 
     });
   }

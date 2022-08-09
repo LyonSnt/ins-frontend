@@ -1,10 +1,11 @@
 <!-- Main Sidebar Container -->
+<!-- <aside class="main-sidebar sidebar-dark-primary elevation-4"> -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a class="brand-link">
     <img src="./assets/images/logo/logoalianza2.jpg" alt="Logo" class="brand-image img-circle elevation-3"
       style="opacity: .8">
-    <span class="brand-text font-weight-light">Instituto Bíblico</span>
+    <span class="brand-text font-weight-light">{{'sidebar.titulo' | translate}}</span>
 
   </a>
 
@@ -16,9 +17,10 @@
         <img src="./assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-     <!--    <a class="d-block">{{this.userData.name}}</a> -->
+        <!--    <a class="d-block">{{this.userData.name}}</a> -->
         <h6 class="lyon-nombre">{{this.userData.name}}</h6>
-        <h6 class="lyon-rol">{{this.userData.id_rol}}</h6>
+        <!--   <h6 class="lyon-rol">{{this.userData.id_rol}}</h6> -->
+        <h6 class="lyon-rol">{{'sidebar.roladmin' | translate}}</h6>
 
       </div>
     </div>
@@ -26,88 +28,129 @@
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" data-accordion="false">
+
+        <!--  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"> -->
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-        <li class="nav-item" *ngFor="let item of menuItems12">
-          <a [routerLink]="item.url" class="nav-link">
-            <i class="{{item.icono}}"></i>
-            <p class="ml-2">
-              {{item.titulo}}
-            </p>
-          </a>
-        </li>
+        <ul class="nav nav-sidebar flex-column">
+          <li class="nav-item" *ngFor="let item of menuItems12">
+            <a [routerLink]="item.url" class="nav-link">
+              <i class="{{item.icono}}"></i>
+              <p class="ml-0">
+                <!--  {{item.titulo}} -->
+                {{'sidebar.dashboard' | translate}}
 
-        <li class="nav-item" *ngFor="let item of menuItems1">
-          <a href="#" class="nav-link">
-            <i class="{{item.icono}}"></i>
-            <p class="ml-2">
-              {{item.titulo}}
-              <span class="badge badge-warning ml-2">{{item.submenu.length}}</span>
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item" *ngFor="let subMenu of item.submenu">
-              <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
-                <i class="{{subMenu.icono}}"></i>
-                <p class="ml-2">{{subMenu.titulo}}</p>
-              </a>
-            </li>
-          </ul>
-        </li>
+              </p>
+            </a>
+          </li>
 
-        <li class="nav-item" *ngFor="let item of menuItems2">
-          <a href="#" class="nav-link">
-            <i class="{{item.icono}}"></i>
-            <p class="ml-2">
-              {{item.titulo}}
-              <span class="badge badge-warning ml-2">{{item.submenu.length}}</span>
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item" *ngFor="let subMenu of item.submenu">
-              <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
-                <i class="{{subMenu.icono}}"></i>
-                <p class="ml-2">{{subMenu.titulo}}</p>
-              </a>
-            </li>
-          </ul>
-        </li>
+          <li class="nav-item" *ngFor="let item of menuItems1">
+            <a href="#" class="nav-link">
+              <i class="{{item.icono}}"></i>
+              <p class="ml-0">
+                <!--  {{item.titulo}} -->
+                {{'sidebar.procesoacademico' | translate}}
 
-      <!--   <li class="nav-item" *ngFor="let item of menuItems3">
-          <a href="#" class="nav-link">
-            <i class="{{item.icono}}"></i>
-            <p class="ml-2">
-              {{item.titulo}}
-              <span class="badge badge-warning ml-2">{{item.submenu.length}}</span>
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item" *ngFor="let subMenu of item.submenu">
-              <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
-                <i class="{{subMenu.icono}}"></i>
-                <p class="ml-2">{{subMenu.titulo}}</p>
-              </a>
-            </li>
-          </ul>
-        </li> -->
+                <i class="right fas fa-angle-left"></i>
+                <span class="badge badge-warning ml-1">{{item.submenu.length}}</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngFor="let subMenu of item.submenu">
+                <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
+                  <i class="{{subMenu.icono}}"></i>
+                  <!--  <p class="ml-2">{{subMenu.titulo}}</p> -->
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Estudiante'">{{'sidebar.estudiante' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Profesor'">{{'sidebar.profesor' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Matricular'">{{'sidebar.matricular' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Matriculados'">{{'sidebar.matriculados' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Nota'">{{'sidebar.nota' | translate}}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item" *ngFor="let item of menuItems2">
+            <a href="#" class="nav-link">
+              <i class="{{item.icono}}"></i>
+              <p class="ml-0">
+                <!--  {{item.titulo}} -->
+                {{'sidebar.item2' | translate}}
+
+                <i class="right fas fa-angle-left"></i>
+                <span class="badge badge-warning ml-1">{{item.submenu.length}}</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngFor="let subMenu of item.submenu">
+                <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
+                  <i class="{{subMenu.icono}}"></i>
+                  <!--   <p class="ml-2">{{subMenu.titulo}}</p> -->
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Institucion'">{{'sidebar.institucion' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Cargo'">{{'sidebar.cargo' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Año'">{{'sidebar.anio' | translate}}</p>
+                  <p class="ml-2" *ngIf="subMenu.titulo == 'Iglesia'">{{'sidebar.iglesia' | translate}}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item" *ngFor="let item of menuItems3">
+            <a href="#" class="nav-link">
+              <i class="{{item.icono}}"></i>
+              <p class="ml-0">
+                <!--  {{item.titulo}} -->
+                {{'sidebar.item3' | translate}}
+
+                <i class="right fas fa-angle-left"></i>
+                <span class="badge badge-warning ml-1">{{item.submenu.length}}</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngFor="let subMenu of item.submenu">
+                <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
+                  <i class="{{subMenu.icono}}"></i>
+                  <p class="ml-2">{{subMenu.titulo}}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--   <li class="nav-item" *ngFor="let item of menuItems3">
+        <a href="#" class="nav-link">
+          <i class="{{item.icono}}"></i>
+          <p class="ml-2">
+            {{item.titulo}}
+            <span class="badge badge-warning ml-2">{{item.submenu.length}}</span>
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item" *ngFor="let subMenu of item.submenu">
+            <a [routerLink]="subMenu.url" class="nav-link" style="cursor: poiter;">
+              <i class="{{subMenu.icono}}"></i>
+              <p class="ml-2">{{subMenu.titulo}}</p>
+            </a>
+          </li>
+        </ul>
+      </li> -->
+
+          <!--
+      <li class="nav-header">Extra</li> -->
+          <li class="nav-header">{{'sidebar.extra' | translate}}</li>
 
 
-        <li class="nav-header">Extra</li>
-
-
-        <li class="nav-item" *ngFor="let item of cerrarSesion">
-          <a (click)="item.metodo ? item.metodo() : null"  style="cursor: poiter;" class="nav-link">
-            <i class="{{item.icono}}"></i>
-            <p>
-              {{item.titulo}}
-            </p>
-          </a>
-        </li>
+          <li class="nav-item" *ngFor="let item of cerrarSesion">
+            <a (click)="item.metodo ? item.metodo() : null" style="cursor: poiter;" class="nav-link">
+              <i class="{{item.icono}}"></i>
+              <p>
+                <!--    {{item.titulo}} -->
+                {{'sidebar.cerrar' | translate}}
+              </p>
+            </a>
+          </li>
+        </ul>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

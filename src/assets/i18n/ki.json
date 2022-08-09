@@ -1,0 +1,50 @@
+{
+
+  "login": {
+    "titulo": "Yachajuna Wasy Tandanajushka Otavalo",
+    "subtitulo": "Ally Shamuska Kapaychi",
+    "boton": "Kallaripay"
+  },
+
+  "sidebar": {
+    "titulo": "Yachajuna Wasy",
+    "dashboard": "Rrikuna",
+    "roladmin": "Tukuyta Rricudur",
+    "rolestu": "Yachajuk",
+    "rolprofe": "Yachachik",
+    "procesoacademico": "Rrurranakuna",
+    "estudiante": "Yachajun",
+    "profesor": "Yachachij",
+    "matricular": "Kishkarina",
+    "matriculados": "Kishkarishkakuna",
+    "nota": "Yachajushkakuna",
+    "item2": "Agllanakuna",
+    "institucion": "Yachana Wasi",
+    "cargo": "Ima yachashcata charin",
+    "anio": "Wata",
+    "iglesia": "Apunchik Wasi",
+    "item3": "Rricuchina",
+    "extra": "Shukuna",
+    "cerrar": "Vichapay"
+  },
+  "dashboard": {
+    "histestudiante": "Yachajukkuna",
+    "masinfo": "Rrikuna",
+    "totmatriculados": "Kishkarishkakuna",
+    "totprofesores": "Yachachijkuna",
+    "matanuladas": "Llukshirishkakuna"
+  },
+
+  "sidebarp": {
+    "titulo": "Yachajuna Wasy",
+    "dashboard": "Rrikuna",
+    "rolusuario": "poner algo",
+    "perfil": "Paypa Yachajushka",
+    "menu": "Rrikunakuna",
+    "Matriculados": "Kishkarishkakuna",
+    "Asistencia": "Rrishkakuna",
+    "Notas": "Yachajushkakuna",
+    "extra": "Shukuna",
+    "cerrar": "Vichapay"
+  }
+}

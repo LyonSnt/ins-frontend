@@ -11,7 +11,7 @@ import { MatriculaService } from '@servicios/matricula.service';
 export class PerfilEstComponent implements OnInit {
   token: any;
   userData: any;
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
 
 
   estudianteId: any;
@@ -34,7 +34,7 @@ export class PerfilEstComponent implements OnInit {
 
     });
 
-    this._matriculaServicio._buscarMatriculaPorId(this.userData.est_id).subscribe(r => {
+    this._matriculaServicio._buscarMatriculaEstudiantePorId(this.userData.est_id).subscribe(r => {
       this.estudianteIdMatricula = r;
       console.log("ESTUDIANTE ID Matricula", this.estudianteIdMatricula);
 

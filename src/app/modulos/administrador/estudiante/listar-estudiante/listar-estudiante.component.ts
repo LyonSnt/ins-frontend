@@ -17,7 +17,7 @@ import { MessageService } from 'primeng/api';
 })
 export class ListarEstudianteComponent implements OnInit, AfterViewInit {
 
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
   datos: Estudiante2[];
 
   //datos: Observable<Estudiante2[]>:

@@ -1,0 +1,61 @@
+<div class="container pt-4">
+  <div class="row">
+
+    <div class="col-8 offset-2">
+
+      <div class="card text-center">
+        <div class="card-body mb-3">
+          <h3>Verificar datos</h3>
+          <hr>
+
+          <form [formGroup]="form" (ngSubmit)="editar()">
+
+         <!--    <input type="hidden" formControlName="mtr_estadov" class="form-control"> -->
+            <input type="hidden" formControlName="idv" class="form-control" readonly>
+            <input type="hidden" formControlName="idestv" class="form-control" readonly>
+         <!--    <input type="hidden" formControlName="est_estadov" class="form-control"> -->
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="codigomatriculav" class="form-control" readonly>
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="codigoestudiantev" class="form-control" readonly>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_cedulav" class="form-control" readonly>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_apellidov" class="form-control" readonly>
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <input type="text" formControlName="est_nombrev" class="form-control" readonly>
+            </div>
+
+            <div class="input-group input-group mb-3">
+              <span class="input-group-text"><i class="fab fa-digital-ocean"></i></span>
+              <select name="" id="" formControlName="mtr_estadov" class="form-control">
+                <option value="">--Seleccione--</option>
+                <option [value]="1">Anular</option>
+              </select>
+            </div>
+
+
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-database"></i>&nbsp; Anular</button>
+              <button type="button" class="btn btn-danger" routerLink="/admin/matricula/listar">
+                <i class="fa fa-sign-out-alt"></i>&nbsp; Cancelar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

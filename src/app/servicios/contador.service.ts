@@ -31,6 +31,12 @@ export class ContadorService {
       catchError(this.errorHandler)
     )
   }
+  _listarContadorProfesor(): Observable<Contador[]> {
+    return this.http.get<Contador[]>(this.urlLaravel + "listarContadorProfesor")
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
 
   errorHandler(error) {
     let errorMessage = '';

@@ -12,7 +12,7 @@ export class VistaEstudianteComponent implements OnInit {
 
   public estudianteId: string | null = null;
   listaEstudiante: Estudiante2 = {} as Estudiante2;
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
 
 
   constructor(

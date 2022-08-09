@@ -70,11 +70,17 @@ export class AgregarlistarCargoComponent implements OnInit {
     if (this.__cargoId == undefined) {
       this._cargoServicio._crearCargo(this.form.value).subscribe(r => {
         this.datoCrear = r;
-        console.log("DATOS", this.datoCrear);
-        this.recarga = false;
-        this.listarCargo();
-        this.messageService.add({severity:'success', summary:'Guardado', detail:'Correctamente'});
-        this.form.reset();
+        if (this.datoCrear.status == 1) {
+          // console.log("DATOS MWNSAJ", this.datoCrear.msg);
+          this.recarga = false;
+          this.listarCargo();
+          this.messageService.add({ severity: 'success', summary: this.datoCrear.msg1, detail: this.datoCrear.msg2 });
+          this.form.reset();
+
+        } else if (this.datoCrear.status == 0) {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: this.datoCrear.msg });
+        }
+
       });
     } else {
       cargo.id = this.__cargoId;
@@ -87,7 +93,7 @@ export class AgregarlistarCargoComponent implements OnInit {
         this.form.reset();
         this.accion = 'Agregar';
         this.__cargoId = undefined;
-        this.messageService.add({severity:'info', summary:'Actualizado', detail:'Correctamente'});
+        this.messageService.add({ severity: 'info', summary: 'Actualizado', detail: 'Correctamente' });
         this.listarCargo();
       });
     }
@@ -103,10 +109,10 @@ export class AgregarlistarCargoComponent implements OnInit {
 
 
   eliminarCargo(id: number) {
-    if(confirm('Desea eliminar')){
+    if (confirm('Desea eliminar')) {
       this._cargoServicio._eliminarCargo(id).subscribe((respuesta: any) => {
 
-        this.messageService.add({severity:'error', summary:'Eliminado', detail:'Correctamente'});
+        this.messageService.add({ severity: 'error', summary: 'Eliminado', detail: 'Correctamente' });
         this.listarCargo();
       });
     }

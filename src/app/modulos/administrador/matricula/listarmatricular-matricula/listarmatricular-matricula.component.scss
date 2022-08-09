@@ -14,14 +14,36 @@
   margin-right: 7px;
 }
 
-.porlegalizado-td{
+.nomatriculado-td{
 
-  color: red
+  color: red;
+   font-weight: bold;
 
 }
 
-.legalizado-td{
+.simatriculado-td{
 
   color: rgb(23, 178, 92);
+   font-weight: bold;
 
+}
+.anulado-td{
+
+  color: rgb(236, 119, 56);
+   font-weight: bold;
+
+}
+.aprobado-td{
+
+  color: rgb(103, 122, 214);
+   font-weight: bold;
+
+}
+
+table {
+  font-size: 14px;
+}
+
+div.lyon-radio label {
+  margin-right: 20px;
 }

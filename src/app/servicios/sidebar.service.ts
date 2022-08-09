@@ -26,10 +26,11 @@ export class SidebarService {
 
   menuAdmin1: any[] = [
     {
-      titulo: 'Administrar',
+      titulo: 'Proceso Académico',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
         { titulo: 'Estudiante', url: 'estudiante/listar', icono: 'fa fa-users' },
+        { titulo: 'Profesor', url: 'profesor/listar', icono: 'fa fa-users' },
         { titulo: 'Matricular', url: 'matricula/listamatricular', icono: 'fa fa-cubes' },
         { titulo: 'Matriculados', url: 'matricula/listar', icono: 'fa fa-cubes' },
         { titulo: 'Nota', url: 'nota/agregar', icono: 'fa fa-cubes' }
@@ -51,6 +52,20 @@ export class SidebarService {
   ];
 
   menuAdmin3: any[] = [
+    {
+      titulo: 'Reporte',
+      icono: 'nav-icon fas fa-tachometer-alt',
+      submenu: [
+        { titulo: 'Rep1', url: 'institucion/listar', icono: 'fa fa-users' },
+        { titulo: 'Rep2', url: 'cargo/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Rep3', url: 'aniacade/listar', icono: 'fa fa-cubes' },
+
+      ]
+    }
+  ];
+
+
+  menuAdmin4: any[] = [
     {
       titulo: 'Administrar Estudiante',
       icono: 'nav-icon fas fa-tachometer-alt',
@@ -86,7 +101,7 @@ export class SidebarService {
 
 
   menuProfe: any[] = [{
-    titulo: 'Administrar',
+    titulo: 'Administrar2',
     icono: 'nav-icon fas fa-tachometer-alt',
     submenu: [
       { titulo: 'Matriculados', url: 'prf2022::/matriculados', icono: 'fa fa-users' },

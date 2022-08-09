@@ -10,7 +10,7 @@ import { ProfesorService } from '@servicios/profesor.service';
 export class PerfilPrfComponent implements OnInit {
   token: any;
   userData: any;
-  directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
+  directorio: any = 'http://127.0.0.1:8000/storage/img_profesor/';
 
 
   profesorId: any;

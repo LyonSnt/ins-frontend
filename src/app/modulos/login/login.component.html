@@ -9,8 +9,8 @@
 
         <img src="./assets/images/logo/logoalianza2.jpg" width="50" alt="">
       </div>
-      <h5 class="fw-bold text-center">Instituto Bíblico Alianza Otavalo</h5>
-      <h6 class="fw-bold text-center py-3"> Bienvenido/a</h6>
+      <h5 class="fw-bold text-center">{{'login.titulo' | translate}}</h5>
+      <h6 class="fw-bold text-center py-3">{{'login.subtitulo' | translate}}</h6>
 
       <form [formGroup]="form" (ngSubmit)="login()">
         <div class="input-group input-group mb-4">
@@ -39,7 +39,14 @@
         </div>
 
         <div class="d-grid">
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          <button type="submit" class="btn btn-primary mb-2">{{'login.boton' | translate}}</button>
+
+          <select class="form-control" #lenguaje (change)="traductor(lenguaje.value)">
+            <option value="#">Seleccione Idioma</option>
+            <option *ngFor="let aux of _traductorServicio.getLangs()" [value]="aux">
+              {{aux}}
+            </option>
+          </select>
         </div>
       </form>
     </div>
@@ -47,7 +54,7 @@
 </div>
 
 <ng-container *ngIf="isLoading">
-<div class="lyon-loader">
-<img [src]="loader" alt="">
-</div>
+  <div class="lyon-loader">
+    <img [src]="loader" alt="">
+  </div>
 </ng-container>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header-est',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderEstComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public _traductorServicio: TranslateService
+  ) {
+    _traductorServicio.addLangs(['es', 'ki']);
+    _traductorServicio.setDefaultLang('es');
+  }
 
   ngOnInit(): void {
+  }
+  traductor(idioma: string) {
+    this._traductorServicio.use(idioma);
   }
 
 }

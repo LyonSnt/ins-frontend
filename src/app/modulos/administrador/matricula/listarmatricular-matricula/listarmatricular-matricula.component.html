@@ -32,41 +32,33 @@
             <th>Cédula</th>
             <th>Apellido</th>
             <th>Nombre</th>
-            <th>Nivel Aprobado</th>
-            <th>Trimestre Aprobado</th>
+            <th>Nivel Apro</th>
+            <th>Trim Apro</th>
             <th>Matriculado</th>
             <th>Acciones</th>
           </tr>
 
         </ng-template>
         <ng-template pTemplate="body" let-aux>
+         <!--  <tr *ngIf="aux.est_estado==0 || aux.est_estado==1"> -->
           <tr>
             <td>{{'Estu-'+aux.id}}</td>
-
-
-
-            <td><img
-                [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/estudiante/image_placeholder.jpg  '"
-                alt="" width="30px;"></td>
+            <td><img [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/img_vacio/usuario.png'" alt=""
+                width="30px;"></td>
 
             <td>{{aux.est_cedula}}</td>
             <td>{{aux.est_apellido}}</td>
             <td>{{aux.est_nombre}}</td>
-            <td>2</td>
-            <td>3</td>
-            <td>S</td>
 
-            <!--
-          <td class="legalizado-td" *ngIf="aux.mtr_estado==1">Legalizado</td>
-          <td class="aprobado-td" *ngIf="aux.mtr_estado==2">Aprobado</td>
- -->
+            <td>{{aux.est_nivel}}</td>
+            <td>{{aux.est_trimestre}}</td>
+            <td class="nomatriculado-td" *ngIf="aux.est_estado==0">N</td>
+            <td class="simatriculado-td" *ngIf="aux.est_estado==1">S</td>
+            <td class="anulado-td" *ngIf="aux.est_estado==2">A</td>
+            <td class="aprobado-td" *ngIf="aux.est_estado==3">AP</td>
 
-            <td>
-
-              <!--   <i class="far fa-edit text-info" routerLink="/admin/matricula/legalizar/{{aux.id}}">LEGALIZAR</i> -->
-
+            <td *ngIf="aux.est_estado == 0 || aux.est_estado == 2 || aux.est_estado == 3">
               <i class="far fa-edit text-info" routerLink="/admin/matricula/matricular/{{aux.id}}">MATRICULAR</i>
-              <!--  <i class="far fa-trash-alt text-danger" (click)="eliminarEstudiante(aux.id)"></i> -->
             </td>
           </tr>
 
