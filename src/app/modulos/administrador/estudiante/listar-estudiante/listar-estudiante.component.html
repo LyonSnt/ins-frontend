@@ -17,12 +17,34 @@
   <div class="lyon-card2 card text-center mt-2">
 
     <div class="lyon-card-header card-header">
-      <h4>LISTA DE ESTUDIANTE</h4>
+      <h1 class="titulo">LISTA DE ESTUDIANTE</h1>
     </div>
     <div class="card-body">
 
-      <p-table [value]="datos" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
-        [totalRecords]="totalRecords" [pageLinks]="3">
+     <!--  <p-table ngClass="tabla" [value]="datos" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
+        [totalRecords]="totalRecords" [pageLinks]="3"> -->
+  <!--       <p-table [value]="datos" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        [class.hide-next]="hideNext"  [loading]="loading"  paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+        {PreviousPageLink} {PageLinks} {NextPageLink}
+        {LastPageLink} {RowsPerPageDropdown}"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+ -->
+
+ <p-table [value]="datos" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+ [class.hide-next]="hideNext" paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+ {PreviousPageLink} {PageLinks} {NextPageLink}
+ {LastPageLink} {RowsPerPageDropdown}"
+ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+    <!--     <ng-template pTemplate="caption">
+          <div class="flex">
+              <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+              <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
+              <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+              <button type="button" pButton pRipple icon="pi pi-filter" (click)="dt.exportCSV({selectionOnly:true})" class="p-button-info ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
+          </div>
+      </ng-template> -->
+
         <ng-template pTemplate="header">
 
           <tr>
@@ -47,8 +69,8 @@
             <!--  -->
 
             <td>
-              <i class="far fa-eye text-warning" routerLink="/admin/estudiante/vista/{{aux.id}}"></i>
-              <i class="far fa-edit text-info" routerLink="/admin/estudiante/editar/{{aux.id}}"></i>
+              <i class="far fa-eye text-warning" routerLink="/admin/estu/vista/{{aux.id}}"></i>
+              <i class="far fa-edit text-info" routerLink="/admin/estu/editar/{{aux.id}}"></i>
               <i class="far fa-trash-alt text-danger" (click)="eliminarEstudiante(aux.id)"></i>
             </td>
           </tr>

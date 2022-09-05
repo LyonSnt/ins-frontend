@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="card list-group">
+
+
+    <div class="card-body">
+      <h5 class="titulo text-center">ESTUDIANTE</h5>
+      <hr>
+
+      <div class="row align-items-center" *ngIf="listaEstudiante">
+        <div class="col-sm-4 text-center">
+
+          <!--  <img class="lyon-imagen" width="80%" [src]="'assets/images/estudiante/image_placeholder.jpg'" alt=""> -->
+          <img width="80%"
+            [src]="listaEstudiante.est_imagen ? directorio+listaEstudiante.est_imagen : 'assets/images/img_vacio/usuario.png'"
+            alt="">
+
+        </div>
+
+        <div class="col-sm-8">
+          <ul class="list-group">
+
+
+            <li class="list-group-item">CEDULA: <span class="fw-bold">{{ listaEstudiante.est_cedula}}</span></li>
+            <li class="list-group-item">NOMBRE: <span class="fw-bold">{{ listaEstudiante.est_apellido}}
+                {{listaEstudiante.est_nombre}}</span></li>
+
+          </ul>
+
+        </div>
+      </div>
+      <hr>
+      <p-table [value]="estudianteIdNotaProfe" styleClass="p-datatable-striped" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+
+          <tr>
+            <th>Nivel</th>
+            <th>Trimestre</th>
+            <th>Materia</th>
+            <!-- <th>Profesor</th> -->
+            <th>NF</th>
+            <th>Apr</th>
+            <th>Ciclo</th>
+          </tr>
+
+        </ng-template>
+        <ng-template pTemplate="body" let-aux>
+          <tr>
+            <td>{{aux.nivid}}</td>
+            <td>{{aux.tri_id}}</td>
+            <td>{{aux.asg_nombre}}</td>
+            <!--   <td>{{aux.pro_apellido+' '+aux.pro_nombre}}</td> -->
+            <td>{{aux.notafinal | number:'1.0'}}</td>
+            <td>{{aux.aprobo}}</td>
+            <td>{{aux.mes_abreviatura}}-{{aux.ani_anio}}</td>
+          </tr>
+
+        </ng-template>
+
+      </p-table>
+
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <a class="btn btn-danger" routerLink="/prof/view::/matriculados">
+        <i class="fa fa-arrow-alt-circle-left">&nbsp; Regresar</i>
+      </a>
+
+    </div>
+  </div>
+</div>

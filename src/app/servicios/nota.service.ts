@@ -34,6 +34,14 @@ export class NotaService {
       )
   }
 
+
+  _buscarNotaPorIdProfesor(id,id2): Observable<Nota> {
+    return this.http.get<Nota>(this.urlLaravel + "buscarNotaPorIdProfesor" + '/' + id + '/' + id2) //ESTA PARTE ESTA SIENDO UTILIZADO EN PERFIL ESTUDIANTE
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
   _listarNota(): Observable<Nota[]> { //NO ESTOY UTILIZANDO
     return this.http.get<Nota[]>(this.urlLaravel + "listarNota")
       .pipe(
@@ -47,7 +55,7 @@ export class NotaService {
         catchError(this.errorHandler)
       )
   }
-  
+
 
   _actualizarNota(id: number, nota: any): Observable<Nota> {
     return this.http.put<Nota>(this.urlLaravel + "actualizarNota" + '/' + id, JSON.stringify(nota), this.httpOptions)

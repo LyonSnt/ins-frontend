@@ -17,7 +17,8 @@ export class SidebarPrfComponent implements OnInit {
   /*   dashboardProf: any[];
     dashboardProf: any[];
     dashboardProf: any[]; */
-
+  
+    directorio: any = 'http://127.0.0.1:8000/storage/img_profesor/';
   menuItemsProf: any[];
   menuItems3: any[];
   userData: any;
@@ -42,6 +43,8 @@ export class SidebarPrfComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token);  //ESTA PARTE TRAE LA FOTO GRANDE
+    console.log("FOTO", this.userData.foto);
+
   }
 
   logout() {

@@ -22,6 +22,11 @@ import { EditarSexoComponent } from '@modulos/sexo/editar-sexo/editar-sexo.compo
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -65,7 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
     SharedModule,
     NgbModule,
-    NgbPaginationModule, NgbAlertModule
+    NgbPaginationModule, NgbAlertModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage())
 
   ],
   providers: [

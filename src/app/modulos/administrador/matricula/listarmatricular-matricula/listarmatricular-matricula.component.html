@@ -16,14 +16,18 @@
   <div class="lyon-card2 card text-center mt-2">
 
     <div class="lyon-card-header card-header">
-      <h4>Matricular</h4>
+      <h1 class="titulo">Matricular</h1>
 
     </div>
     <div class="card-body">
 
 
-      <p-table [value]="ListadatosEstudianteAny" styleClass="p-datatable-striped" responsiveLayout="scroll"
-        [paginator]="true" [rows]="3" [totalRecords]="totalRecords" [pageLinks]="3">
+   <!--    <p-table [value]="ListadatosEstudianteAny" styleClass="p-datatable-striped" responsiveLayout="scroll"
+        [paginator]="true" [rows]="3" [totalRecords]="totalRecords" [pageLinks]="3"> -->
+
+        <p-table [value]="ListadatosEstudianteAny" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
         <ng-template pTemplate="header">
 
           <tr>
@@ -58,7 +62,7 @@
             <td class="aprobado-td" *ngIf="aux.est_estado==3">AP</td>
 
             <td *ngIf="aux.est_estado == 0 || aux.est_estado == 2 || aux.est_estado == 3">
-              <i class="far fa-edit text-info" routerLink="/admin/matricula/matricular/{{aux.id}}">MATRICULAR</i>
+              <i class="far fa-edit text-info" routerLink="/admin/matr/matricular/{{aux.id}}">MATRICULAR</i>
             </td>
           </tr>
 

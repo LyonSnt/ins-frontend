@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "instituto-bkh": {
+      "hosting": {
+        "frontend": [
+          "instituto-bkh"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "instituto-bkh"
+  }
+}

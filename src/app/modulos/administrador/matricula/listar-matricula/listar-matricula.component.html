@@ -41,6 +41,8 @@
 
       <p-table [value]="legalizadoIdany" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
         [totalRecords]="totalRecords" [pageLinks]="3">
+
+
         <ng-template pTemplate="header">
 
           <tr>
@@ -79,7 +81,7 @@
             <td>
 
               <!--   <i class="far fa-edit text-info" routerLink="/admin/matricula/legalizar/{{aux.id}}">LEGALIZAR</i> -->
-              <i class="far fa-trash-alt text-danger" routerLink="/admin/matricula/anular/{{aux.id}}">ANULAR</i>
+              <i class="far fa-trash-alt text-danger" routerLink="/admin/matr/anular/{{aux.id}}">ANULAR</i>
               <!--  <i class="far fa-trash-alt text-danger" (click)="eliminarEstudiante(aux.id)"></i> -->
             </td>
           </tr>

@@ -17,12 +17,14 @@
   <div class="lyon-card2 card text-center mt-2">
 
     <div class="lyon-card-header card-header">
-      <h4>LISTA DE PROFESORES</h4>
+      <h1 class="titulo">LISTA DE PROFESORES</h1>
     </div>
     <div class="card-body">
 
-      <p-table [value]="datosProfesor" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true"
-        [rows]="3" [totalRecords]="totalRecords" [pageLinks]="3">
+<!--       <p-table [value]="datosProfesor" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true"
+        [rows]="3" [totalRecords]="totalRecords" [pageLinks]="3"> -->
+        <p-table [value]="datosProfesor" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
         <ng-template pTemplate="header">
 
           <tr>

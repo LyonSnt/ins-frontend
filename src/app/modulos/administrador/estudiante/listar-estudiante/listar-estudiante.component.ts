@@ -7,6 +7,7 @@ import { EstudianteService } from '@servicios/estudiante.service';
 import { LoginService } from '@servicios/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { MessageService } from 'primeng/api';
+//import * as FileSaver from 'file-saver';
 
 
 @Component({
@@ -14,11 +15,14 @@ import { MessageService } from 'primeng/api';
   templateUrl: './listar-estudiante.component.html',
   styleUrls: ['./listar-estudiante.component.scss'],
   providers: [MessageService]
+
 })
 export class ListarEstudianteComponent implements OnInit, AfterViewInit {
 
   directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
   datos: Estudiante2[];
+  public hideNext = false;
+  loading: boolean = true;
 
   //datos: Observable<Estudiante2[]>:
   pageactual: number = 1;
@@ -28,6 +32,8 @@ export class ListarEstudianteComponent implements OnInit, AfterViewInit {
   datos2: Estudiante2[] = [];
   totalRecords: number;
   submitted: boolean;
+  first = 0;
+  rows = 3;
   constructor
     (
       private _servicioEstudiante: EstudianteService,
@@ -36,20 +42,20 @@ export class ListarEstudianteComponent implements OnInit, AfterViewInit {
       private ruteador: Router,
       private messageService: MessageService,
 
-    ) {
+  ) {
 
-   /*  if (this._servicioLogin.IsAdmin() == 'Administrador') {
-     this.listarEstudianteH();
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      this.listarEstudianteM();
-    } */
+    /*  if (this._servicioLogin.IsAdmin() == 'Administrador') {
+      this.listarEstudianteH();
+     } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
+       this.listarEstudianteM();
+     } */
 
   }
 
   ngOnInit(): void {
 
     this.cumple = new Date();
-    this.filtrarEstudiante();
+   /*  this.filtrarEstudiante(); */
     /* if (this._servicioLogin.IsAdmin() == 'Administrador') {
       this.listarEstudianteH();
 
@@ -57,24 +63,54 @@ export class ListarEstudianteComponent implements OnInit, AfterViewInit {
        this.listarEstudianteM();
      } */
 
+     this._servicioEstudiante.___filtrarEstudiante.subscribe(res => {
+      this.datos = res;
+      console.log("DATOS HOMBRES", this.datos);
+    });
+
   }
 
+  next() {
+    this.first = this.first + this.rows;
+  }
+  prev() {
+    this.first = this.first - this.rows;
+  }
+  reset() {
+    this.first = 0;
+  }
+  isLastPage(): boolean {
+    return this.datos ? this.first === (this.datos.length - this.rows) : true;
+  }
+  isFirstPage(): boolean {
+    return this.datos ? this.first === 0 : true;
+  }
+  /*   exportPdf() {
+      import("jspdf").then(jsPDF => {
+          import("jspdf-autotable").then(x => {
+              const doc = new jsPDF.default(0,0);
+              doc.autoTable(this.exportColumns, this.products);
+              doc.save('products.pdf');
+          })
+      })
+  } */
+
   ngAfterViewInit(): void {
-   /*  setTimeout(() => {
-      this.isLoading = false;
-    }, 1000) */
+    /*  setTimeout(() => {
+       this.isLoading = false;
+     }, 1000) */
 
   }
   nuevoEstudiante() {
     //this.ruteador.navigate(['admin/estudiante/agregar']);
-    window.location.href = "admin/estudiante/agregar";
+    window.location.href = "admin/estu/agregar";
   }
 
 
   filtrarEstudiante() {
     this._servicioEstudiante.___filtrarEstudiante.subscribe(res => {
       this.datos = res;
-    console.log("DATOS HOMBRES", this.datos);
+      console.log("DATOS HOMBRES", this.datos);
     });
   }
   /* listarEstudianteH() {
@@ -101,12 +137,12 @@ export class ListarEstudianteComponent implements OnInit, AfterViewInit {
 
   buscar(v) {
 
- this._servicioEstudiante._filtrarEstudiante(v);
-  /*   if (this._servicioLogin.IsAdmin() == 'Administrador') {
-      this._servicioEstudiante._filtrarEstudiante(v);
-    } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
-      this._servicioEstudiante._estudianteM(v);
-    } */
+    this._servicioEstudiante._filtrarEstudiante(v);
+    /*   if (this._servicioLogin.IsAdmin() == 'Administrador') {
+        this._servicioEstudiante._filtrarEstudiante(v);
+      } if (this._servicioLogin.IsAdmin() == 'Administrador2') {
+        this._servicioEstudiante._estudianteM(v);
+      } */
 
   }
 

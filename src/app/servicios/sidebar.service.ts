@@ -29,10 +29,10 @@ export class SidebarService {
       titulo: 'Proceso Académico',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
-        { titulo: 'Estudiante', url: 'estudiante/listar', icono: 'fa fa-users' },
-        { titulo: 'Profesor', url: 'profesor/listar', icono: 'fa fa-users' },
-        { titulo: 'Matricular', url: 'matricula/listamatricular', icono: 'fa fa-cubes' },
-        { titulo: 'Matriculados', url: 'matricula/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Estudiante', url: 'estu/listar', icono: 'fa fa-users' },
+        { titulo: 'Profesor', url: 'prof/listar', icono: 'fa fa-users' },
+        { titulo: 'Matricular', url: 'matr/listamatricular', icono: 'fa fa-cubes' },
+        { titulo: 'Matriculados', url: 'matr/listar', icono: 'fa fa-cubes' },
         { titulo: 'Nota', url: 'nota/agregar', icono: 'fa fa-cubes' }
       ]
     }
@@ -43,10 +43,10 @@ export class SidebarService {
       titulo: 'Categoria',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
-        { titulo: 'Institucion', url: 'institucion/listar', icono: 'fa fa-users' },
+        { titulo: 'Institucion', url: 'inst/listar', icono: 'fa fa-users' },
         { titulo: 'Cargo', url: 'cargo/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Año', url: 'aniacade/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Iglesia', url: 'iglesia/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Año', url: 'aniocade/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Iglesia', url: 'igle/listar', icono: 'fa fa-cubes' },
       ]
     }
   ];
@@ -58,7 +58,7 @@ export class SidebarService {
       submenu: [
         { titulo: 'Rep1', url: 'institucion/listar', icono: 'fa fa-users' },
         { titulo: 'Rep2', url: 'cargo/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Rep3', url: 'aniacade/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Rep3', url: 'aniocade/listar', icono: 'fa fa-cubes' },
 
       ]
     }
@@ -70,7 +70,7 @@ export class SidebarService {
       titulo: 'Administrar Estudiante',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
-        { titulo: 'Estudiante', url: 'estudiante/listar', icono: 'fa fa-users' },
+        { titulo: 'Estudiante', url: 'estu/listar', icono: 'fa fa-users' },
         { titulo: 'Productos', url: 'usuarios', icono: 'fa fa-cubes' },
         { titulo: 'Categoria', url: 'usuarios', icono: 'fa fa-cubes' },
         { titulo: 'Productos', url: 'usuarios', icono: 'fa fa-cubes' },
@@ -95,7 +95,7 @@ export class SidebarService {
     {
       titulo: 'Perfil',
       icono: 'fas fa-user-graduate',
-      url: 'prf2022::/perfil'
+      url: 'view::/perfil'
     }
   ];
 
@@ -104,9 +104,9 @@ export class SidebarService {
     titulo: 'Administrar2',
     icono: 'nav-icon fas fa-tachometer-alt',
     submenu: [
-      { titulo: 'Matriculados', url: 'prf2022::/matriculados', icono: 'fa fa-users' },
-      { titulo: 'Asistencia', url: 'usuarios', icono: 'fa fa-cubes' },
-      { titulo: 'Notas', url: 'usuarios', icono: 'fa fa-cubes' }
+      { titulo: 'Matriculados', url: 'view::/matriculados', icono: 'fa fa-users' },
+      { titulo: 'Asistencia', url: 'view::/notas', icono: 'fa fa-cubes' },
+     /*  { titulo: 'Asistencia', url: 'usuarios', icono: 'fa fa-cubes' } */
     ]
   }];
 
@@ -128,7 +128,7 @@ export class SidebarService {
     {
       titulo: 'Perfil',
       icono: 'fas fa-user-graduate',
-      url: 'est2022::/perfil'
+      url: 'view::/perfil'
     }
   ];
 
@@ -136,7 +136,7 @@ export class SidebarService {
     {
       titulo: 'Registro Academico',
       icono: 'fas fa-book',
-      url: 'est2022::/regacademico'
+      url: 'view::/regacademico'
     }
   ];
 
@@ -144,7 +144,7 @@ export class SidebarService {
     {
       titulo: 'Notas',
       icono: 'fas fa-book-open',
-      url: 'est2022::/notas'
+      url: 'view::/notas'
     }
   ];
   menuEstudiante: any[] = [{

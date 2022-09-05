@@ -17,7 +17,7 @@ export class SidebarAdm1Component implements OnInit {
   menuItems3: any[];
   menuItems4: any[];
   userData: any;
-
+  directorio: any = 'http://127.0.0.1:8000/storage/img_profesor/';
   menuItems12: any;
 
   cerrarSesion: any;
@@ -40,6 +40,9 @@ export class SidebarAdm1Component implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token);  //ESTA PARTE TRAE LA FOTO GRANDE
+
+    console.log("DATO:", this.userData.foto);
+
 
 
   }

@@ -6,7 +6,7 @@
       <div class="lyon-card card">
         <!-- <div class="lyon-card2 card text-center"> -->
         <div class="card-body mb-3">
-          <h5 class="titulo text-center"> {{accion | uppercase}} NOTA</h5>
+          <h1 class="titulo text-center"> {{accion | uppercase}} NOTA</h1>
           <hr>
 
           <form class="mt-4" [formGroup]="form" (ngSubmit)="guardarNota()">
@@ -19,10 +19,10 @@
             <div class="mb-2 row">
               <label for="staticEmail" class="col-sm-4 col-form-label">N1</label>
               <div class="col-sm-8">
-                <input type="text" formControlName="n1" class="form-control">
+                <input type="text" formControlName="n1" class="form-control" placeholder="n1">
               </div>
             </div>
-            <div class="mb-2 row">
+         <!--    <div class="mb-2 row">
               <label for="inputPassword" class="col-sm-4 col-form-label">N2</label>
               <div class="col-sm-8">
                 <input type="text" formControlName="n2" class="form-control">
@@ -39,7 +39,7 @@
               <div class="col-sm-8">
                 <input type="text" formControlName="n4" class="form-control">
               </div>
-            </div>
+            </div> -->
 
             <div class="d-grid gap-2">
               <!--   <button type="submit" [disabled]="form.invalid" class="btn btn-success"> -->
@@ -66,19 +66,21 @@
             <div class="lyon-radio">
               <label class="form-check-label" for="ni1">Nivel:</label>
               <div class="form-check form-check-inline" *ngFor="let aux of NivelesStatico">
-                <input class="form-check-input" formControlName="ni1" type="radio" [value]="aux.valId"
+                <input class="form-check-input" formControlName="ni1" type="radio" [value]="aux.valId" placeholder="ni1"
                   [checked]="aux.checked">
                 <label class="form-check-label" for="ni1">{{aux.valId}}</label>
               </div>
               <hr>
+
+              <div class="lyon-radio"></div>
               <label class="form-check-label" for="ni1">Trimestre:</label>
               <div class="form-check form-check-inline" *ngFor="let aux of TrimesreStatico">
-                <input class="form-check-input" formControlName="tri" type="radio" [value]="aux.valId"
+                <input class="form-check-input" formControlName="tri" type="radio" [value]="aux.valId" placeholder="tri"
                   [checked]="aux.checked">
                 <label class="form-check-label" for="tri">{{aux.valId}}</label>
               </div>
               <div class="d-grid gap-2 mt-2">
-                <button type="submit" class="btn btn-info text-white" (click)="enviarRadio()">
+                <button type="submit" class="btn btn-info text-dark" (click)="enviarRadio()">
                   <i class="fas fa-search"></i>&nbsp; Buscar</button>
               </div>
             </div>
@@ -91,15 +93,21 @@
 
       <div class="lyon-card card text-center mt-2">
         <div class="lyon-card-header card-header">
-          <h4>LISTA DE NOTAS</h4>
+          <h2 class="titulo2">LISTA DE NOTAS</h2>
 
         </div>
         <div class="card-body">
 
 
 
-          <p-table [value]="__listarNota2" styleClass="p-datatable-striped"  [style]="{'font-size': '14px'}" responsiveLayout="scroll" [paginator]="true"
+        <!--   <p-table [value]="__listarNota2" styleClass="p-datatable-striped"  [style]="{'font-size': '14px'}" responsiveLayout="scroll" [paginator]="true"
             [rows]="3" [totalRecords]="totalRecords" [pageLinks]="3">
+
+             -->
+
+             <p-table [value]="__listarNota2" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
             <ng-template pTemplate="header">
 
               <tr>

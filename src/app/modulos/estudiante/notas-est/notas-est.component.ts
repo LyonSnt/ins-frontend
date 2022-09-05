@@ -16,6 +16,8 @@ export class NotasEstComponent implements OnInit {
   directorio: any = 'http://127.0.0.1:8000/storage/hoy10/';
   estudianteId: any;
   estudianteIdNota: any;
+  totalRecords: number;
+
 
   constructor(
     private _estudianteIdServicio: EstudianteService,
@@ -43,6 +45,7 @@ export class NotasEstComponent implements OnInit {
      // console.log("DATO DE UNO: ", this.estudianteId.data.est_cedula);
 
     });
+    
   }
 
 }

@@ -54,18 +54,18 @@ export class AgregarNotaComponent implements OnInit {
   ];
 
   public NivelesStatico: any = [
-    { valId: '1', label: 'Uno', checked: false },
-    { valId: '2', label: 'Dos', checked: true },
-    { valId: '3', label: 'Tres', checked: false },
-    { valId: '4', label: 'Cuatro', checked: false },
-    { valId: '5', label: 'Cinto', checked: false },
-    { valId: '6', label: '6', checked: false },
+    { valId: '1', descripcion: 'Primero', checked: false },
+    { valId: '2', descripcion: 'Dos', checked: true },
+    { valId: '3', descripcion: 'Tres', checked: false },
+    { valId: '4', descripcion: 'Cuatro', checked: false },
+    { valId: '5', descripcion: 'Cinto', checked: false },
+    { valId: '6', descripcion: '6', checked: false },
   ];
   public TrimesreStatico: any = [
-    { valId: '1', label: 'Uno', checked: false },
-    { valId: '2', label: 'Dos', checked: true },
-    { valId: '3', label: 'Tres', checked: false },
-    { valId: '4', label: 'Cuatro', checked: false },
+    { valId: '1', descripcion: 'Uno', checked: false },
+    { valId: '2', descripcion: 'Dos', checked: true },
+    { valId: '3', descripcion: 'Tres', checked: false },
+    { valId: '4', descripcion: 'Cuatro', checked: false },
   ];
 
   totalRecords: number;
@@ -84,9 +84,9 @@ export class AgregarNotaComponent implements OnInit {
 
     this.form = this.fb.group({
       n1: ['', [Validators.required]],
-      n2: ['', [Validators.required]],
+     /*  n2: ['', [Validators.required]],
       n3: ['', [Validators.required]],
-      n4: ['', [Validators.required]],
+      n4: ['', [Validators.required]], */
       ni1: ['', [Validators.required]],
       idv: ['', [Validators.required]],
       estidv: ['', [Validators.required]],
@@ -148,9 +148,9 @@ export class AgregarNotaComponent implements OnInit {
     this.__notaId = notaany.notidlav;
     this.form.patchValue({
       n1: notaany.nota1,
-      n2: notaany.nota2,
+     /*  n2: notaany.nota2,
       n3: notaany.nota3,
-      n4: notaany.nota4,
+      n4: notaany.nota4, */
       idv: notaany.id,
       estidv: notaany.estid,
       nividv: notaany.nivid,
@@ -164,9 +164,9 @@ export class AgregarNotaComponent implements OnInit {
 
     const notaV: any = {
       nota1: this.form.get('n1')?.value,
-      nota2: this.form.get('n2')?.value,
+     /*  nota2: this.form.get('n2')?.value,
       nota3: this.form.get('n3')?.value,
-      nota4: this.form.get('n4')?.value,
+      nota4: this.form.get('n4')?.value, */
       estid: this.form.get('estidv')?.value,
       id: this.form.get('idv')?.value,
       nivid: this.form.get('nividv')?.value,

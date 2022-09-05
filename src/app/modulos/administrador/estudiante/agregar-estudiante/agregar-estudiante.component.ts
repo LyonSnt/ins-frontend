@@ -86,22 +86,22 @@ export class AgregarEstudianteComponent implements OnInit {
     // this.numbers = Array(5).fill(4);
     this.form = this.fb.group({
       usuario_id: ['', [Validators.required]],
-      est_correo: ['', [Validators.required, Validators.email, Validators.pattern(
+      est_correo: ['@gmail.com', [Validators.required, Validators.email, Validators.pattern(
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
       ]
       ],
-      est_contra: ['', [Validators.required, Validators.minLength(4)]],
-      est_cedula: ['100100', Validators.required],
-      est_apellido: ['Apellido', Validators.required],
-      est_nombre: ['Nombre', Validators.required],
-      sex_id: ['', Validators.required],
-      esc_id: ['', Validators.required],
+      est_contra: ['12345678', [Validators.required, Validators.minLength(4)]],
+      est_cedula: ['', Validators.required],
+      est_apellido: ['', Validators.required],
+      est_nombre: ['', Validators.required],
+      sex_id: ['1', Validators.required],
+      esc_id: ['1', Validators.required],
       est_fechanacimiento: ['', Validators.required],
       est_fechabautismo: ['', Validators.required],
-      est_celular: ['', Validators.required],
-      est_direccion: ['', Validators.required],
-      igl_id: ['1', Validators.required],
+      est_celular: ['0000000', Validators.required],
+      est_direccion: ['Editar', Validators.required],
+      igl_id: ['33', Validators.required],
       est_imagen: [null, Validators.required],
       est_rol: ['Estudiante', Validators.required],
 

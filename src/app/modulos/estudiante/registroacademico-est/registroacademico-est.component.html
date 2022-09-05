@@ -1,9 +1,7 @@
 <div class="container">
 
   <div class="lyon-card-header card-header text-center">
-    <select name="" id="">
-      <option value="">2022</option>
-    </select>
+
 
   </div>
   <p></p>
@@ -14,7 +12,7 @@
     </div>
     <div class="card-body">
 
-      <table class="table table-striped table-hover">
+      <!--  <table class="table table-striped table-hover">
         <thead>
           <tr class="text-center">
             <th>Nivel</th>
@@ -36,7 +34,34 @@
             <td>{{aux.pro_celular}}</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
+
+      <p-table [value]="estudianteIdMatricula" styleClass="p-datatable-striped" responsiveLayout="scroll"
+        [paginator]="true" [rows]="4" [totalRecords]="totalRecords" [pageLinks]="6">
+        <ng-template pTemplate="header">
+
+          <tr>
+            <th>Nivel</th>
+            <th>Materia</th>
+            <th>Foto</th>
+            <th>Docente</th>
+            <th>Celular</th>
+          </tr>
+
+        </ng-template>
+        <ng-template pTemplate="body" let-aux>
+          <tr>
+            <td>{{aux.niv_descripcion}}</td>
+            <td>{{aux.asg_nombre}}</td>
+            <td><img [src]="aux.pro_imagen ? directorio+aux.pro_imagen : 'assets/images/img_vacio/usuario.png'" alt=""
+                width="30px;"></td>
+            <td>{{aux.pro_apellido+' '+aux.pro_nombre}}</td>
+            <td>{{aux.pro_celular}}</td>
+          </tr>
+
+        </ng-template>
+
+      </p-table>
 
 
     </div>

@@ -5,6 +5,7 @@ import { PerfilEstComponent } from './perfil-est/perfil-est.component';
 import { EstudianteestRoutingModule } from './estudianteest-routing.module';
 import { RegistroacademicoEstComponent } from './registroacademico-est/registroacademico-est.component';
 import { NotasEstComponent } from './notas-est/notas-est.component';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -18,6 +19,7 @@ import { NotasEstComponent } from './notas-est/notas-est.component';
   imports: [
     CommonModule,
     EstudianteestRoutingModule,    //AQUI IMPORTAMOS PARA QUE LA RUTA SE HABILITE Y FUNCIONE
+    TableModule
 
   ]
 })

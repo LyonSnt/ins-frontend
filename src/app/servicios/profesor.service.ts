@@ -19,7 +19,7 @@ export class ProfesorService {
       'Content-Type': 'application/json'
     })
   }
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this._filtrarProfesor("");
   }
 
@@ -55,12 +55,19 @@ export class ProfesorService {
   }
 
 
-  _matriculaEstudiateProfesor(id): Observable<IProfesor> {
-    return this.http.get<IProfesor>(this.urlLaravel + "matriculaEstudiateProfesor" + '/' + id)
+  _matriculaEstudiateProfesor(id,id2): Observable<IProfesor> {
+    return this.http.get<IProfesor>(this.urlLaravel + "matriculaEstudiateProfesor" + '/' + id + '/' + id2)
       .pipe(
         catchError(this.errorHandler)
       )
   }
+
+/*   _listarNota2(id, id2): Observable<Nota> {
+    return this.http.get<Nota>(this.urlLaravel + "listarNota2" + '/' + id + '/' + id2)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  } */
 
   uploadData(data) {
     const headers = new HttpHeaders();

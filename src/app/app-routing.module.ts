@@ -46,7 +46,7 @@ const routes: Routes = [
        { path: 'nopage3', component: NopageestFoundComponent }, */
       { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
       {
-        path: 'institucion',
+        path: 'inst',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/institucion/institucion.module').then((m) => m.InstitucionModule) //carga todos los modulos cuando esten ya listas
       },
@@ -56,22 +56,22 @@ const routes: Routes = [
           import('@modulos/administrador/cargo/cargo.module').then((m) => m.CargoModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'aniacade',
+        path: 'aniocade',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/anioacademico/anioacademico.module').then((m) => m.AnioacademicoModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'iglesia',
+        path: 'igle',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/iglesia/iglesia.module').then((m) => m.IglesiaModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'estudiante',
+        path: 'estu',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/estudiante/estudiante.module').then((m) => m.EstudianteModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'matricula',
+        path: 'matr',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/matricula/matricula.module').then((m) => m.MatriculaModule) //carga todos los modulos cuando esten ya listas
       },
@@ -81,12 +81,12 @@ const routes: Routes = [
           import('@modulos/administrador/nota/nota.module').then((m) => m.NotaModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'profesor',
+        path: 'prof',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/profesor/profesor.module').then((m) => m.ProfesorModule) //carga todos los modulos cuando esten ya listas
       },
       {
-        path: 'comunidad',
+        path: 'comu',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/administrador/comunidad/comunidad.module').then((m) => m.ComunidadModule) //carga todos los modulos cuando esten ya listas
       }
@@ -100,7 +100,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardPrfComponent, data: { titulo: 'Dashboard' } },
 
       {
-        path: 'prf2022::',
+        path: 'view::',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/profesor/profesorprf.module').then((m) => m.ProfesorprfModule) //carga todos los modulos cuando esten ya listas
       },
@@ -120,7 +120,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardEstComponent, data: { titulo: 'Dashboard' } },
 
       {
-        path: 'est2022::',
+        path: 'view::',
         loadChildren: () => //esto hace que se cargue la informacion como se vaya necesitando
           import('@modulos/estudiante/estudianteest.module').then((m) => m.EstudianteestModule) //carga todos los modulos cuando esten ya listas
       }

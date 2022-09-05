@@ -26,6 +26,39 @@
 
             </div>
 
+             <div class="field text-left mb-2">
+              <label for="est_cedula" class="block">Cédula</label>
+              <input type="text" aria-describedby="est_cedula-help" pInputText formControlName="est_cedula"
+                class="form-control" [class]="validarCampo('est_cedula')" placeholder="Ingrese nombre">
+              <div *ngIf="!form.get('est_cedula')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('est_cedula')?.hasError('required')"> La cédula es requerido</div>
+                <div *ngIf="form.get('est_cedula')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+            <input type="hidden" formControlName="est_rol" class="form-control" placeholder="roll">
+
+
+            <div class="field text-left mb-2">
+              <label for="est_apellido" class="block">Apellido</label>
+              <input type="text" aria-describedby="est_apellido-help" pInputText formControlName="est_apellido"
+                class="form-control" [class]="validarCampo('est_apellido')" placeholder="Ingrese nombre">
+              <div *ngIf="!form.get('est_apellido')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('est_apellido')?.hasError('required')"> El apellido es requerido</div>
+                <div *ngIf="form.get('est_apellido')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
+            <div class="field text-left mb-2">
+              <label for="est_nombre" class="block">Nombre</label>
+              <input type="text" aria-describedby="est_nombre-help" pInputText formControlName="est_nombre"
+                class="form-control" [class]="validarCampo('est_nombre')" placeholder="Ingrese nombre">
+              <div *ngIf="!form.get('est_nombre')?.valid" class="invalid-feedback">
+                <div *ngIf="form.get('est_nombre')?.hasError('required')"> El nombre es requerido</div>
+                <div *ngIf="form.get('est_nombre')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
+              </div>
+            </div>
+
             <!--      <div class="field text-left mb-2">
               <label for="est_nombre" class="block">Crear cuenta</label>
               <div class="input-group input-group mb-3">
@@ -82,38 +115,7 @@
 
 
 
-            <div class="field text-left mb-2">
-              <label for="est_cedula" class="block">Cédula</label>
-              <input type="text" aria-describedby="est_cedula-help" pInputText formControlName="est_cedula"
-                class="form-control" [class]="validarCampo('est_cedula')" placeholder="Ingrese nombre">
-              <div *ngIf="!form.get('est_cedula')?.valid" class="invalid-feedback">
-                <div *ngIf="form.get('est_cedula')?.hasError('required')"> La cédula es requerido</div>
-                <div *ngIf="form.get('est_cedula')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
-              </div>
-            </div>
 
-            <input type="hidden" formControlName="est_rol" class="form-control" placeholder="roll">
-
-
-            <div class="field text-left mb-2">
-              <label for="est_apellido" class="block">Apellido</label>
-              <input type="text" aria-describedby="est_apellido-help" pInputText formControlName="est_apellido"
-                class="form-control" [class]="validarCampo('est_apellido')" placeholder="Ingrese nombre">
-              <div *ngIf="!form.get('est_apellido')?.valid" class="invalid-feedback">
-                <div *ngIf="form.get('est_apellido')?.hasError('required')"> El apellido es requerido</div>
-                <div *ngIf="form.get('est_apellido')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
-              </div>
-            </div>
-
-            <div class="field text-left mb-2">
-              <label for="est_nombre" class="block">Nombre</label>
-              <input type="text" aria-describedby="est_nombre-help" pInputText formControlName="est_nombre"
-                class="form-control" [class]="validarCampo('est_nombre')" placeholder="Ingrese nombre">
-              <div *ngIf="!form.get('est_nombre')?.valid" class="invalid-feedback">
-                <div *ngIf="form.get('est_nombre')?.hasError('required')"> El nombre es requerido</div>
-                <div *ngIf="form.get('est_nombre')?.hasError('minlength')">Debe tener al menos 4 caracteres</div>
-              </div>
-            </div>
 
 
             <div class="field text-left mb-2">

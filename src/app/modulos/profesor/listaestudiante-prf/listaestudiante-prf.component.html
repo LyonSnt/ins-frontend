@@ -1,12 +1,32 @@
 <div class="container">
 
-  <div class="lyon-card-header card-header text-center">
-    <!-- <select name="" id="">
-      <option value="">2022</option>
-    </select> -->
+  <div class="lyon-card-header card text-center">
+
+    <!--  <div class="search-box">
+      <input name="buscador" #buscarInput (keyup)="buscar(buscarInput.value)" type="text" class="form-control"
+        placeholder="Buscar">
+    </div> -->
+
+    <div class="card-body">
+      <form class="mt-2" [formGroup]="form">
+        <div class="lyon-radio">
+          <label class="form-check-label" for="ni1">Trimestre:</label>
+          <div class="form-check form-check-inline" *ngFor="let aux of TrimesreStatico">
+            <input class="form-check-input" formControlName="ni1" type="radio" [value]="aux.valId"
+              [checked]="aux.checked">
+            <label class="form-check-label" for="ni1">{{aux.valId}}</label>
+          </div>
+          <div class="d-grid gap-2 mt-2">
+            <button type="submit" class="btn btn-info text-white" (click)="enviarRadio()">
+              <i class="fas fa-search"></i>&nbsp; Buscar</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
 
   </div>
-  <p></p>
   <div class="lyon-card2 card">
     <div class="lyon-card-header card-header text-center">
       <h4>LISTA MATRICULADOS</h4>
@@ -14,30 +34,75 @@
     </div>
     <div class="card-body">
 
-      <table class="table table-striped table-hover">
+    <!--   <table class="table table-striped table-hover">
         <thead>
           <tr class="text-center">
             <th>#</th>
+            <th>est_id</th>
             <th>Foto</th>
             <th>Cedula</th>
             <th>Nombre</th>
             <th>Trimestre</th>
             <th>Materia</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let aux of profesorId">
+
             <td>{{aux.id}}</td>
+            <td>{{aux.estid}}</td>
             <td><img
-              [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/estudiante/image_placeholder.jpg  '"
+              [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/img_vacio/usuario.png'"
               alt="" width="30px;"></td>
             <td>{{aux.est_cedula}}</td>
             <td>{{aux.nombre+' '+aux.ape}}</td>
             <td>{{aux.triid}}</td>
             <td>{{aux.asg_nombre}}</td>
+            <td>
+
+              <i class="far fa-clipboard text-success" routerLink="/prof/view::/notas/{{aux.estid}}"> Notas </i>
+            </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
+
+      <p-table [value]="profesorId" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
+        [totalRecords]="totalRecords" [pageLinks]="3">
+        <ng-template pTemplate="header">
+
+          <tr>
+            <th>#</th>
+            <th>est_id</th>
+            <th>Foto</th>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Trimestre</th>
+            <th>Materia</th>
+            <th>Acciones</th>
+          </tr>
+
+        </ng-template>
+        <ng-template pTemplate="body" let-aux>
+          <tr>
+            <td>{{aux.id}}</td>
+            <td>{{aux.estid}}</td>
+            <td><img
+              [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/img_vacio/usuario.png'"
+              alt="" width="30px;"></td>
+            <td>{{aux.est_cedula}}</td>
+            <td>{{aux.nombre+' '+aux.ape}}</td>
+            <td>{{aux.triid}}</td>
+            <td>{{aux.asg_nombre}}</td>
+            <td>
+
+              <i class="far fa-clipboard text-success" routerLink="/prof/view::/notas/{{aux.estid}}"> Notas </i>
+            </td>
+          </tr>
+
+        </ng-template>
+
+      </p-table>
 
 
     </div>

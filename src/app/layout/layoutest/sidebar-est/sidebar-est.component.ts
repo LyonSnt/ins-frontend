@@ -25,6 +25,7 @@ export class SidebarEstComponent implements OnInit {
   menuItems12: any;
   data2: any;
   cerrarSesion: any;
+  directorio: any = 'http://127.0.0.1:8000/storage/img_estudiante/';
   private urlLaravel = environment.baseLaravel;
   constructor(
     private _sidebarServicio: SidebarService,
@@ -55,6 +56,6 @@ export class SidebarEstComponent implements OnInit {
 
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token); //ES PARA EXTRAER LOS NOMBRES
- 
+
   }
 }

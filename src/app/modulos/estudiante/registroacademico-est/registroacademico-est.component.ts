@@ -15,6 +15,7 @@ export class RegistroacademicoEstComponent implements OnInit {
   directorio: any = 'http://127.0.0.1:8000/storage/img_profesor/';
   estudianteId: any;
   estudianteIdMatricula: any;
+  totalRecords: number;
 
   constructor(
     private _estudianteIdServicio: EstudianteService,

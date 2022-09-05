@@ -4,6 +4,9 @@ import { DashboardPrfComponent } from './dashboard-prf/dashboard-prf.component';
 import { PerfilPrfComponent } from './perfil-prf/perfil-prf.component';
 import { ProfesorprfRoutingModule } from './profesorprf-routing.module';
 import { ListaestudiantePrfComponent } from './listaestudiante-prf/listaestudiante-prf.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VernotasPrfComponent } from './vernotas-prf/vernotas-prf.component';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -11,11 +14,14 @@ import { ListaestudiantePrfComponent } from './listaestudiante-prf/listaestudian
   declarations: [
     DashboardPrfComponent,
     PerfilPrfComponent,
-    ListaestudiantePrfComponent
+    ListaestudiantePrfComponent,
+    VernotasPrfComponent
   ],
   imports: [
     CommonModule,
-    ProfesorprfRoutingModule     //AQUI IMPORTAMOS PARA QUE LA RUTA SE HABILITE Y FUNCIONE
+    ProfesorprfRoutingModule,     //AQUI IMPORTAMOS PARA QUE LA RUTA SE HABILITE Y FUNCIONE.
+    ReactiveFormsModule,
+    TableModule
   ]
 })
 export class ProfesorprfModule { }
