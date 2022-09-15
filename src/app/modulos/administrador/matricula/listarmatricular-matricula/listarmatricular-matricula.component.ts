@@ -60,7 +60,7 @@ export class ListarmatricularMatriculaComponent implements OnInit {
   }
   nuevoEstudiante() {
     //this.ruteador.navigate(['admin/estudiante/agregar']);
-    window.location.href = "admin/estudiante/agregar";
+    window.location.href = "admin/estu/agregar";
   }
 
 /*

@@ -41,7 +41,7 @@ export class ListarProfesorComponent implements OnInit {
 
   nuevoProfesor() {
     //this.ruteador.navigate(['admin/estudiante/agregar']);
-    window.location.href = "admin/profesor/agregar";
+    window.location.href = "admin/prof/agregar";
   }
 
 

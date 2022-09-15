@@ -16,7 +16,7 @@
     "matricular": "Matricular",
     "matriculados": "Matriculados",
     "nota": "Nota",
-    "item2": "Categoria",
+    "item2": "Administrativo",
     "institucion": "Institución",
     "cargo": "Cargo",
     "anio": "Año",
@@ -40,6 +40,17 @@
     "menu": "Administrar",
     "Matriculados": "Matriculados",
     "Asistencia": "Asistencia",
+    "Notas": "Notas",
+    "extra": "Extra",
+    "cerrar": "Cerrar Sesión"
+  },
+  "sidebare": {
+    "titulo": "Instituto Bíblico",
+    "dashboard": "Panel",
+    "rolusuario": "poner algo",
+    "perfil": "Perfil",
+    "registroacademico": "Registro Académico",
+    "menu": "Administrar",
     "Notas": "Notas",
     "extra": "Extra",
     "cerrar": "Cerrar Sesión"

@@ -25,8 +25,10 @@
             <li class="list-group-item">DIRECCIÓN: <span class="fw-bold">{{ listaEstudiante.est_apellido}}</span></li>
             <li class="list-group-item">TELÉFONO: <span class="fw-bold"> {{listaEstudiante.est_celular}}</span></li>
             <li class="list-group-item">CORREO: <span class="fw-bold"> {{listaEstudiante.est_direccion}}</span></li>
-            <li class="list-group-item">FECHA DE NACIMIENTO: <span class="fw-bold"> {{listaEstudiante.est_fechabautismo}}</span></li>
-            <li class="list-group-item">FECHA DE BAUTISMO: <span class="fw-bold"> {{listaEstudiante.est_fechanacimiento}}</span></li>
+            <li class="list-group-item">FECHA DE NACIMIENTO: <span class="fw-bold">
+                {{listaEstudiante.est_fechabautismo}}</span></li>
+            <li class="list-group-item">FECHA DE BAUTISMO: <span class="fw-bold">
+                {{listaEstudiante.est_fechanacimiento}}</span></li>
 
           </ul>
 
@@ -37,10 +39,15 @@
   </div>
   <div class="row mt-3">
     <div class="col">
-      <a class="btn btn-danger" routerLink="/admin/estudiante/listar">
+      <a class="btn btn-danger" routerLink="/admin/estu/listar">
         <i class="fa fa-arrow-alt-circle-left">&nbsp; Regresar</i>
       </a>
 
+      <a class="btn btn-success" routerLink="/admin/nota/view/{{listaEstudiante.id}}">
+      <!--   <i class="far fa-clipboard">&nbsp; Ver Nota</i> -->
+        <i class="far fa-clipboard">&nbsp; Ver Notas </i>
+      </a>
     </div>
+
   </div>
 </div>

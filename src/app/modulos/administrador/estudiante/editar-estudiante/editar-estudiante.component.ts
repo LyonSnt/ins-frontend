@@ -110,7 +110,7 @@ export class EditarEstudianteComponent implements OnInit {
 
       //this.messageService.add({ severity: 'info', summary: 'Actualizado', detail: 'Correctamente' });
 
-      this.ruteador.navigateByUrl('/admin/estudiante/listar');
+      this.ruteador.navigateByUrl('/admin/estu/listar');
 
     //  this.listarEstudianteH();
       //window.location.href="/est/dashboard";

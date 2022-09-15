@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <button class="btn btn-success mb-3" (click)="nuevoEstudiante()">
-    <i class="fa fa-sign-out-alt"></i>Nuevo
+    <i class="fas fa-plus-circle"></i>Nuevo
   </button>
 
   <div class="lyon-card-header card-header text-center">
@@ -14,20 +14,15 @@
   </div>
 
   <div class="lyon-card2 card text-center mt-2">
-
     <div class="lyon-card-header card-header">
       <h1 class="titulo">Matricular</h1>
-
     </div>
     <div class="card-body">
-
-
-   <!--    <p-table [value]="ListadatosEstudianteAny" styleClass="p-datatable-striped" responsiveLayout="scroll"
+      <!--    <p-table [value]="ListadatosEstudianteAny" styleClass="p-datatable-striped" responsiveLayout="scroll"
         [paginator]="true" [rows]="3" [totalRecords]="totalRecords" [pageLinks]="3"> -->
 
-        <p-table [value]="ListadatosEstudianteAny" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-
+      <p-table [value]="ListadatosEstudianteAny" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
+        responsiveLayout="scroll" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
         <ng-template pTemplate="header">
 
           <tr>
@@ -41,15 +36,13 @@
             <th>Matriculado</th>
             <th>Acciones</th>
           </tr>
-
         </ng-template>
         <ng-template pTemplate="body" let-aux>
-         <!--  <tr *ngIf="aux.est_estado==0 || aux.est_estado==1"> -->
+          <!--  <tr *ngIf="aux.est_estado==0 || aux.est_estado==1"> -->
           <tr>
             <td>{{'Estu-'+aux.id}}</td>
             <td><img [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/img_vacio/usuario.png'" alt=""
                 width="30px;"></td>
-
             <td>{{aux.est_cedula}}</td>
             <td>{{aux.est_apellido}}</td>
             <td>{{aux.est_nombre}}</td>

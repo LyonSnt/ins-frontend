@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <button class="btn btn-success mb-3" (click)="nuevoProfesor()">
-    <i class="fa fa-sign-out-alt"></i>Nuevo
+    <i class="fas fa-plus-circle"></i>Nuevo
   </button>
   <!-- routerLink="/panel/sexo/agregar" -->
 
@@ -49,8 +49,8 @@
             <!--  -->
 
             <td>
-              <i class="far fa-eye text-warning" routerLink="/admin/profesor/vista/{{aux.id}}"></i>
-              <i class="far fa-edit text-info" routerLink="/admin/profesor/editar/{{aux.id}}"></i>
+              <i class="far fa-eye text-warning" routerLink="/admin/prof/vista/{{aux.id}}"></i>
+              <i class="far fa-edit text-info" routerLink="/admin/prof/editar/{{aux.id}}"></i>
               <i class="far fa-trash-alt text-danger" (click)="eliminarEstudiante(aux.id)"></i>
             </td>
           </tr>

@@ -19,7 +19,7 @@
         <div class="col-sm-8">
           <ul class="list-group">
 
-            <li class="list-group-item">ID: <span class="fw-bold">{{ listaEstudiante.id}}</span></li>
+            <!-- <li class="list-group-item">ID: <span class="fw-bold">{{ listaEstudiante.id}}</span></li> -->
             <li class="list-group-item">CEDULA: <span class="fw-bold">{{ listaEstudiante.est_cedula}}</span></li>
             <li class="list-group-item">NOMBRE: <span class="fw-bold">{{ listaEstudiante.est_apellido}}
                 {{listaEstudiante.est_nombre}}</span></li>
@@ -29,40 +29,41 @@
         </div>
       </div>
       <hr>
-      <p-table [value]="estudianteIdNotaProfe" styleClass="p-datatable-striped" responsiveLayout="scroll">
-        <ng-template pTemplate="header">
+      <p-table [value]="estudianteIdNota" styleClass="p-datatable-striped" responsiveLayout="scroll"
+      [paginator]="true" [rows]="4" [totalRecords]="totalRecords" [pageLinks]="6">
+      <ng-template pTemplate="header">
 
-          <tr>
-            <th>Nivel</th>
+        <tr>
+          <th>Nivel</th>
             <th>Trimestre</th>
             <th>Materia</th>
-            <!-- <th>Profesor</th> -->
+            <th>Profesor</th>
             <th>NF</th>
             <th>Apr</th>
             <th>Ciclo</th>
-          </tr>
+        </tr>
 
-        </ng-template>
-        <ng-template pTemplate="body" let-aux>
-          <tr>
-            <td>{{aux.nivid}}</td>
+      </ng-template>
+      <ng-template pTemplate="body" let-aux>
+        <tr>
+          <td>{{aux.nivid}}</td>
             <td>{{aux.tri_id}}</td>
             <td>{{aux.asg_nombre}}</td>
-            <!--   <td>{{aux.pro_apellido+' '+aux.pro_nombre}}</td> -->
+            <td>{{aux.pro_apellido+' '+aux.pro_nombre}}</td>
             <td>{{aux.notafinal | number:'1.0'}}</td>
             <td>{{aux.aprobo}}</td>
             <td>{{aux.mes_abreviatura}}-{{aux.ani_anio}}</td>
-          </tr>
+        </tr>
 
-        </ng-template>
+      </ng-template>
 
-      </p-table>
+    </p-table>
 
     </div>
   </div>
   <div class="row mt-3">
     <div class="col">
-      <a class="btn btn-danger" routerLink="/prof/view::/matriculados">
+      <a class="btn btn-danger" routerLink="/admin/estu/listar">
         <i class="fa fa-arrow-alt-circle-left">&nbsp; Regresar</i>
       </a>
 

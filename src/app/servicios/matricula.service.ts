@@ -62,6 +62,7 @@ export class MatriculaService {
         catchError(this.errorHandler)
       )
   }
+ 
 
   _listarMatriculaLegalizado(): Observable<Matricula[]> {
     return this.http.get<Matricula[]>(this.urlLaravel + "listarMatriculaLegalizado")

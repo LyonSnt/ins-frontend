@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <button class="btn btn-success mb-3" (click)="nuevoEstudiante()">
-    <i class="fa fa-sign-out-alt"></i>Nuevo
+    <i class="fas fa-plus-circle"></i>Nuevo
   </button>
   <!-- routerLink="/panel/sexo/agregar" -->
 
@@ -21,22 +21,21 @@
     </div>
     <div class="card-body">
 
-     <!--  <p-table ngClass="tabla" [value]="datos" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
+      <!--  <p-table ngClass="tabla" [value]="datos" styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true" [rows]="3"
         [totalRecords]="totalRecords" [pageLinks]="3"> -->
-  <!--       <p-table [value]="datos" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+      <!--       <p-table [value]="datos" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
         [class.hide-next]="hideNext"  [loading]="loading"  paginatorTemplate="{CurrentPageReport} {FirstPageLink}
         {PreviousPageLink} {PageLinks} {NextPageLink}
         {LastPageLink} {RowsPerPageDropdown}"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
  -->
 
- <p-table [value]="datos" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
- [class.hide-next]="hideNext" paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+      <p-table [value]="datos" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        [class.hide-next]="hideNext" paginatorTemplate="{CurrentPageReport} {FirstPageLink}
  {PreviousPageLink} {PageLinks} {NextPageLink}
- {LastPageLink} {RowsPerPageDropdown}"
- currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+ {LastPageLink} {RowsPerPageDropdown}" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
 
-    <!--     <ng-template pTemplate="caption">
+        <!--     <ng-template pTemplate="caption">
           <div class="flex">
               <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
               <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
@@ -44,6 +43,12 @@
               <button type="button" pButton pRipple icon="pi pi-filter" (click)="dt.exportCSV({selectionOnly:true})" class="p-button-info ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
           </div>
       </ng-template> -->
+
+  <!--     <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+        </div>
+    </ng-template> -->
 
         <ng-template pTemplate="header">
 
@@ -60,9 +65,8 @@
         <ng-template pTemplate="body" let-aux>
           <tr>
             <td>{{aux.id}}</td>
-            <td><img
-                [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/img_vacio/usuario.png'"
-                alt="" width="30px;"></td>
+            <td><img [src]="aux.est_imagen ? directorio+aux.est_imagen : 'assets/images/img_vacio/usuario.png'" alt=""
+                width="30px;"></td>
             <td>{{aux.est_cedula}}</td>
             <td>{{aux.est_apellido}}</td>
             <td>{{aux.est_nombre}}</td>

@@ -27,26 +27,26 @@ export class SidebarService {
   menuAdmin1: any[] = [
     {
       titulo: 'Proceso Académico',
-      icono: 'nav-icon fas fa-tachometer-alt',
+      icono: 'nav-icon fas fa-book',
       submenu: [
-        { titulo: 'Estudiante', url: 'estu/listar', icono: 'fa fa-users' },
-        { titulo: 'Profesor', url: 'prof/listar', icono: 'fa fa-users' },
-        { titulo: 'Matricular', url: 'matr/listamatricular', icono: 'fa fa-cubes' },
-        { titulo: 'Matriculados', url: 'matr/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Nota', url: 'nota/agregar', icono: 'fa fa-cubes' }
+        { titulo: 'Estudiante', url: 'estu/listar', icono: 'fas fa-user-graduate' },
+        { titulo: 'Profesor', url: 'prof/listar', icono: 'fas fa-chalkboard-teacher' },
+        { titulo: 'Matricular', url: 'matr/listamatricular', icono: 'fas fa-school' },
+        { titulo: 'Matriculados', url: 'matr/listar', icono: 'fas fa-clipboard-list' },
+        { titulo: 'Nota', url: 'nota/agregar', icono: 'fas fa-book-open' }
       ]
     }
   ];
 
   menuAdmin2: any[] = [
     {
-      titulo: 'Categoria',
-      icono: 'nav-icon fas fa-tachometer-alt',
+      titulo: 'Administrativo',
+      icono: 'nav-icon fas fa-swatchbook',
       submenu: [
-        { titulo: 'Institucion', url: 'inst/listar', icono: 'fa fa-users' },
-        { titulo: 'Cargo', url: 'cargo/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Año', url: 'aniocade/listar', icono: 'fa fa-cubes' },
-        { titulo: 'Iglesia', url: 'igle/listar', icono: 'fa fa-cubes' },
+        { titulo: 'Institucion', url: 'inst/listar', icono: 'fas fa-university' },
+        { titulo: 'Cargo', url: 'cargo/listar', icono: 'fas fa-suitcase' },
+        { titulo: 'Año', url: 'aniocade/listar', icono: 'fas fa-braille' },
+        { titulo: 'Iglesia', url: 'igle/listar', icono: 'fas fa-church' },
       ]
     }
   ];
@@ -54,7 +54,7 @@ export class SidebarService {
   menuAdmin3: any[] = [
     {
       titulo: 'Reporte',
-      icono: 'nav-icon fas fa-tachometer-alt',
+      icono: 'nav-icon fas fa-clipboard',
       submenu: [
         { titulo: 'Rep1', url: 'institucion/listar', icono: 'fa fa-users' },
         { titulo: 'Rep2', url: 'cargo/listar', icono: 'fa fa-cubes' },
@@ -102,10 +102,10 @@ export class SidebarService {
 
   menuProfe: any[] = [{
     titulo: 'Administrar2',
-    icono: 'nav-icon fas fa-tachometer-alt',
+    icono: 'nav-icon fas fa-swatchbook',
     submenu: [
       { titulo: 'Matriculados', url: 'view::/matriculados', icono: 'fa fa-users' },
-      { titulo: 'Asistencia', url: 'view::/notas', icono: 'fa fa-cubes' },
+    /*   { titulo: 'Asistencia', url: 'view::/notas', icono: 'fa fa-cubes' }, */
      /*  { titulo: 'Asistencia', url: 'usuarios', icono: 'fa fa-cubes' } */
     ]
   }];

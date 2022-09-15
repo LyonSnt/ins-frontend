@@ -91,12 +91,27 @@ export class EstudianteService {
     });
   }
 
+
   _estudianteM(query) {
     return this.http.post(this.urlLaravel + "estudianteM?buscar=" + query, null).subscribe(res => {
       var r: any = res;
       this.allestudent2.next(r.data);
     });
   } */
+
+
+  _ContadorMatriculaIdEst(id): Observable<Estudiante2> {
+    return this.http.get<Estudiante2>(this.urlLaravel + "ContadorMatriculaIdEst" + '/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+  _SumaNotaIdEst(id): Observable<Estudiante2> {
+    return this.http.get<Estudiante2>(this.urlLaravel + "SumaNotaIdEst" + '/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
 
   _historialEstudiante(): Observable<Estudiante2[]> {
     return this.http.get<Estudiante2[]>(this.urlLaravel + "historialEstudiante")
