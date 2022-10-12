@@ -43,12 +43,12 @@ export class MatriculaService {
 
     this.anioActual = new Date().getFullYear();
 
-   /*  this._buscarmatriculaH("");
-    this._buscarmatriculaM("");
-    this._buscarmatriculaHn("");
+    /*  this._buscarmatriculaH("");
+     this._buscarmatriculaM("");
+     this._buscarmatriculaHn("");
 
-    this._matriculaId();
-     */
+     this._matriculaId();
+      */
     //this._leer4();
     this.obtenerDatosMatricula(); //ESTO ESTA DANDO ERROR AL CARGAR
     this._filtrarParaMatricular("");
@@ -62,7 +62,7 @@ export class MatriculaService {
         catchError(this.errorHandler)
       )
   }
- 
+
 
   _listarMatriculaLegalizado(): Observable<Matricula[]> {
     return this.http.get<Matricula[]>(this.urlLaravel + "listarMatriculaLegalizado")
@@ -135,16 +135,16 @@ export class MatriculaService {
 
 
   _legalizarMatricula(id, matricula: Matricula): Observable<Matricula> {
-    return this.http.put<Matricula>(this.urlLaravel + "legalizarMatricula"+ '/' + id, JSON.stringify(matricula), this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    return this.http.put<Matricula>(this.urlLaravel + "legalizarMatricula" + '/' + id, JSON.stringify(matricula), this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
   }
   _legalizarMatricula2(id, matricula: Matricula): Observable<Matricula> {
-    return this.http.put<Matricula>(this.urlLaravel + "legalizarMatricula2"+ '/' + id, JSON.stringify(matricula), this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    return this.http.put<Matricula>(this.urlLaravel + "legalizarMatricula2" + '/' + id, JSON.stringify(matricula), this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
   }
 
 
@@ -156,7 +156,7 @@ export class MatriculaService {
       )
   }
 
-/* no seeee */
+  /* no seeee */
   _AnularMatricula1(id) {
     return this.http.delete<Matricula>(this.urlLaravel + "eliminarEstudiante" + '/' + id, this.httpOptions)
       .pipe(
@@ -197,7 +197,7 @@ export class MatriculaService {
       var r: any = res;
       this.modeloMatriculaId.next(r.datoDesdeLaravel);
 
-    //  console.log("In services:", this.modeloMatriculaId.value);
+      //  console.log("In services:", this.modeloMatriculaId.value);
 
     });
   }
@@ -281,52 +281,107 @@ export class MatriculaService {
       pageOrientation: 'landscape',
       content: [
         /* ESTO ES LETRAS SUPERIORES */
+
         {
+
           columns: [
             [
               {
+                absolutePosition: { x: 65, y: 40 },
                 text: this.parametre.ins_nombre,
-                style: 'name',
+                style: 'titulo1',
               },
+              /*     {
+                    text: this.parametre.ins_correo,
+                    style: 'line',
+                  }, */
               {
-                text: this.parametre.ins_correo,
-                style: 'line',
-              },
-              {
+                absolutePosition: { x: 188, y: 58 },
                 text: this.parametre.ins_direccion,
-                style: 'line',
+                style: 'titulo2',
               },
               {
+                absolutePosition: { x: 212, y: 71 },
                 text: this.parametre.ins_telefono,
-                style: 'line',
+                style: 'titulo2',
 
               },
               {
+                absolutePosition: { x: 218, y: 84 },
                 text: this.anioActual,
-                style: 'line',
+                style: 'titulo2',
 
               },
-            /*   {
-                image: 'assets/images/1.jpg', width: 90
+              /*   {
+                  image: 'assets/images/1.jpg', width: 90
 
-              }, */
+                }, */
               {
-                text: '______________________________________________________________________________________',
-                alignment: 'center',
+                absolutePosition: { x: 40, y: 100 },
+                text: '____________________________________________________________________________',
+                alignment: 'left',
                 margin: [0, 0, 0, -12]
               },
               {
-                text: '______________________________________________________________________________________',
-                alignment: 'center',
+                absolutePosition: { x: 40, y: 97 },
+                text: '____________________________________________________________________________',
+                alignment: 'left',
                 margin: [0, 0, 0, 10]
               },
             ],
           ]
         },
-      /*   {
-          image: 'assets/images/1.jpg', width: 90
 
-        }, */
+
+        {
+          absolutePosition: { x: 450, y: 40 },
+          columns: [
+            [
+              {
+                text: this.parametre.ins_nombre,
+                style: 'titulo3'
+              },
+              /*     {
+                    text: this.parametre.ins_correo,
+                    style: 'line',
+                  }, */
+              {
+                text: this.parametre.ins_direccion,
+                style: 'titulo4'
+              },
+              {
+                text: this.parametre.ins_telefono,
+                style: 'titulo4'
+
+              },
+              {
+                text: this.anioActual,
+                style: 'titulo4'
+
+              },
+              /*   {
+                  image: 'assets/images/1.jpg', width: 90
+
+                }, */
+              {
+                absolutePosition: { x: 40, y: 100 },
+                text: '____________________________________________________________________________',
+                alignment: 'right',
+                margin: [0, 0, 0, -12]
+              },
+              {
+                absolutePosition: { x: 40, y: 97 },
+                text: '____________________________________________________________________________',
+                alignment: 'right',
+                margin: [0, 0, 0, 10]
+              },
+            ],
+          ]
+        },
+        /*   {
+            image: 'assets/images/1.jpg', width: 90
+
+          }, */
 
         /*  ESTA ES LA CABECERA*/
         /*      {
@@ -346,37 +401,69 @@ export class MatriculaService {
         {
 
         },
+        this.getList3(this.list),
+        {
+
+        },
+        this.getList4(),
+        {
+
+        },
 
         /* ESTO ES PARA LAS LETRAS INFERIORES */
-        {
+      /*   {
+          absolutePosition: { x: 40, y: 400 },
           text: 'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse,... 2 Timoteo 2:15.',
           style: 'footer',
-          alignment: 'center'
-        },
+          alignment: 'left'
+        }, */
 
 
       ],
       /* ESTO ES PARA DAR ESTILO A LAS LETRAS INFERIORES */
       styles: {
         header: {
-          fontSize: 18,
+          fontSize: 36,
           bold: true,
           margin: [0, 20, 0, 10],
           decoration: 'underline'
         },
 
-        name: {
+        name: { /* EN EL TITULO 1 */
           fontSize: 16,
           bold: true,
           alignment: 'center',
         },
-
-        line: {
+        line: { /* ES DEL TITULO 2 */
           fontSize: 11,
           //  bold: true,
           italics: true,
-        alignment: 'center',
+          alignment: 'center',
         },
+        titulo1: { /* EN EL TITULO 1 */
+          fontSize: 16,
+          bold: true,
+          //alignment: 'center',
+        },
+        titulo2: { /* ES DEL TITULO 2 */
+          fontSize: 11,
+          //  bold: true,
+          italics: true,
+         // alignment: 'center',
+        },
+        titulo3: { /* EN EL TITULO 1 */
+          fontSize: 16,
+          bold: true,
+          alignment: 'center',
+        },
+        titulo4: { /* ES DEL TITULO 2 */
+          fontSize: 11,
+          //  bold: true,
+          italics: true,
+          alignment: 'center',
+        },
+
+
 
         footer: {
           fontSize: 10,
@@ -385,10 +472,19 @@ export class MatriculaService {
           italics: true
         },
 
-        tableHeader: {
-          fontSize: 14,
+        tableHeader: { /* ES EL TH */
+          fontSize: 16,
           bold: true,
           alignment: 'center'
+        },
+
+        alturaTextoTabla1: {
+          fontSize: 14
+        },
+        alturaTextoTabla2: {
+          fontSize: 20,
+          bold: true,
+          italics: true,
         }
       }
     };
@@ -396,8 +492,14 @@ export class MatriculaService {
   /* ESTO ESTA PARA VISUALIZAR EN LA TABLA */
   getList(items: Matricula[]) {
     return {
+      absolutePosition: { x: 30, y: 120 },
+      style: 'alturaTextoTabla1',
       table: {
-        widths: ['*', '*', '*', '*'],
+        //  widths: ['*', '*', '*', '*'],
+        widths: ['7%', '17%', '17%', '7%'],
+      //  widths: ['25%', '40%', '25%', '25%'],
+        heights: [30, 40],
+
         body: [
           [
             {
@@ -413,24 +515,20 @@ export class MatriculaService {
               style: 'tableHeader'
             },
             {
-              text: 'Trimestre',
+              text: 'Trim',
               style: 'tableHeader'
             },
           ],
+
           ...items.map(ed => {
-            return [
-              ed.niv_descripcion,
-              ed.nombre + ' ' + ed.ape,
-              ed.asg_nombre,
-              ed.tri_descripcion
-            ];
+
+            return [ed.idniv, ed.nombre + ' ' + ed.ape, ed.asg_nombre, ed.idtri];
           })
         ]
       }
     };
 
   }
-
   getList2() {
     return {
       /*     table: {
@@ -444,27 +542,106 @@ export class MatriculaService {
               [ { text: 'Saldo:', bold: true, italics: true }, '', '' ]
             ]
           } */
-
+      absolutePosition: { x: 30, y: 210 },
       table: {
-        widths: ['auto', '*', '*', '*'],
+        // widths: ['auto', '*', '*', '*'],
+        widths: ['18%', '12%', '11%', '7%'],
+        heights: [5, 30, 30, 30],
         //	headerRows: 2,
         // keepWithHeaderRows: 1,
         body: [
-          [{ text: '', colSpan: 4 }, {}, {}, {}],
+          [{ text: '', colSpan: 4 }, {}, {}, {},],
           //[{text: 'Header 1', style: 'tableHeader', alignment: 'center'}, {text: 'Header 2', style: 'tableHeader', alignment: 'center'}, {text: 'Header 3', style: 'tableHeader', alignment: 'center'}, {text: 'Header 4', style: 'tableHeader', alignment: 'center'}],
 
-          [{ text: 'Valor a Pagar:', bold: true, italics: true }, { text: '', colSpan: 3 }, '', ''],
-          [{ text: 'Abonado:', bold: true, italics: true }, { text: '', colSpan: 3 }, '', ''],
-          [{ text: 'Saldo:', bold: true, italics: true }, { text: '', colSpan: 3 }, '', ''],
+          [{ text: 'Valor a Pagar:', style: 'alturaTextoTabla2' }, { text: '', colSpan: 3 }, '', '',],
+          [{ text: 'Abonado:', style: 'alturaTextoTabla2' }, { text: '', colSpan: 3 }, '', ''],
+          [{ text: 'Saldo:', style: 'alturaTextoTabla2' }, { text: '', colSpan: 3 }, '', ''],
 
           // [{rowSpan: 3, text: 'rowSpan set to 3\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'}, 'Sample value 2', 'Sample value 3', 'Sample value 3'],
 
         ]
       }
-
     };
 
   }
+
+  getList3(items: Matricula[]) {
+    return {
+      absolutePosition: { x: 435, y: 120 },
+      style: 'alturaTextoTabla1',
+      table: {
+         // widths: ['auto', '*', '*', '*'],
+       widths: ['15%', '38%', '38%', '15%'],
+        heights: [30, 40],
+
+        body: [
+          [
+            {
+              text: 'Nivel',
+              style: 'tableHeader'
+            },
+            {
+              text: 'Nombre',
+              style: 'tableHeader'
+            },
+            {
+              text: 'Materia',
+              style: 'tableHeader'
+            },
+            {
+              text: 'Trim',
+              style: 'tableHeader'
+            },
+          ],
+
+          ...items.map(ed => {
+
+            return [ed.idniv, ed.nombre + ' ' + ed.ape, ed.asg_nombre, ed.idtri];
+          })
+        ]
+      }
+    };
+
+  }
+
+  getList4() {
+    return {
+      /*     table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto', '*'],
+
+            body: [
+              [ '', '', ''],// CABECEZA
+              [ { text: 'Valor a Pagar:', bold: true, italics: true }, '', '' ],
+              [ { text: 'Abonado:', bold: true, italics: true }, '', '', ],
+              [ { text: 'Saldo:', bold: true, italics: true }, '', '' ]
+            ]
+          } */
+      absolutePosition: { x: 435, y: 210 },
+      table: {
+        // widths: ['auto', '*', '*', '*'],
+        widths: ['40%', '25%', '20%', '21%'],
+        heights: [5, 30, 30, 30],
+        //	headerRows: 2,
+        // keepWithHeaderRows: 1,
+        body: [
+          [{ text: '', colSpan: 4 }, {}, {}, {},],
+          //[{text: 'Header 1', style: 'tableHeader', alignment: 'center'}, {text: 'Header 2', style: 'tableHeader', alignment: 'center'}, {text: 'Header 3', style: 'tableHeader', alignment: 'center'}, {text: 'Header 4', style: 'tableHeader', alignment: 'center'}],
+
+          [{ text: 'Valor a Pagar:', style: 'alturaTextoTabla2' }, { text: '', colSpan: 3 }, '', '',],
+          [{ text: 'Abonado:', style: 'alturaTextoTabla2' }, { text: '', colSpan: 3 }, '', ''],
+          [{ text: 'Saldo:', style: 'alturaTextoTabla2' }, { text: '', colSpan: 3 }, '', ''],
+
+          // [{rowSpan: 3, text: 'rowSpan set to 3\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'}, 'Sample value 2', 'Sample value 3', 'Sample value 3'],
+
+        ]
+      }
+    };
+
+  }
+
+
+
 
   errorHandler(error) {
     let errorMessage = '';

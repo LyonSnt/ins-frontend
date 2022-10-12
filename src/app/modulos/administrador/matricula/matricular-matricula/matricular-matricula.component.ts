@@ -196,7 +196,7 @@ export class MatricularMatriculaComponent implements OnInit {
           timeOut: 3000,
           progressBar: true
         });
-        window.location.href = "/admin/matricula/imp2022::";
+        window.location.href = "/admin/matr/imp2022::";
 
 
       } else if (this.datoCrear.status == 0) {
@@ -212,7 +212,7 @@ export class MatricularMatriculaComponent implements OnInit {
          progressBar: true
        }); */
       // this.ruteador.navigateByUrl('/admin/matricula/imp2022::')
-    
+
       //  window.location.reload();
 
     });

@@ -16,6 +16,8 @@ export class Matricula {
   aul_nombre: string;
   niv_descripcion: string;
   tri_descripcion: string;
+  idtri: string;
+  idniv: string;
   pro_nombre: string;
   pro_apellido: string;
   pro_imagen: string;
@@ -27,7 +29,7 @@ export class Matricula {
 
   abona: string;
   saldo: string;
-  
+
   mtr_id: number;
   data: any;
   ultimodato: any;

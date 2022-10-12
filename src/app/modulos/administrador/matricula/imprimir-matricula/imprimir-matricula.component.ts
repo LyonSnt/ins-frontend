@@ -41,12 +41,12 @@ export class ImprimirMatriculaComponent implements OnInit {
     // window.location.href = "/admin/matricula/listamatricular";
     // this.ruteador.navigateByUrl('/admin/matricula/listamatricular');
     //this.ruteador.navigateByUrl('/admin/matricula/listamatricular');
-    window.setTimeout(function () {
+   /*  window.setTimeout(function () {
 
       // REDIRIGIMOS A LOS 2 SEGUNDOS
-      window.location.href = "/admin/matricula/listamatricular";
+      window.location.href = "/admin/matr/listamatricular";
 
-    }, 2000);
+    }, 2000); */
 
     // window.location.reload();
   }
